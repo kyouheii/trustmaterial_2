@@ -1,5 +1,7 @@
 {
   "name": "trustmaterial_2",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
+  }
 }
