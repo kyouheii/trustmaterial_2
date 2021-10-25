@@ -1,0 +1,2 @@
+class Carfare < ApplicationRecord
+end
