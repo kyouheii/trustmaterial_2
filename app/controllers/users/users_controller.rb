@@ -1,21 +1,26 @@
 class UsersController < ApplicationController
   
   def show
-    redirect_back(fallback_location: root_path) #元のページに戻る
+    @user = User.find(params[:id])
   end
 
   def new
     @user = User.new
   end
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      # 保存に成功した場合は、ここに記述した処理が実行されます。
-    else
-      render :new
-    end
+  def destroy 
+  
   end
+
+  # def create
+  #   @user = User.new(params[:user])
+  #   if @user.save
+  #     redirect_to user
+  #   else
+  #     flash.now[:danger] = '認証に失敗しました。'
+  #     render :new
+  #   end
+  # end
   
   private
 

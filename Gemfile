@@ -30,7 +30,7 @@ gem 'omniauth-line'
 gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '3.3.6'
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

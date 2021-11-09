@@ -4,17 +4,41 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create    
+    if user = User.find_by(email: params[:user][:email])
+      if user.valid_password?(params[:user][:password])   
+        sign_in user          
+        flash.now[:notice] = "ログインに成功しました。"
+        if user.admin?
+          redirect_to all_index_one_month_schedules_path(user)
+        else     
+          redirect_to index_one_month_schedules_path(user)
+        end
+      else
+        flash.now[:danger] = "パスワードが違います。ログインをやり直して下さい。"
+        redirect_to new_user_session_path
+      end
+    else
+      flash.now[:danger] = "メールアドレスが見つかりませんでした。ログインをやり直して下さい。"
+      redirect_to new_user_session_path
+    end
+  end
 
+  def destroy
+    # ログイン中の場合のみログアウト処理を実行します。
+    log_out if logged_in?
+    flash[:success] = 'ログアウトしました。'
+    redirect_to root_url
+  end
+  # end
+  
   # DELETE /resource/sign_out
-  # def destroy
+  # def destroys
   #   super
   # end
 
