@@ -1,0 +1,47 @@
+<h1>
+    交通費登録ページ
+</h1>
+<body>
+    <%= form_for(@carfare, url: new_user_carfare_path, method: :post) do |f| %>
+        <p>
+            <%= f.label :date_of_use, "交通機関利用日" %><br>
+            <%= f.date_select :date_of_use, class: 'form-control' %>
+        </p>
+        <p>
+        <%= f.label :public_transportation_arrival, "到着地" %><br>
+            <%= f.text_field :public_transportation_arrival, :placeholder => "利用された公共機関の到着地を入力して下さい。", class: 'form-control' %>
+        </p>
+        <p>
+            <%= f.label :transportation , "移動手段" %><br>
+            <%= f.text_field :transportation, class: 'form-control' %>
+        </p>
+        <p>
+            <%= f.label :public_transportation_departure, "公共場所" %><br>
+            <%= f.text_field :public_transportation_departure, :placeholder => "利用された駐車場名などを入力して下さい。", class: 'form-control' %>
+        </p>
+        <%= f.label :parking_fee,  "駐車料金" %><br>
+            <%= f.number_field :highway_rate , :placeholder => "高速料金を入力して下さい。", class: 'form-control' %>
+        </p>
+        <p>
+        <%= f.label :public_transportation_cash, "公共機関金額" %><br>
+            <%= f.number_field :public_transportation_arrival, :placeholder => "利用された公共機関の費用を入力して下さい。", class: 'form-control' %>
+        </p>
+        <p>
+        <%= f.label :hotel_charge, "宿泊費" %><br>
+            <%= f.number_field :hotel_charge, :placeholder => "利用された公共機関の金額を入力して下さい。", class: 'form-control' %>
+        </p>
+        <p>
+        <%= f.label :moving_distance, "移動距離" %><br>
+            <%= f.number_field :moving_distance, :placeholder => "車で移動した際の移動距離を入力して下さい。", class: 'form-control' %>
+        </p>
+        <p>
+        <%= f.label :highway_rate, "高速料金" %><br>
+            <%= f.number_field :highway_rate , :placeholder => "高速料金入力", class: 'form-control' %>
+        </p>
+        <p>
+          <%=f.label :image, "画像をアップロード" %>
+          <%= f.file_field :image, :placeholder => "画像を選択してください。", class: 'form-control' %>
+        </p>
+        <%= f.submit "登録する", class:"btn btn-primary"%>
+    <% end %>
+</body>
