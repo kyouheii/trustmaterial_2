@@ -1,0 +1,44 @@
+<h1>見積書情報登録</h1>
+
+<%= form_for @quotation do |f| %>
+  <%= f.label :store, "店舗名", class: "label-signup" %>
+  <%= f.text_field :store, class: "form-control" %>
+
+  <%= f.label :worked_date, "業務日", class: "label-signup" %>
+  <%= f.text_field :worked_date, class: "form-control" %>
+
+  <%= f.label :staff_name, "スタッフ名", class: "label-signup" %>
+  <%= f.text_field :staff_name, class: "form-control" %>
+
+  <%= f.label :work_start_time, "開始時間", class: "label-signup" %>
+  <%= f.text_field :work_start_time, class: "form-control" %>
+
+  <%= f.label :work_end_time, "終了時間", class: "label-signup" %>
+  <%= f.text_field :work_end_time, class: "form-control" %>
+
+  <%= f.label :break_time, "休憩時間", class: "label-signup" %>
+  <%= f.text_field :break_time, class: "form-control" %>
+
+  <%= f.label :division, "区分", class: "label-signup" %>
+  <%= f.text_field :division, class: "form-control" %>
+
+  <%= f.label :unit_price, "基本金額", class: "label-signup" %>
+  <%= f.text_field :unit_price, class: "form-control" %>
+
+  <%= f.label :gain_cards, "獲得枚数", class: "label-signup" %>
+  <%= f.text_field :gain_cards, class: "form-control" %>
+
+  <%= f.label :gain_apps, "アプリ獲得件数", class: "label-signup" %>
+  <%= f.text_field :gain_apps, class: "form-control" %>
+
+  <%= f.label :incentive, "インセンティブ", class: "label-signup" %>
+  <%= f.text_field :incentive, class: "form-control" %>
+  
+  <%= f.label :commuting_allowance, "交通費手当", class: "label-signup" %>
+  <%= f.text_field :commuting_allowance, class: "form-control" %>
+
+  <%= f.label :note, "備考", class: "label-signup" %>
+  <%= f.text_field :note, class: "form-control" %>
+
+  <%= f.submit '保存', class: "button is-success" %>
+<% end %>

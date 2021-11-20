@@ -2,13 +2,21 @@ Rails.application.routes.draw do
 
   
 
+
+
+
+
   root 'static_pages#top'
+
+  resources :clients
+  resources :invoices
+  resources :quotations
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :omniauth_callbacks =>  'users/omniauth_callbacks'
   } 
-
+  # root to: "home#index"
   
   
   devise_scope :user do

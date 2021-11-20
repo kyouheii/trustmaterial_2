@@ -13,5 +13,7 @@ import '@fortawesome/fontawesome-free/js/all'
 //
 
 //= require rails-ujs
+//= require jquery
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
