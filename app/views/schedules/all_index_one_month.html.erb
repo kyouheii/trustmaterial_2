@@ -1,13 +1,13 @@
 <%= render 'layouts/flash_messages' %>
 <h1>スケジュール一覧</h1>
-<%= form_with(model: @user, url: all_update_one_month_schedules_path(@user), local: true) do |f| %>
+<%= form_with(model: @user, url: all_update_one_month_user_schedules_path(@user), local: true) do |f| %>
   <div>
     <table class="table table-bordered table-condensed table-schedules">
       <tr>
         <td>
-          <%= link_to "⇦", all_edit_one_month_schedules_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
-          【<%= l(@first_day, format: :middle) %>】
-          <%= link_to "⇨", all_edit_one_month_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
+          <%= link_to "⇦", all_index_one_month_user_schedules_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
+          【<%= l(@first_day, format: :short) %>】
+          <%= link_to "⇨", all_index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
         </td>
       </tr> 
     </table>
@@ -75,6 +75,6 @@
 
   <div class="center">
     <%= f.submit "まとめて更新", class: "btn btn-lg btn-primary" %>
-    <%= link_to "キャンセル", user_path(date: @first_day), class: "btn btn-lg btn-default" %>
+    <%= link_to "キャンセル", users_path(date: @first_day), class: "btn btn-lg btn-default" %>
   </div>
 <% end %>

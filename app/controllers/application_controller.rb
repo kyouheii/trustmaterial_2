@@ -1,15 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   $days_of_the_week = %w{日 月 火 水 木 金 土}
 
+  
+
    # ログイン済みのユーザーか確認する。
-  def logged_in_user
-    unless user_signed_in?
-      flash[:danger] = "ログインして下さい。"
-      redirect_to root_url
-    end
-  end
+  # def logged_in_user
+  #   unless user_signed_in?
+  #     flash[:danger] = "ログインして下さい。"
+  #     redirect_to root_url
+  #   end
+  # end
 
   # 渡されたユーザーがログイン済みのユーザーであればtrueを返す。
   def current_user?(user)
@@ -51,6 +52,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     new_user_session_path
   end
+
 
   def set_one_month 
     @first_day = params[:date].nil? ? #nilだったらその月　

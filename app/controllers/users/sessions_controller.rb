@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  before_action :authenticate_user!, only: [:destroy]
   # GET /resource/sign_in
   def new
     @user = User.new
@@ -29,12 +29,13 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
-  def destroy
-    # ログイン中の場合のみログアウト処理を実行します。
-    log_out if logged_in?
-    flash[:success] = 'ログアウトしました。'
-    redirect_to root_url
-  end
+  # def destroy
+  #   # ログイン中の場合のみログアウト処理を実行します。
+  #   debugger
+  #   log_out if user_signed_in?
+  #   flash[:success] = 'ログアウトしました。'
+  #   redirect_to root_url
+  # end
   # end
   
   # DELETE /resource/sign_out

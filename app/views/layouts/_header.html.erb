@@ -1,21 +1,26 @@
 <header> 
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <%= link_to "TrustMterial", root_path, id: "logo" %>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Top", root_path %></li>
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-      <li><%= link_to "スケジュール表", index_one_month_schedules_path(current_user) %></li>
-    </ul>
-
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-        アカウント <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "スケジュール表", index_one_month_schedules_path(current_user) %></li>
-        <li><%= link_to "交通費請求", "#" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    <% unless user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Top", root_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
       </ul>
-    </li>
+    <% else %>
+      <div class="dropdown">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+            アカウント <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "スケジュール表", index_one_month_user_schedules_path(current_user) %></li>
+            <li><%= link_to "交通費請求", "#" %></li>
+            <li><%= link_to "見積表", "#" %></li>
+            <li><%= link_to "請求書", "#" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      </div>
+    <% end %>
   </nav>
 </header>

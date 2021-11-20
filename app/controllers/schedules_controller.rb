@@ -10,7 +10,7 @@ class SchedulesController < ApplicationController
 
   def all_update_one_month
     ActiveRecord::Base.transaction do
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
       schedules_params.each do |id, item|
         schedule = Schedule.find(id) #全体を見ないといけないからモデルのScheduleになる。
         if item[:round_batsu].blank?
@@ -46,12 +46,12 @@ class SchedulesController < ApplicationController
   end
 
   def index_one_month
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update_one_month
     ActiveRecord::Base.transaction do
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
       schedules_params.each do |id, item|
         schedule = @user.schedules.find(id) 
         if item[:round_batsu].blank?

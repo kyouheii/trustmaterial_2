@@ -67,7 +67,7 @@ en:
   date:
     formats:
       default: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
+      long: "%Y%m%d(%a)"
       short: "%m/%d"
     time:
     formats:
