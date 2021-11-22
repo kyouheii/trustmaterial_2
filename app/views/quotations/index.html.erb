@@ -1,2 +1,35 @@
-<h1>Quotations#index</h1>
-<p>Find me in app/views/quotations/index.html.erb</p>
+<h1>見積書一覧</h1>
+<table class="table">
+  <tr>
+    <td>店舗名</td>
+    <td>業務日</td>
+    <td>スタッフ名</td>
+    <td>開始時間</td>
+    <td>終了時間</td>
+    <td>休憩時間</td>
+    <td>区分</td>
+    <td>基本金額</td>
+    <td>獲得枚数</td>
+    <td>アプリ獲得件数</td>
+    <td>インセンティブ</td>
+    <td>交通費手当</td>
+    <td>備考</td>
+  </tr>  
+  <% @quotations.each do |quotation| %>
+    <tr>
+      <td><%= quotation.store %></td>
+      <td><%= quotation.worked_date %></td>
+      <td><%= quotation.staff_name %></td>
+      <td><%= quotation.work_start_time %></td>
+      <td><%= quotation.work_end_time %></td>
+      <td><%= quotation.break_time %></td>
+      <td><%= quotation.division %></td>
+      <td><%= quotation.unit_price %></td>
+      <td><%= quotation.gain_cards %></td>
+      <td><%= quotation.gain_apps %></td>
+      <td><%= quotation.incentive %></td>
+      <td><%= quotation.commuting_allowance %></td>
+      <td><%= quotation.note %></td>
+    </tr>
+  <% end %>
+</table>

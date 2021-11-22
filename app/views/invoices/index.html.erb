@@ -1,2 +1,35 @@
-<h1>Invoices#index</h1>
-<p>Find me in app/views/invoices/index.html.erb</p>
+<h1>請求書一覧</h1>
+<table class="table">
+  <tr>
+    <td>営業担当者</td>
+    <td>品名</td>
+    <td>支払条件</td>
+    <td>期日</td>
+    <td>コスモカード人件費</td>
+    <td>コスモカード獲得インセンティブ</td>
+    <td>コスモカードスタッフ交通費</td>
+    <td>通信事業人件費</td>
+    <td>通信事業交通費（備品代込み）</td>
+    <td>通信事業（山陰ライン）交通費（備品代込み）</td>
+    <td>小計</td>
+    <td>消費税</td>
+    <td>合計</td>
+  </tr>  
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <td><%= invoice.sales_staff %></td>
+      <td><%= invoice.item %></td>
+      <td><%= invoice.pay_terms %></td>
+      <td><%= invoice.due_date %></td>
+      <td><%= invoice.card_labor_cost %></td>
+      <td><%= invoice.card_incentive %></td>
+      <td><%= invoice.card_labor_commuting_allowance %></td>
+      <td><%= invoice.cell_phone_sales_labor_cost %></td>
+      <td><%= invoice.cell_phone_sales_commuting_allowance %></td>
+      <td><%= invoice.cell_phone_sales_saninline %></td>
+      <td><%= invoice.subtotal_fee %></td>
+      <td><%= invoice.tax %></td>
+      <td><%= invoice.total_fee %></td>
+    </tr>
+  <% end %>
+</table>

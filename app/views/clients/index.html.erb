@@ -1,2 +1,21 @@
-<h1>Clients#index</h1>
-<p>Find me in app/views/clients/index.html.erb</p>
+<h1>顧客一覧</h1>
+<table class="table">
+<tr>
+  <td>顧客番号</td>
+  <td>顧客名</td>
+  <td>郵便番号</td>
+  <td>住所</td>
+  <td>担当者名</td>
+  <td>顧客電話番号</td>
+</tr>
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.client_number %></td>
+      <td><%= client.client_name %></td>
+      <td><%= client.postal_code %></td>
+      <td><%= client.address %></td>
+      <td><%= client.manager %></td>
+      <td><%= client.phone_number %></td>
+    </tr>
+  <% end %>
+</table>
