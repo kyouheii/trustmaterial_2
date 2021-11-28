@@ -14,15 +14,18 @@
     <td>インセンティブ</td>
     <td>交通費手当</td>
     <td>備考</td>
+    <td>詳細</td>
+    <td>編集</td>
+    <td>削除</td>
   </tr>  
   <% @quotations.each do |quotation| %>
     <tr>
       <td><%= quotation.store %></td>
       <td><%= quotation.worked_date %></td>
       <td><%= quotation.staff_name %></td>
-      <td><%= quotation.work_start_time %></td>
-      <td><%= quotation.work_end_time %></td>
-      <td><%= quotation.break_time %></td>
+      <td><%= format_basic_info(quotation.work_start_time) %></td>
+      <td><%= format_basic_info(quotation.work_end_time) %></td>
+      <td><%= format_basic_info(quotation.break_time) %></td>
       <td><%= quotation.division %></td>
       <td><%= quotation.unit_price %></td>
       <td><%= quotation.gain_cards %></td>
@@ -30,6 +33,11 @@
       <td><%= quotation.incentive %></td>
       <td><%= quotation.commuting_allowance %></td>
       <td><%= quotation.note %></td>
+      <td><%= link_to '詳細', quotation, class: "btn btn-success" %></td>
+      <td><%= link_to '編集', edit_quotation_path(quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', quotation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to '見積書追加', new_quotation_path, class: "btn btn-primary" %>
