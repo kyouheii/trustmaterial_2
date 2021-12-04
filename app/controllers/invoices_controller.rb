@@ -1,8 +1,9 @@
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_client
+  before_action :set_invoice, only: %i(show edit update destroy)
 
   def index
-    @invoices = Invoice.all
+    @invoices = @client.invoices
   end
 
   def show
@@ -13,9 +14,13 @@ class InvoicesController < ApplicationController
   end
 
   def create
-    @invoice = Invoice.new(invoice_params)
-    @invoice.save
-    redirect_to invoice_path(@invoice)
+    @invoice = @client.invoices.new(invoice_params)
+    if @invoice.save
+      flash[:success] = "請求書を新規作成しました。"
+      redirect_to client_invoices_url @client
+    else
+      render :new
+    end
   end
 
   #edit->編集ページの表示
@@ -31,7 +36,7 @@ class InvoicesController < ApplicationController
       redirect_to invoices_url
     else
       #updateを失敗すると編集ページへ
-      render :edit     
+      render :edit
     end
   end
 
@@ -54,4 +59,10 @@ class InvoicesController < ApplicationController
     #特定データの取得
     @invoice = Invoice.find(params[:id])
   end
+
+  def set_client
+    #特定データの取得
+    @client = Client.find(params[:client_id])
+  end
+
 end

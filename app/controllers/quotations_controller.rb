@@ -1,8 +1,9 @@
 class QuotationsController < ApplicationController
-  before_action :set_quotation, only: [:show, :edit, :update, :destroy]
+  before_action :set_client
+  before_action :set_quotation, only: %i(show edit update destroy)
 
   def index
-    @quotations = Quotation.all
+    @quotations = @client.quotations
   end
 
   def show
@@ -13,9 +14,13 @@ class QuotationsController < ApplicationController
   end
 
   def create
-    @quotation = Quotation.new(quotation_params)
-    @quotation.save
-    redirect_to quotation_path(@quotation)
+    @quotation = @client.quotations.new(quotation_params)
+    if @quotation.save
+      flash[:success] = "見積書を新規作成しました。"
+      redirect_to client_quotations_url @client
+    else
+      render :new
+    end
   end
 
   #edit->編集ページの表示
@@ -31,7 +36,7 @@ class QuotationsController < ApplicationController
       redirect_to quotations_url
     else
       #updateを失敗すると編集ページへ
-      render :edit     
+      render :edit 
     end
   end
 
@@ -56,5 +61,9 @@ class QuotationsController < ApplicationController
     @quotation = Quotation.find(params[:id])
   end
   
+  def set_client
+    #特定データの取得
+    @client = Client.find(params[:client_id])
+  end
 
 end

@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#top'
 
-  resources :clients
-  resources :invoices
-  resources :quotations
-
+  resources :clients do
+    resources :invoices
+    resources :quotations
+  end
+  
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :omniauth_callbacks =>  'users/omniauth_callbacks'

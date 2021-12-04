@@ -14,8 +14,8 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.integer :subtotal_fee
       t.integer :tax
       t.integer :total_fee
-
       t.references :client, foreign_key: true
+      
       t.timestamps
     end
   end

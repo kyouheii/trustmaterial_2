@@ -33,11 +33,11 @@
       <td><%= quotation.incentive %></td>
       <td><%= quotation.commuting_allowance %></td>
       <td><%= quotation.note %></td>
-      <td><%= link_to '詳細', quotation, class: "btn btn-success" %></td>
-      <td><%= link_to '編集', edit_quotation_path(quotation), class: "btn btn-warning" %></td>
-      <td><%= button_to '削除', quotation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to '見積書追加', new_quotation_path, class: "btn btn-primary" %>
+<%= link_to '見積書追加', new_client_quotation_path, class: "btn btn-primary" %>
