@@ -17,7 +17,7 @@
   color: #191970;
   font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,
     sans-serif;
-  font-size: 11pt;
+  font-size: 10.5pt;
   font-weight: normal;
   /* 背景色・背景画像を印刷する（Chromeのみで有効） */
   -webkit-print-color-adjust: exact;
@@ -35,19 +35,21 @@ ul {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
+  
 
   /* 用紙サイズ A4 */
   height: 297mm;
   width: 210mm;
 
   /* 余白サイズ */
-  padding-top: 32mm;
-  padding-left: 27mm;
-  padding-right: 27mm;
+  padding-top: 24mm;
+  padding-left: 21mm;
+  padding-right: 21mm;
+  padding-bottom: 21mm;
 }
 
 /* プレビュー用のスタイル */
-@media screen {
+@media (orientation: landscape) {
   body {
     background: #e0e0e0;
   }
@@ -82,7 +84,7 @@ div.row_2 {
 }
 
 div.row_3 {
-  height: 85mm;
+  height: 65mm;
 }
 div.row_3 div.col_1 {
   width: 90mm;
@@ -98,7 +100,7 @@ div.row_4 {
   height: 18mm;
 }
 div.row_5 {
-  height: 120mm;
+  height: 70mm;
 }
 div.row_6 {
   height: 18mm;
@@ -125,6 +127,12 @@ h2 {
 /* 顧客名 */
 h2.customer_name {
   text-decoration: underline;
+}
+
+/* 請求書あて名 */
+h6.customer_name {
+  font-size: 12px;
+  text-align: left;
 }
 
 img.stamp{
@@ -162,6 +170,37 @@ table.summary th {
 table.summary td {
   font-size: 14pt;
   width: 40mm;
+}
+
+/* テーブル 支払期日 */
+table.detail {
+  width: 100%;
+}
+table.detail tr {
+  height: 6mm;
+}
+table.detail th.contact_person {
+  width: 20%;
+}
+table.detail th.product_name {
+  width: 40%;
+}
+table.detail th.payment_terms {
+  width: 20%;
+}
+table.detail th.fixed_date {
+  width: 20%;
+}
+
+table.detail td.space {
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+table.detail tr.dataline:nth-child(odd) td {
+  background-color: #ccddff;
+}
+table.detail tr.dataline:nth-child(even) td {
+  background-color: #ffffff;
 }
 
 /* テーブル 明細欄 */

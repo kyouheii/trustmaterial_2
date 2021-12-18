@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <style type="text/css">
+      table { page-break-inside:auto }
+    tr { page-break-inside:avoid; page-break-after:auto } 
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="sheet.css">
@@ -12,19 +16,19 @@
 <body>
     <section class="sheet">
         <div class="row_2">
-            <h4 class="text-right">請求書番号    [100]</h4>
-            <h4 class="text-right">日付  2021年8月31日</h4>
+            <h5 class="text-right">請求書番号    [100]</h5>
+            <h5 class="text-right">日付  2021年8月31日</h5>
         </div>
-        <div class="row_2">
+        <div class="row_1">
           <ul>
-            <h3 class="text-center">請求書</h3>
+            <h3 class="text-center">請  求  書</h3>
           </ul>
         </div>
         <div class="row_3">
             <div class="col_1">
                 <ul>
                     <li>
-                        <h5 class="customer_name">株式会社エス・マーケティング・デザイン・ジャパン 御中</h5>
+                        <h6 class="customer_name">(株)エス・マーケティング・デザイン・ジャパン 御中</h6>
                     </li>
                     <li class="text-left">〒150-0001</li>
                     <li class="text-left">東京都渋谷区神宮前6-25-8</li>
@@ -35,11 +39,11 @@
             <div class="col_2">
                 <ul >
                     <li>
-                        <h3>株式会社Ｔｒｕｓｔ Material</h3>
+                        <h4 class="text-left">株式会社Turst Material</h4>
                     </li>
                     <li class="text-left">〒703-8243</li>
                     <li class="text-left">岡山県岡山市中区清水502-202</li>
-                    <li class="text-left">代表取締役　木野　誠也</li>
+                    <li class="text-left">代表取締役 木野 誠也</li>
                     <li class="text-left">TEL 080-6133-6111</li>
                 </ul>
             </div>
@@ -47,13 +51,21 @@
         </div>
 
         <div class="row_4">
-            <p>下記のとおりご請求申し上げます。</p>
-
-            <table class="summary">
-                <tbody>
+            <table class="detail">
+                <thead>
                     <tr>
-                        <th>合計金額</th>
-                        <td>\2,168,640</td>
+                        <th class="contact_person">営業担当者</th>
+                        <th class="product_name">品名</th>
+                        <th class="payment_terms">支払条件</th>
+                        <th class="fixed_date">期日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="dataline">
+                        <td class="text-center">丸川 伸</td>
+                        <td class="text-center">イベント委託費</td>
+                        <td class="text-center">振り込み</td>
+                        <td class="text-center">2021.9.30</td>
                     </tr>
                 </tbody>
             </table>
@@ -71,19 +83,19 @@
                 </thead>
                 <tbody>
                     <tr class="dataline">
-                        <td class="text-left">コスモカード　人件費</td>
+                        <td class="text-left">コスモカード 人件費</td>
                         <td></td>
                         <td></td>
                         <td>¥282,656</td>
                     </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">コスモカード 獲得インセンティブ</td>
                       <td></td>
                       <td></td>
                       <td>¥5,500</td>
                   </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">コスモカードスタッフ 交通費</td>
                       <td></td>
                       <td></td>
                       <td>¥38,790</td>
@@ -95,13 +107,13 @@
                         <td> </td>
                     </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">通信事業 人件費</td>
                       <td></td>
                       <td></td>
                       <td>¥1,972,642</td>
                   </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">通信事業 交通費 ※備品代込</td>
                       <td></td>
                       <td></td>
                       <td>¥366,880</td>
@@ -113,41 +125,17 @@
                         <td> </td>
                     </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">通信事業（山陰ライン） 人件費</td>
                       <td></td>
                       <td></td>
                       <td>¥1,437,540</td>
                   </tr>
                     <tr class="dataline">
-                      <td class="text-left">コスモカード　人件費</td>
+                      <td class="text-left">通信事業（山陰ライン） 交通費 ※備品代込</td>
                       <td></td>
                       <td></td>
-                      <td>¥200690</td>
+                      <td>¥200,690</td>
                   </tr>
-                    <tr class="dataline">
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr class="dataline">
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr class="dataline">
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr class="dataline">
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
                     <tr class="dataline">
                         <td> </td>
                         <td> </td>
@@ -157,15 +145,15 @@
                     <tr>
                         <td class="space" rowspan="3" colspan="2"> </td>
                         <th> 小計 </th>
-                        <td> 2,008,000 </td>
+                        <td> ¥4,304,698 </td>
                     </tr>
                     <tr>
                         <th> 消費税 </th>
-                        <td> 160,640 </td>
+                        <td> ¥369,834 </td>
                     </tr>
                     <tr>
                         <th> 合計 </th>
-                        <td> 2,168,640 </td>
+                        <td> ¥4,674,532 </td>
                     </tr>
                 </tbody>
             </table>
@@ -176,9 +164,8 @@
           <li class="text-left">普通 1397719</li>
           <li class="text-left">株式会社Trust Material</li>
           <li class="text-left">代表取締役 木野 誠也</li>
+          <li class="text-left">いつもご利用ありがとうございます。</li>
         </ul>
-        <p>いつもご利用ありがとうございます。</p>
-
     </section>
 </body>
 

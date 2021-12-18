@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :clients do
     resources :invoices
+    get "/invoices/show.pdf"=>"invoices#show"
     resources :quotations
   end
   

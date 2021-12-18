@@ -7,6 +7,16 @@ class InvoicesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'invoices',
+               layout: 'pdf',
+               encording: 'UTF-8',
+               template: 'invoices/show',
+               orientation: 'Landscape'
+      end
+    end
   end
 
   def new
