@@ -1,5 +1,5 @@
 <h1>新規登録</h1>
-<%= form_for(resource, as: resource_name, url: "#") do |f| %>
+<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">

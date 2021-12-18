@@ -10,24 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211008103120) do
+ActiveRecord::Schema.define(version: 20211010123222) do
 
   create_table "carfares", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "carfare_id"
     t.date "worked_day"
     t.string "commuting_place"
-    t.string "transportation"
-    t.boolean "public_transportation_departure"
-    t.integer "public_transportation_arrival"
+    t.string "commuting_place_private_car"
+    t.string "public_institution"
+    t.string "public_transportation_departure"
+    t.string "public_transportation_departure_private_car"
+    t.string "public_transportation_arrival"
+    t.string "arrival_private_car"
     t.integer "public_transportation_cash"
     t.integer "hotel_charge"
+    t.integer "hotel_charge_private_car"
     t.integer "moving_distance"
+    t.integer "moving_distance_private_car"
     t.integer "highway_rate"
+    t.integer "highway_rate_private_car"
+    t.string "parking_name"
+    t.string "parking_name_private_car"
     t.integer "parking_fee"
+    t.integer "parking_fee_private_car"
     t.boolean "check_flag"
+    t.boolean "check_flag_private_car"
     t.string "image"
+    t.string "image_private_car"
     t.integer "all_pe_tr_ex"
-    t.integer "date_of_use"
+    t.integer "sanin_public_transportation_departure"
+    t.integer "sanin_public_transportation_arrival_fee"
+    t.date "date_of_use"
+    t.date "date_of_use_private_car"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

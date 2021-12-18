@@ -30,7 +30,6 @@ gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
 gem 'bootstrap-sass'
-gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -47,6 +46,10 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
+#ページネーション機能でしよう
+gem 'will_paginate'
+# 検索機能
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
