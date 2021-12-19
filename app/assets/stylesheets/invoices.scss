@@ -31,7 +31,7 @@ ul {
 
 /* ページレイアウト (section.sheet を１ページとする) */
 .sheet {
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
