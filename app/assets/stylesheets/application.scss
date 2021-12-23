@@ -18,7 +18,7 @@
  /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 section {
@@ -94,9 +94,10 @@ p {
   box-sizing:         border-box;
 }
 
-h1, h2, h3 {
-  margin-top: 10rem !important;
+h1, h2, h3, h4, h6 {
+  margin-top: 3rem !important;
 }
 
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
