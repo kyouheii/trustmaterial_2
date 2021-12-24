@@ -15,6 +15,7 @@
     <td>消費税</td>
     <td>合計</td>
     <td>詳細</td>
+    <td>出力</td>
     <td>編集</td>
     <td>削除</td>
     </tr>  
@@ -34,6 +35,7 @@
       <td><%= invoice.tax %></td>
       <td><%= invoice.total_fee %></td>
       <td><%= link_to '詳細', client_invoice_path(@client, invoice), class: "btn btn-success" %></td>
+      <td><%= link_to '出力', client_invoice_path(format: :pdf, id: @invoice.id), class: "btn btn-secondary" %></td>
       <td><%= link_to '編集', edit_client_invoice_path(@client, invoice), class: "btn btn-warning" %></td>
       <td><%= button_to '削除', client_invoice_path(@client, invoice), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>

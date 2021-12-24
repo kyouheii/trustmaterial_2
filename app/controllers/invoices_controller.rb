@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :set_client
-  before_action :set_invoice, only: %i(show edit update destroy)
+  before_action :set_invoice, only: %i(index show edit update destroy)
 
   def index
     @invoices = @client.invoices
@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
                layout: 'pdf',
                encording: 'UTF-8',
                template: 'invoices/show',
-               orientation: 'Landscape'
+               orientation: 'Portrait'
       end
     end
   end
@@ -67,7 +67,7 @@ class InvoicesController < ApplicationController
   #共通処理なので、before_actionで呼び出している
   def set_invoice
     #特定データの取得
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find(params[:client_id])
   end
 
   def set_client
