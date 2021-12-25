@@ -8,17 +8,17 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">交通費登録（公共機関）<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_user_carfares_path(@user) %></li>
-              <li><%= link_to "交通費一覧【#{@user.name}】", user_carfares_path(@user) %></li>
-              <li><%= link_to "交通費登録【#{@user.name}】", new_user_carfare_path(@user) %></li>
+              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費一覧【#{current_user.name}】", user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費登録【#{current_user.name}】", new_user_carfare_path(current_user.id) %></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">交通費登録（自家用車）<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_1_user_carfares_path(@user) %></li>
-              <li><%= link_to "交通費一覧【#{@user.name}】", index_1_user_carfares_path(@user) %></li>
-              <li><%= link_to "交通費登録【#{@user.name}】", new_1_user_carfares_path(@user) %></li>
+              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_1_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費一覧【#{current_user.name}】", index_1_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費登録【#{current_user.name}】", new_1_user_carfares_path(current_user.id) %></li>
             </ul>
           </li>
         <% end %>

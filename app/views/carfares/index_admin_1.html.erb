@@ -18,6 +18,7 @@
         <th>移動距離</th>
         <th>高速料金</th>
         <th>伝票画像</th>
+        <th>承認申請</th>
       </tr>
     </thead>
     <tbody  class="table table-bordered table-condensed">
@@ -25,7 +26,7 @@
         <% @users.each do |user| %>
         <tr>
           <td><%= l(carfare.date_of_use_private_car, formats: :default) %></td>
-          <td><%= @user.name %></td>
+          <td><%= user.name %></td>
           <td><%= carfare.commuting_place_private_car %></td>
           <td><%= carfare.arrival_private_car %></td>
           <td><%= carfare.parking_name_private_car %></td>
@@ -62,8 +63,7 @@
               <%= image_tag src='noimage_ピクト-580x440.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image_private_car.blank? %>
             <% end %>
           </td>
-          <td><%= button_to '編集',admin_1_edit_user_carfare_path(id: carfare), method: :get %></td>
-          <td><%= button_to '削除',admin_destroy_1_user_carfare_path(id: carfare), method: :delete %></td>
+          <td></td>
         </tr>
         <% end %>
       <% end %>

@@ -1,5 +1,5 @@
 class CarfaresController < ApplicationController
-  before_action :set_user, only: [:new, :destroy, :update, :edit, :show, :index]
+  before_action :set_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
   before_action :current_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
   before_action :correct_user, only: [:new, :new_1,:destroy, :update, :edit, :show, :index]
 
@@ -18,14 +18,13 @@ class CarfaresController < ApplicationController
 
   # 管理者用全ユーザー交通費新規登録ページ（公共機関）
   def index_admin
-    @user = User.find(params[:user_id])
-    @users =  User.all
+    @user = User.joins(:carfare).select("name").order(id: "ASC")
     @carfares = Carfare.where.not(date_of_use: nil).order(:date_of_use, :id).paginate(page: params[:page], per_page: 2)
   end
 
   # 管理者用全ユーザー交通費新規登録ページ（自家用車）
   def index_admin_1
-    @user = User.find(params[:user_id])
+    @user = User.joins(:carfare).select("name").order(id: "ASC")
     @users =  User.all
     @carfares = Carfare.where.not(date_of_use_private_car: nil).order(:date_of_use_private_car, :id).paginate(page: params[:page], per_page: 2)
   end
@@ -79,7 +78,8 @@ class CarfaresController < ApplicationController
       redirect_to :index
     end
   end
-
+  
+  # 全ユーザーの一覧画面の削除機能（公共機関）
   def admin_destroy
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
@@ -91,6 +91,7 @@ class CarfaresController < ApplicationController
     end
   end
 
+  # 全ユーザーの一覧画面の削除機能（自家用車用）
   def admin_destroy_1
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
@@ -102,7 +103,7 @@ class CarfaresController < ApplicationController
     end
   end
 
-  # 交通費新規登録ページ（自家用車）
+  # 全ユーザーの一覧画面の削除機能（自家用車）
   def destroy_1
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
@@ -114,15 +115,21 @@ class CarfaresController < ApplicationController
     end
   end
 
+  # 全ユーザーの一覧画面の編集機能（公共機関）
   def edit
     @user = User.find(params[:user_id])
-    @carfare = Carfare.find(params[:id])
+    @carfare = @user.carfares.find(params[:id])
   end
 
   # 交通費新規登録ページ（自家用車）
   def edit_1
     @user = User.find(params[:user_id])
-    @carfare = Carfare.find(params[:id])
+    @carfare = @user.carfares.find(params[:id])
+  end
+
+  def admin_edit
+    @user = User.find(params[:user_id])
+    @carfare = Carfares.find(params[:id])
   end
 
   # 交通費新規登録ページ（公共機関）
@@ -153,7 +160,7 @@ class CarfaresController < ApplicationController
 
   # 交通費新規登録ページ（公共機関）
   def carfare_params
-    params.require(:carfare).permit(:date_of_use, :public_transportation_arrival, :public_institution , :public_transportation_departure, :parking_fee, :public_transportation_cash, :hotel_charge, :moving_distance, :highway_rate, :image)
+    params.require(:carfare).permit(:name, :date_of_use, :commuting_place, :public_transportation_arrival, :public_institution , :public_transportation_departure, :parking_fee, :public_transportation_cash, :hotel_charge, :moving_distance, :highway_rate, :image)
   end
 
   # 交通費新規登録ページ（自家用車）
