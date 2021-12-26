@@ -38,7 +38,10 @@ gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'pry-rails', group: [:development, :test] 
+gem 'pry-rails', group: [:development, :test]
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'sqlite3', "~> 1.3.6"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,11 +60,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :production do
+  gem 'pg'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-group :production do
-gem 'pg'
-end
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'

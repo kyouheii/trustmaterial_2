@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :set_client
-  before_action :set_invoice, only: %i(index show edit update destroy)
+  before_action :set_invoice, only: %i(show edit update destroy)
 
   def index
     @invoices = @client.invoices
@@ -55,7 +55,7 @@ class InvoicesController < ApplicationController
     @invoice.destroy
     flash[:success] = "#{@invoice.due_date}のデータを削除しました。"
     #一覧ページへリダイレクト
-    redirect_to invoices_url
+    redirect_to client_invoices_path(@client)
   end
 
   private
@@ -67,7 +67,11 @@ class InvoicesController < ApplicationController
   #共通処理なので、before_actionで呼び出している
   def set_invoice
     #特定データの取得
-    @invoice = Invoice.find(params[:client_id])
+    # @invoice = Invoice.find(params[:id])
+    unless @invoice = @client.invoices.find_by(id: params[:id])
+      flash[:danger] = "権限がありません。"
+      redirect_to client_invoices_url @client
+    end
   end
 
   def set_client
