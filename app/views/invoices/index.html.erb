@@ -10,6 +10,7 @@
     <td>コスモカードスタッフ交通費</td>
     <td>通信事業人件費</td>
     <td>通信事業交通費（備品代込み）</td>
+    <td>通信事業（山陰ライン）人件費</td>
     <td>通信事業（山陰ライン）交通費（備品代込み）</td>
     <td>小計</td>
     <td>消費税</td>
@@ -25,15 +26,16 @@
       <td><%= invoice.item %></td>
       <td><%= invoice.pay_terms %></td>
       <td><%= invoice.due_date %></td>
-      <td><%= invoice.card_labor_cost %></td>
-      <td><%= invoice.card_incentive %></td>
-      <td><%= invoice.card_labor_commuting_allowance %></td>
-      <td><%= invoice.cell_phone_sales_labor_cost %></td>
-      <td><%= invoice.cell_phone_sales_commuting_allowance %></td>
-      <td><%= invoice.cell_phone_sales_saninline %></td>
-      <td><%= invoice.subtotal_fee %></td>
-      <td><%= invoice.tax %></td>
-      <td><%= invoice.total_fee %></td>
+      <td><%= invoice.card_labor_cost.to_s(:delimited) %></td>
+      <td><%= invoice.card_incentive.to_s(:delimited) %></td>
+      <td><%= invoice.card_labor_commuting_allowance.to_s(:delimited) %></td>
+      <td><%= invoice.cell_phone_sales_labor_cost.to_s(:delimited) %></td>
+      <td><%= invoice.cell_phone_sales_commuting_allowance.to_s(:delimited) %></td>
+      <td><%= invoice.cell_phone_sales_labor_cost_saninline.to_s(:delimited) %></td>
+      <td><%= invoice.cell_phone_sales_saninline.to_s(:delimited) %></td>
+      <td><%= invoice.subtotal_fee.to_s(:delimited) %></td>
+      <td><%= invoice.tax.to_s(:delimited) %></td>
+      <td><%= invoice.total_fee.to_s(:delimited) %></td>
       <td><%= link_to '詳細', client_invoice_path(@client, invoice), class: "btn btn-success" %></td>
       <td><%= link_to '出力', client_invoice_path(format: :pdf, id: invoice.id), class: "btn btn-secondary" %></td>
       <td><%= link_to '編集', edit_client_invoice_path(@client, invoice), class: "btn btn-warning" %></td>

@@ -7,6 +7,17 @@ class QuotationsController < ApplicationController
   end
 
   def show
+    @quotations = @client.quotations
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'quotations',
+               layout: 'pdf',
+               encording: 'UTF-8',
+               template: 'quotations/show',
+               orientation: 'Landscape'
+      end
+    end
   end
 
   def new
@@ -33,7 +44,7 @@ class QuotationsController < ApplicationController
     if @quotation.update!(quotation_params)
       #updateが完了したら一覧ページへリダイレクト
       flash[:success] = "従業員情報を更新しました。"
-      redirect_to quotations_url
+      redirect_to client_quotations_url @client
     else
       #updateを失敗すると編集ページへ
       render :edit 
@@ -45,7 +56,7 @@ class QuotationsController < ApplicationController
     @quotation.destroy
     flash[:success] = "#{@quotation.store}のデータを削除しました。"
     #一覧ページへリダイレクト
-    redirect_to quotations_url
+    redirect_to client_quotations_path(@client)
   end
 
 
@@ -58,7 +69,11 @@ class QuotationsController < ApplicationController
   #共通処理なので、before_actionで呼び出している
   def set_quotation
     #特定データの取得
-    @quotation = Quotation.find(params[:id])
+    #@quotation = Quotation.find(params[:id])
+    unless @quotation = @client.quotations.find_by(id: params[:id])
+      flash[:danger] = "権限がありません。"
+      redirect_to client_quotations_url @client
+    end
   end
   
   def set_client

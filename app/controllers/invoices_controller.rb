@@ -43,7 +43,7 @@ class InvoicesController < ApplicationController
     if @invoice.update!(invoice_params)
       #updateが完了したら一覧ページへリダイレクト
       flash[:success] = "従業員情報を更新しました。"
-      redirect_to invoices_url
+      redirect_to client_invoices_url @client
     else
       #updateを失敗すると編集ページへ
       render :edit
@@ -61,7 +61,7 @@ class InvoicesController < ApplicationController
   private
   
   def invoice_params
-    params.require(:invoice).permit(:sales_staff, :item, :pay_terms, :due_date, :card_labor_cost, :card_incentive, :card_labor_commuting_allowance, :cell_phone_sales_labor_cost, :cell_phone_sales_commuting_allowance, :cell_phone_sales_saninline, :subtotal_fee, :tax, :total_fee)
+    params.require(:invoice).permit(:sales_staff, :item, :pay_terms, :due_date, :card_labor_cost, :card_incentive, :card_labor_commuting_allowance, :cell_phone_sales_labor_cost, :cell_phone_sales_commuting_allowance, :cell_phone_sales_labor_cost_saninline, :cell_phone_sales_saninline, :subtotal_fee, :tax, :total_fee)
   end
 
   #共通処理なので、before_actionで呼び出している

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211111150803) do
+ActiveRecord::Schema.define(version: 20211227132404) do
 
   create_table "clients", force: :cascade do |t|
     t.integer "client_number"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20211111150803) do
     t.integer "card_labor_commuting_allowance"
     t.integer "cell_phone_sales_labor_cost"
     t.integer "cell_phone_sales_commuting_allowance"
+    t.integer "cell_phone_sales_labor_cost_saninline"
     t.integer "cell_phone_sales_saninline"
     t.integer "subtotal_fee"
     t.integer "tax"
