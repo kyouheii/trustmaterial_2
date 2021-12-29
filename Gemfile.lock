@@ -45,9 +45,10 @@ GEM
       execjs (~> 2)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
+    bootstrap (4.1.3)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (2.18.0)
@@ -58,6 +59,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
     childprocess (3.0.0)
+    coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -161,6 +163,13 @@ GEM
       omniauth (>= 1.9, < 3)
     orm_adapter (0.5.0)
     os (1.1.1)
+    pg (1.2.3)
+    popper_js (1.16.0)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -184,6 +193,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (5.1.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.1.7)
       actionpack (= 5.1.7)
       activesupport (= 5.1.7)
@@ -232,7 +244,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
+    sqlite3 (1.3.13)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -253,6 +265,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked_pdf (2.1.0)
+      activesupport
+    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -261,7 +276,7 @@ PLATFORMS
   x86_64-darwin-18
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap (~> 4.1.1)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -274,17 +289,22 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   omniauth (~> 1.9.1)
   omniauth-line
+  pg
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.6)
+  rails-i18n
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
+  sqlite3 (~> 1.3.6)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  wicked_pdf
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    2.2.27
