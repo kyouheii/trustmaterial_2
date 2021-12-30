@@ -41,6 +41,7 @@ gem 'jquery-rails'
 gem 'pry-rails', group: [:development, :test]
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3'
