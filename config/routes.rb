@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :invoices
     get "/invoices/show.pdf"=>"invoices#show"
     resources :quotations
+    get "/quotations/show.pdf"=>"quotations#show"
   end
   
   devise_for :users, :controllers => {
