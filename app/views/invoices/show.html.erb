@@ -125,13 +125,13 @@
                         <td> </td>
                     </tr>
                     <tr class="dataline">
-                      <td class="text-left">通信事業（山陰ライン）人件費</td>
+                      <td class="text-left">通信事業（山陰ライン） 人件費</td>
                       <td></td>
                       <td></td>
                       <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost_saninline.to_s(:delimited), unit: "¥") %></td>
                   </tr>
                     <tr class="dataline">
-                      <td class="text-left">通信事業（山陰ライン）交通費 ※備品代込</td>
+                      <td class="text-left">通信事業（山陰ライン） 交通費 ※備品代込</td>
                       <td></td>
                       <td></td>
                       <td><%= number_to_currency(@invoice.cell_phone_sales_saninline.to_s(:delimited), unit: "¥") %></td>
@@ -149,7 +149,7 @@
                     </tr>
                     <tr>
                         <th> 消費税 </th>
-                        <td><%= number_to_currency(@invoice.subtotal_fee.to_s(:delimited), unit: "¥") %></td>
+                        <td><%= number_to_currency(@invoice.tax.to_s(:delimited), unit: "¥") %></td>
                     </tr>
                     <tr>
                         <th> 合計 </th>

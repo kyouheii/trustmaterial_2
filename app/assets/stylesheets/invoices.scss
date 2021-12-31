@@ -17,7 +17,7 @@
   color: #191970;
   font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,
     sans-serif;
-  font-size: 10.5pt;
+  font-size: 11pt;
   font-weight: normal;
   /* 背景色・背景画像を印刷する（Chromeのみで有効） */
   -webkit-print-color-adjust: exact;
@@ -42,10 +42,11 @@ ul {
   width: 210mm;
 
   /* 余白サイズ */
-  padding-top: 24mm;
-  padding-left: 21mm;
-  padding-right: 21mm;
-  padding-bottom: 21mm;
+  
+  padding-top: 15mm;
+  padding-left: 15mm;
+  padding-right: 15mm;
+  padding-bottom: 15mm;
 }
 
 /* プレビュー用のスタイル */
@@ -77,14 +78,14 @@ ul {
 /* 大枠の指定 */
 
 div.row_1 {
-  height: 0mm;
+  height: 5mm;
 }
 div.row_2 {
-  height: 0mm;
+  height: 5mm;
 }
 
 div.row_3 {
-  height: 65mm;
+  height: 60mm;
 }
 div.row_3 div.col_1 {
   width: 90mm;
@@ -100,7 +101,7 @@ div.row_4 {
   height: 18mm;
 }
 div.row_5 {
-  height: 70mm;
+  height: 75mm;
 }
 div.row_6 {
   height: 18mm;

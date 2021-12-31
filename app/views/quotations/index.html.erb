@@ -15,6 +15,7 @@
     <td>交通費手当</td>
     <td>備考</td>
     <td>詳細</td>
+    <td>出力</td>
     <td>編集</td>
     <td>削除</td>
   </tr>  
@@ -27,13 +28,14 @@
       <td><%= format_basic_info(quotation.work_end_time) %></td>
       <td><%= format_basic_info(quotation.break_time) %></td>
       <td><%= quotation.division %></td>
-      <td><%= quotation.unit_price %></td>
+      <td><%= quotation.unit_price.to_s(:delimited) %></td>
       <td><%= quotation.gain_cards %></td>
       <td><%= quotation.gain_apps %></td>
-      <td><%= quotation.incentive %></td>
-      <td><%= quotation.commuting_allowance %></td>
+      <td><%= quotation.incentive.to_s(:delimited) %></td>
+      <td><%= quotation.commuting_allowance.to_s(:delimited) %></td>
       <td><%= quotation.note %></td>
       <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '出力', client_quotation_path(format: :pdf, id: quotation.id), class: "btn btn-secondary" %></td>
       <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
       <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>

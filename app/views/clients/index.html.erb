@@ -1,8 +1,8 @@
-<h1>顧客一覧</h1>
+<h1>取引先一覧</h1>
 <table class="table">
 <tr>
-  <td>顧客番号</td>
-  <td>顧客名</td>
+  <td>取引先番号</td>
+  <td>取引先名</td>
   <td>郵便番号</td>
   <td>住所</td>
   <td>担当者名</td>
@@ -10,6 +10,8 @@
   <td>詳細</td>
   <td>編集</td>
   <td>削除</td>
+  <td>請求書</td>
+  <td>見積書</td>
 </tr>
   <% @clients.each do |client| %>
 
@@ -23,8 +25,10 @@
       <td><%= link_to "詳細", client, class: "btn btn-success" %></td>
       <td><%= link_to "編集", edit_client_path(client), class: "btn btn-warning" %></td>
       <td><%= button_to "削除", client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      <td><%= link_to "請求書", client_invoices_path(client), class: "btn btn-info" %></td>
+      <td><%= link_to "見積書", client_quotations_path(client), class: "btn btn-secondary" %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to "顧客追加", new_client_path, class: "btn btn-primary" %>
+<%= link_to "取引先追加", new_client_path, class: "btn btn-primary" %>
