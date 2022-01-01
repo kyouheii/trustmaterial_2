@@ -9,6 +9,8 @@ class CreateCarfares < ActiveRecord::Migration[5.1]
       t.string :public_institution #公共機関（平野変更）
       t.string :public_transportation_departure #公共場所
       t.string :public_transportation_departure_private_car #公共場所
+      t.string :point_of_departure #出発地
+      t.string :point_of_departure_private_car #出発地（自家用車）
       t.string :public_transportation_arrival #到着地
       t.string :arrival_private_car #到着地（自家用車で移動）
       t.integer :public_transportation_cash #公共手段金額

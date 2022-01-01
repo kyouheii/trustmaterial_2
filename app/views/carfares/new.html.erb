@@ -12,6 +12,10 @@
         <%= f.text_field :commuting_place, :placeholder => "自家用車を利用された日の勤務地を入力して下さい。", class: 'form-control' %>
     </p>
     <p>
+      <%= f.label :point_of_departure, "出発地"%><br>
+      <%= f.text_field :point_of_departure, :placeholder => "利用された公共機関の出発地を入力して下さい。", class: 'form-control'%>
+    </p>
+    <p>
     <%= f.label :public_transportation_arrival, "到着地" %><br>
         <%= f.text_field :public_transportation_arrival, :placeholder => "利用された公共機関の到着地を入力して下さい。", class: 'form-control' %>
     </p>

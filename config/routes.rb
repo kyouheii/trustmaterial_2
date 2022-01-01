@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
   root 'static_pages#top'
 
+  resources :clients do
+    resources :invoices
+    get "/invoices/show.pdf"=>"invoices#show"
+    resources :quotations
+    get "/quotations/show.pdf"=>"quotations#show"
+  end
+  
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     :registrations => 'users/registrations',
@@ -33,6 +40,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  # root to: "home#index"
   
   devise_scope :user do
     get "user/:id", :to => "users/registrations#detail"

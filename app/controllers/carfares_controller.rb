@@ -13,7 +13,6 @@ class CarfaresController < ApplicationController
   def index_1
     @user = User.find(params[:user_id])
     @carfares = @user.carfares.where.not(date_of_use_private_car: nil).order(:date_of_use_private_car, :id).paginate(page: params[:page], per_page: 2)
-    @carfares_list = @user.carfares.where(date_of_use_private_car: params[:date_of_use_private_car], name: params[:name])
   end
 
   # 管理者用全ユーザー交通費新規登録ページ（公共機関）
@@ -25,7 +24,6 @@ class CarfaresController < ApplicationController
   # 管理者用全ユーザー交通費新規登録ページ（自家用車）
   def index_admin_1
     @user = User.joins(:carfare).select("name").order(id: "ASC")
-    @users =  User.all
     @carfares = Carfare.where.not(date_of_use_private_car: nil).order(:date_of_use_private_car, :id).paginate(page: params[:page], per_page: 2)
   end
 
@@ -46,9 +44,9 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.new(carfare_params)
     if @carfare.save
-      flash[:success] = '経費登録完了しました。'
+      flash[:info] = '経費登録完了しました。'
       # redirect_toでcarfareの一覧ページに飛ばす
-      redirect_to user_carfares_path(@user), notice:"経費登録完了しました。"
+      redirect_to user_carfares_path(@user)
     else
       render :new
     end
@@ -59,7 +57,7 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.new(carfare_private_car_params)
     if @carfare.save
-      flash[:success] = "登録が完了しました。"
+      flash[:info] = "経費登録が完了しました。"
       # redirect_toでcarfareの一覧ページに飛ばす
       redirect_to index_1_user_carfares_path(@user)
     else
@@ -72,8 +70,20 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
     if @carfare.destroy
-      flash[:success] = '交通費編集完了しました。'
+      flash[:warning] = '交通費を削除しました。'
       redirect_to user_carfares_path(@user)
+    else
+      redirect_to :index
+    end
+  end
+
+  # 全ユーザーの一覧画面の削除機能（自家用車）
+  def destroy_1
+    @user = User.find(params[:user_id])
+    @carfare = @user.carfares.find(params[:id])
+    if @carfare.destroy
+      flash[:warning] = '交通費を削除しました。'
+      redirect_to index_1_user_carfares_path(@user)
     else
       redirect_to :index
     end
@@ -84,7 +94,7 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
     if @carfare.destroy
-      flash[:success] = '交通費編集完了しました。'
+      flash[:warning] = '交通費を削除しました。'
       redirect_to user_carfares_path(@user)
     else
       redirect_to :index_admin
@@ -96,22 +106,10 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
     if @carfare.destroy
-      flash[:success] = '交通費編集完了しました。'
+      flash[:warning] = '交通費を削除しました。'
       redirect_to user_carfares_path(@user)
     else
       redirect_to :index_admin_1
-    end
-  end
-
-  # 全ユーザーの一覧画面の削除機能（自家用車）
-  def destroy_1
-    @user = User.find(params[:user_id])
-    @carfare = @user.carfares.find(params[:id])
-    if @carfare.destroy
-      flash[:success] = '交通費編集完了しました。'
-      redirect_to index_1_user_carfares_path(@user)
-    else
-      redirect_to :index
     end
   end
 
@@ -132,24 +130,24 @@ class CarfaresController < ApplicationController
     @carfare = Carfares.find(params[:id])
   end
 
-  # 交通費新規登録ページ（公共機関）
+  # 交通費編集ページ（公共機関）
   def update
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
     if @carfare.update(carfare_params)
-      flash[:success] = '交通費編集完了しました。'
+      flash[:info] = '交通費を編集致しました。'
       redirect_to user_carfares_path(@user)
     else
       render :edit
     end
   end
 
-  # 交通費新規登録ページ（自家用車）
+  # 交通費編集ページ（自家用車）
   def update_1
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.find(params[:id])
     if @carfare.update(carfare_private_car_params)
-      flash[:success] = '交通費編集完了しました。'
+      flash[:info] = '交通費を編集致しました。'
       redirect_to index_1_user_carfares_path(@user)
     else
       render :edit
@@ -160,11 +158,11 @@ class CarfaresController < ApplicationController
 
   # 交通費新規登録ページ（公共機関）
   def carfare_params
-    params.require(:carfare).permit(:name, :date_of_use, :commuting_place, :public_transportation_arrival, :public_institution , :public_transportation_departure, :parking_fee, :public_transportation_cash, :hotel_charge, :moving_distance, :highway_rate, :image)
+    params.require(:carfare).permit(:name, :date_of_use, :commuting_place, :point_of_departure, :public_transportation_arrival, :public_institution , :public_transportation_departure, :parking_fee, :public_transportation_cash, :hotel_charge, :moving_distance, :highway_rate, :image)
   end
 
   # 交通費新規登録ページ（自家用車）
   def carfare_private_car_params
-    params.require(:carfare).permit(:date_of_use_private_car, :commuting_place_private_car, :arrival_private_car, :parking_name_private_car, :moving_distance_private_car, :public_institution_private_car, :public_transportation_departure_private_car, :parking_fee_private_car, :public_transportation_cash_private_car, :hotel_charge_private_car, :highway_rate_private_car, :image_private_car)
+    params.require(:carfare).permit(:date_of_use_private_car, :commuting_place_private_car, :point_of_departure_private_car, :arrival_private_car, :parking_name_private_car, :moving_distance_private_car, :public_institution_private_car, :public_transportation_departure_private_car, :parking_fee_private_car, :public_transportation_cash_private_car, :hotel_charge_private_car, :highway_rate_private_car, :image_private_car)
   end
 end

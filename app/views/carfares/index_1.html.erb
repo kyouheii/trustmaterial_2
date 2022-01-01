@@ -2,15 +2,16 @@
 <h1>
     交通費管理画面（自家用車）
 </h1>
-<div><%= flash[:notice] %></div>
 
 <div class="carfare-t">
+  <%= will_paginate @projects %>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>自家用車利用日</th>
         <th>ユーザー名</th>
         <th>勤務地</th>
+        <th>出発地</th>
         <th>到着地</th>
         <th>駐車場名</th>
         <th>駐車料金</th>
@@ -27,6 +28,7 @@
           <td><%= l(carfare.date_of_use_private_car, formats: :default) %></td>
           <td><%= @user.name %></td>
           <td><%= carfare.commuting_place_private_car %></td>
+          <td><%= carfare.point_of_departure_private_car %></td>
           <td><%= carfare.arrival_private_car %></td>
           <td><%= carfare.parking_name_private_car %></td>
           <td>
@@ -68,4 +70,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= will_paginate @projects %>
 </div>

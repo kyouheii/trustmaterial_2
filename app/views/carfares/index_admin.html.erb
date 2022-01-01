@@ -11,6 +11,7 @@
         <th>交通機関利用日</th>
         <th>ユーザー名</th>
         <th>勤務地</th>
+        <th>出発地</th>
         <th>到着地</th>
         <th>公共機関</th>
         <th>公共機関金額</th>
@@ -27,6 +28,7 @@
           <td><%= l(carfare.date_of_use, formats: :default) %></td>
           <td><%= carfare.user.name %></td>
           <td><%= carfare.commuting_place %></td>
+          <td><%= carfare.point_of_departure %></td>
           <td><%= carfare.public_transportation_arrival %></td>
           <td><%= carfare.public_institution %></td>
           <td>

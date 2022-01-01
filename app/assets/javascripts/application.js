@@ -12,9 +12,11 @@ import '@fortawesome/fontawesome-free/js/all'
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+//= require jquery_ujs
 //= require jquery
+//= require jquery3
 //= require bootstrap
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 //= require popper

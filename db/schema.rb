@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211010123222) do
+ActiveRecord::Schema.define(version: 20211227132404) do
 
   create_table "carfares", force: :cascade do |t|
     t.integer "user_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20211010123222) do
     t.string "public_institution"
     t.string "public_transportation_departure"
     t.string "public_transportation_departure_private_car"
+    t.string "point_of_departure"
+    t.string "point_of_departure_private_car"
     t.string "public_transportation_arrival"
     t.string "arrival_private_car"
     t.integer "public_transportation_cash"
@@ -45,6 +47,58 @@ ActiveRecord::Schema.define(version: 20211010123222) do
     t.date "date_of_use_private_car"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.integer "client_number"
+    t.string "client_name"
+    t.string "postal_code"
+    t.string "address"
+    t.string "manager"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "sales_staff"
+    t.string "item"
+    t.string "pay_terms"
+    t.date "due_date"
+    t.integer "card_labor_cost"
+    t.integer "card_incentive"
+    t.integer "card_labor_commuting_allowance"
+    t.integer "cell_phone_sales_labor_cost"
+    t.integer "cell_phone_sales_commuting_allowance"
+    t.integer "cell_phone_sales_labor_cost_saninline"
+    t.integer "cell_phone_sales_saninline"
+    t.integer "subtotal_fee"
+    t.integer "tax"
+    t.integer "total_fee"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invoices_on_client_id"
+  end
+
+  create_table "quotations", force: :cascade do |t|
+    t.string "store"
+    t.date "worked_date"
+    t.string "staff_name"
+    t.time "work_start_time", default: "2000-01-01 09:00:00"
+    t.time "work_end_time", default: "2000-01-01 18:00:00"
+    t.time "break_time", default: "2000-01-01 01:00:00"
+    t.string "division"
+    t.integer "unit_price"
+    t.integer "gain_cards"
+    t.integer "gain_apps"
+    t.integer "incentive"
+    t.integer "commuting_allowance"
+    t.string "note"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_quotations_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|
