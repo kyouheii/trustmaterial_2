@@ -51,7 +51,6 @@ gem 'ransack'
 gem 'pry-rails', group: [:development, :test] 
 
 group :development, :test do
-  #gem 'sqlite3', "~> 1.3.6"
   gem 'pry-rails', group: [:development, :test]
   gem 'wicked_pdf'
   gem 'wkhtmltopdf-binary'

@@ -21,20 +21,12 @@
               <li><%= link_to "交通費登録【#{current_user.name}】", new_1_user_carfares_path(current_user.id) %></li>
             </ul>
           </li>
+          <li><%= link_to "取引先", clients_path %></li>
         <% end %>
-        <li><%= link_to "ログイン", user_session_path %></li>
-        <li><%= link_to "ログアウト", logout_path %></li>
-        <% if user_signed_in? %>
-          <% if current_user.id == 1 %>
-            <li><%= link_to "Top",   root_path %></li>
-            <li><%= link_to "ログイン", user_session_path %></li>
-            <li><%= link_to "ログアウト", logout_path %></li>
-            <li><%= link_to "取引先", clients_path %></li>
-          <% else %>
-            <li><%= link_to "Top",   root_path %></li>
-            <li><%= link_to "ログイン", user_session_path %></li>
-            <li><%= link_to "ログアウト", logout_path %></li>
-          <% end %>
+        <% if current_user %>
+          <li><%= link_to "ログアウト", logout_path %></li>
+        <% else %>
+           <li><%= link_to "ログイン", user_session_path %></li>
         <% end %>
       </ul>
     </nav>

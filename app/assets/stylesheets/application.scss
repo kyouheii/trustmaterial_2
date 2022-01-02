@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
 @import "bootstrap-sprockets";
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
@@ -80,6 +81,7 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
 /* debug */
 
 .debug_dump {
@@ -92,13 +94,11 @@ p {
   box-sizing:         border-box;
 }
 
+
 h1, h2, h3 {
   margin-top: 10rem !important;
 }
 
-h1, h2, h3, h4, h6 {
-  margin-top: 3rem !important;
-}
-
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
