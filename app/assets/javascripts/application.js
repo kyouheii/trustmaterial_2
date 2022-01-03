@@ -17,6 +17,6 @@ import '@fortawesome/fontawesome-free/js/all'
 //= require jquery3
 //= require bootstrap
 //= require turbolinks
-//= require popper
-//= require_tree .
 //= require bootstrap-sprockets
+//= require_tree .
+//= require popper

@@ -1,0 +1,2 @@
+module CarfareHelper
+end

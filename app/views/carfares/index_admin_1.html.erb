@@ -1,0 +1,72 @@
+<% provide(:title, "交通費管理画面（自家用車）") %>
+<h1>
+    全ユーザーの交通費管理画面（自家用車用）
+</h1>
+
+<div class="carfare-t">
+  <%= will_paginate @projects %>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>自家用車利用日</th>
+        <th>ユーザー名</th>
+        <th>勤務地</th>
+        <th>出発地</th>
+        <th>到着地</th>
+        <th>駐車場名</th>
+        <th>駐車料金</th>
+        <th>宿泊費</th>
+        <th>移動距離</th>
+        <th>高速料金</th>
+        <th>伝票画像</th>
+        <th>承認申請</th>
+      </tr>
+    </thead>
+    <tbody  class="table table-bordered table-condensed">
+      <% @carfares.each do |carfare| %>
+        <tr>
+          <td><%= l(carfare.date_of_use_private_car, formats: :default) %></td>
+          <td><%= carfare.user.name %></td>
+          <td><%= carfare.commuting_place_private_car %></td>
+          <td><%= carfare.arrival_private_car %></td>
+          <td><%= carfare.parking_name_private_car %></td>
+          <td>
+            <% if carfare.parking_fee_private_car.present? %>
+              <%= "#{carfare.parking_fee_private_car}円" %>
+            <% else%>
+              <%= carfare.parking_fee_private_car %>
+            <% end %>
+          </td>
+          <td>
+            <% if carfare.hotel_charge_private_car.present? %>
+              <%= "#{carfare.hotel_charge_private_car}円" %>
+            <% else%>
+              <%= carfare.hotel_charge_private_car %>
+            <% end %>
+          </td>
+          <td>
+            <% if carfare.moving_distance_private_car.present? %>
+              <%= "#{carfare.moving_distance_private_car}km" %>
+            <% else%>
+              <%= carfare.moving_distance_private_car %>
+          </td>
+          <% end %>
+          <td>
+            <% if carfare.highway_rate_private_car.present? %>
+              <%= "#{carfare.highway_rate_private_car}円" %></td>
+            <% else%>
+              <%= carfare.highway_rate_private_car %></td>
+          <% end %>
+          <td>
+            <%= link_to carfare.image_private_car.url, "data-lightbox" => carfare.image_private_car.url do %>
+              <%= image_tag carfare.image_private_car.url, size: "300x250", :style=>"400x300" unless carfare.image_private_car.blank? %>
+              <%= image_tag src='noimage_ピクト-580x440.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image_private_car.blank? %>
+            <% end %>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @projects %>
+</div>
