@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   $days_of_the_week = %w{日 月 火 水 木 金 土}
 
@@ -13,8 +14,33 @@ class ApplicationController < ActionController::Base
   # end
 
   # 渡されたユーザーがログイン済みのユーザーであればtrueを返す。
-  def current_user?(user)
+  def current?(user)
     user == current_user
+  end
+
+  def update 
+    @user = User.find(params[:user_id])
+    @schedule = schedule.find(params[:id])
+    if @user.started_at.nil?
+      if @user.update_attributes(started_at: Time.current.change(sec: 0))
+        flash[:info] = "おはようございます！"
+      else
+        flash[:danger] = UPDATE_ERROR_MSG
+      end
+    elsif @schedules.arrived_at.nil?
+      if @schedule.update_attributes(arrived_at: Time.current.change(sec: 0))
+        flash[:info] = "よろしくお願いします"
+      else
+        flash[:danger] = UPDATE_ERROR_MSG
+      end
+    elsif @schedule.finished_at.nil?
+      if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
+        flash[:info] = "お疲れ様でした。"
+      else
+        flash[:danger] = UPDATE_ERROR_MSG
+      end
+    end
+    redirect_to @user
   end
 
    # current_userを@userにセット
@@ -23,29 +49,29 @@ class ApplicationController < ActionController::Base
   end
 
   # アクセスしたユーザーが現在ログインしているユーザーか確認する。
-  def correct_user
-    unless current_user?(@user)
-      flash[:danger] = "他のユーザーは権限がありません。"
-      redirect_to root_url
-    end
-  end
+  # def correct_user
+  #   unless current_user?(@user)
+  #     flash[:danger] = "他のユーザーは権限がありません。"
+  #     redirect_to root_url
+  #   end
+  # end
 
   # システム管理権限所有かどうか判定する。
   def admin_user
     unless user_signed_in? && current_user.admin?
-      flash[:danger] = "権限がありません。"
+      flash[:danger] = "他の権限がありません。"
       redirect_to root_url
     end
   end
 
   # 管理権限者、または現在ログインしているユーザーを許可する。
-  def admin_or_correct_user
-    # @user = User.find(params[:id]) if @user.blank?
-    unless current_user?(@user) || current_user.admin?
-      flash[:danger] = "権限がありません。"
-      redirect_to root_url
-    end
-  end
+  # def admin_or_correct_user
+  #   # @user = User.find(params[:id]) if @user.blank?
+  #   unless current_user?(@user) || current_user.admin?
+  #     flash[:danger] = "権限がありません。"
+  #     redirect_to root_url
+  #   end
+  # end
 
   
   # このアクションを追加
@@ -74,7 +100,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-  def all_set_one_month 
+  def all_set_one_month
     @first_day = params[:date].nil? ? #nilだったらその月　
     Date.current.beginning_of_month : params[:date].to_date
     @last_day = @first_day.end_of_month

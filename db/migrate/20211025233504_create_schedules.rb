@@ -2,6 +2,9 @@ class CreateSchedules < ActiveRecord::Migration[5.1]
   def change
     create_table :schedules do |t|
       t.date :worked_on
+      t.datetime :started_at
+      t.datetime :arrived_at
+      t.datetime :finished_at
       t.references :user, foreign_key: true
       t.string :round_batsu # 丸ばつ
       t.string :note # 備考

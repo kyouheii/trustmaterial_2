@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211025233504) do
+ActiveRecord::Schema.define(version: 20211211234417) do
+
+  create_table "admins", force: :cascade do |t|
+    t.integer "line_messaging_id"
+    t.string "line_messaging_secret", null: false
+    t.string "line_messaging_token", null: false
+    t.integer "line_login_id", null: false
+    t.string "line_login_secret", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "schedules", force: :cascade do |t|
     t.date "worked_on"
+    t.datetime "started_at"
+    t.datetime "arrived_at"
+    t.datetime "finished_at"
     t.integer "user_id"
     t.string "round_batsu"
     t.string "note"
@@ -32,6 +45,10 @@ ActiveRecord::Schema.define(version: 20211025233504) do
     t.boolean "admin", default: false
     t.string "phone_number"
     t.string "nearest_station"
+    t.datetime "started_at"
+    t.datetime "arrived_at"
+    t.datetime "finished_at"
+    t.string "site_name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -40,6 +57,7 @@ ActiveRecord::Schema.define(version: 20211025233504) do
     t.string "provider"
     t.string "uid"
     t.string "line"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,5 +1,5 @@
 current directory: /Users/shirakamikyouhei/trustmaterial_2/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
-/Users/shirakamikyouhei/.rbenv/versions/2.7.4/bin/ruby -I /Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20211008-36867-h05lgx.rb extconf.rb
+/Users/shirakamikyouhei/.rbenv/versions/2.7.4/bin/ruby -I /Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20211121-21804-q1bws4.rb extconf.rb
 creating Makefile
 
 current directory: /Users/shirakamikyouhei/trustmaterial_2/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/shirakamikyouhei/trustmaterial_2/vendor/bundle/ruby/2.7.0/gems/sassc-2.4.0/ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20211008-36867-1wmoggb/sassc
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20211121-21804-11m2q4e/sassc

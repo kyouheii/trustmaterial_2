@@ -49,9 +49,10 @@ module ActionController
           "actually render a template, not nothing, so we're showing an " \
           "error to be extra-clear. If you expect 204 No Content, carry on. " \
           "That's what you'll get from an XHR or API request. Give it a shot."
-          raise ActionController::UnknownFormat, message
-       else
-          logger.info "No template found for #{self.class.name}\##{action_name}, rendering head :no_content" if logger
+
+        raise ActionController::UnknownFormat, message
+      else
+        logger.info "No template found for #{self.class.name}\##{action_name}, rendering head :no_content" if logger
         super
       end
     end

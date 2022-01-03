@@ -15,9 +15,9 @@ class Users::SessionsController < Devise::SessionsController
         sign_in user          
         flash.now[:notice] = "ログインに成功しました。"
         if user.admin?
-          redirect_to all_index_one_month_schedules_path(user)
+          redirect_to all_index_one_month_user_schedules_path(user)
         else     
-          redirect_to index_one_month_schedules_path(user)
+          redirect_to index_one_month_user_schedules_path(user)
         end
       else
         flash.now[:danger] = "パスワードが違います。ログインをやり直して下さい。"
