@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   root 'static_pages#top'
 
   post '/callback' => 'linebot#callback'
@@ -9,6 +10,29 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'omniauth_callbacks'
   } 
+=======
+  
+
+
+
+
+
+  root 'static_pages#top'
+
+  resources :clients do
+    resources :invoices
+    get "/invoices/show.pdf"=>"invoices#show"
+    resources :quotations
+    get "/quotations/show.pdf"=>"quotations#show"
+  end
+  
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :omniauth_callbacks =>  'users/omniauth_callbacks'
+  } 
+  # root to: "home#index"
+  
+>>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62
   
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

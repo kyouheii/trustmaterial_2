@@ -4,8 +4,23 @@
      <ul class=loginname><%= current_user%></ul>
     <% unless user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li><%= link_to "Top", root_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
+=======
+        <% if user_signed_in? %>
+          <% if current_user.id == 1 %>
+            <li><%= link_to "Top",   root_path %></li>
+            <li><%= link_to "ログイン", user_session_path %></li>
+            <li><%= link_to "ログアウト", logout_path %></li>
+            <li><%= link_to "取引先", clients_path %></li>
+          <% else %>
+            <li><%= link_to "Top",   root_path %></li>
+            <li><%= link_to "ログイン", user_session_path %></li>
+            <li><%= link_to "ログアウト", logout_path %></li>
+          <% end %>
+        <% end %>
+>>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62
       </ul>
     <% else %>
      <% if current_user == @user || current_user.admin? %>
