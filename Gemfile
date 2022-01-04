@@ -30,11 +30,8 @@ gem 'omniauth-line'
 gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
-<<<<<<< HEAD
 gem 'bootstrap-sass', '3.3.6'
-=======
 gem 'bootstrap', '~> 4.1.1'
->>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62
 gem 'jquery-rails'
 gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整

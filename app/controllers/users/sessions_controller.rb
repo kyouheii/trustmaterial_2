@@ -2,21 +2,22 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :authenticate_user!, only: [:destroy]
+  # before_action :authenticate_user!, only: [:destroy, :new]
+  skip_before_action :require_no_authentication
   # GET /resource/sign_in
   def new
     @user = User.new
   end
 
   # POST /resource/sign_in
-  def create    
+  def create
     if user = User.find_by(email: params[:user][:email])
-      if user.valid_password?(params[:user][:password])   
-        sign_in user          
+      if user.valid_password?(params[:user][:password])
+        sign_in user
         flash.now[:notice] = "ログインに成功しました。"
         if user.admin?
           redirect_to all_index_one_month_user_schedules_path(user)
-        else     
+        else
           redirect_to index_one_month_user_schedules_path(user)
         end
       else
@@ -37,7 +38,7 @@ class Users::SessionsController < Devise::SessionsController
   #   redirect_to root_url
   # end
   # end
-  
+
   # DELETE /resource/sign_out
   # def destroys
   #   super
