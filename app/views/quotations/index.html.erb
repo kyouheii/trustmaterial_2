@@ -1,4 +1,17 @@
 <h1>見積書一覧</h1>
+
+<%= search_form_for @q, url: search_client_quotations_path do |f| %>
+  <%= f.label :division_cont, "区分" %>
+  <%= f.search_field :division_cont %>
+  <%= f.label :worked_date_gteq, "業務日" %>
+  <%= f.search_field :worked_date_gteq %>
+  <%= f.label :store_cont, "店舗名" %>
+  <%= f.search_field :store_cont %>
+  <%= f.label :staff_name_cont, "スタッフ名" %>
+  <%= f.search_field :staff_name_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
 <table class="table">
   <tr>
     <td>店舗名</td>
@@ -28,11 +41,11 @@
       <td><%= format_basic_info(quotation.work_end_time) %></td>
       <td><%= format_basic_info(quotation.break_time) %></td>
       <td><%= quotation.division %></td>
-      <td><%= quotation.unit_price.to_s(:delimited) %></td>
+      <td><%= quotation.unit_price %></td>
       <td><%= quotation.gain_cards %></td>
       <td><%= quotation.gain_apps %></td>
-      <td><%= quotation.incentive.to_s(:delimited) %></td>
-      <td><%= quotation.commuting_allowance.to_s(:delimited) %></td>
+      <td><%= quotation.incentive %></td>
+      <td><%= quotation.commuting_allowance %></td>
       <td><%= quotation.note %></td>
       <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
       <td><%= link_to '出力', client_quotation_path(format: :pdf, id: quotation.id), class: "btn btn-secondary" %></td>

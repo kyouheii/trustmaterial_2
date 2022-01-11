@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :clients do
     resources :invoices
     get "/invoices/show.pdf"=>"invoices#show"
-    resources :quotations
+    resources :quotations do
+      collection do
+        get 'search'
+      end
+    end
     get "/quotations/show.pdf"=>"quotations#show"
   end
   
