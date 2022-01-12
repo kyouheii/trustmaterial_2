@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # 交通費=carfare
+  has_many :carfares, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

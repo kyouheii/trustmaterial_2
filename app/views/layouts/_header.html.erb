@@ -3,19 +3,39 @@
     <%= link_to "TrustMterial", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <% if current_user.id == 1 %>
-            <li><%= link_to "Top",   root_path %></li>
-            <li><%= link_to "ログイン", user_session_path %></li>
-            <li><%= link_to "ログアウト", logout_path %></li>
-            <li><%= link_to "取引先", clients_path %></li>
-          <% else %>
-            <li><%= link_to "Top",   root_path %></li>
-            <li><%= link_to "ログイン", user_session_path %></li>
-            <li><%= link_to "ログアウト", logout_path %></li>
-          <% end %>
+        <li><%= link_to "Top",   root_path %></li>
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">交通費登録（公共機関）<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費一覧【#{current_user.name}】", user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費登録【#{current_user.name}】", new_user_carfare_path(current_user.id) %></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">交通費登録（自家用車）<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "交通費一覧【全ユーザー】", index_admin_1_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費一覧【#{current_user.name}】", index_1_user_carfares_path(current_user.id) %></li>
+              <li><%= link_to "交通費登録【#{current_user.name}】", new_1_user_carfares_path(current_user.id) %></li>
+            </ul>
+          </li>
+          <li><%= link_to "取引先", clients_path %></li>
+        <% end %>
+        <% if current_user %>
+          <li><%= link_to "ログアウト", logout_path %></li>
+        <% else %>
+           <li><%= link_to "ログイン", user_session_path %></li>
         <% end %>
       </ul>
     </nav>
   </div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </header>
