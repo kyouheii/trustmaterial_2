@@ -5,9 +5,6 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format:{ with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length:{minimum: 8}
-  validates :started_at, presence: true
-  validates :arrived_at, presence: true
-  validates :finished_at, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -30,8 +27,8 @@ class User < ApplicationRecord
     # self.set_values_by_raw_info(omniauth['extra']['raw_info'])
   end
 
-  mount_uploader :image, ImageUploader 
-
+  mount_uploader :image, ImageUploader
+  
   def set_values_by_raw_info(raw_info)
     self.raw_info = raw_info.to_json
     self.save!

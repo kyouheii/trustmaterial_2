@@ -2,9 +2,6 @@ User.create!(name: "管理者",
   email: "sample@email.com",
   password: "password",
   password_confirmation: "password",
-<<<<<<< HEAD
-  admin: true)
-=======
   admin: true)
 
 User.create!(name: "宅麻伸",
@@ -101,4 +98,3 @@ Quotation.create!(store: "店舗名2",
   note: "備考2")
   
 puts "quotations created"
->>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62

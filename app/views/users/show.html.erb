@@ -5,11 +5,11 @@
     <table class="table table-bordered table-condensed table-schedules">
       <tr>
         <td>
-          <%= link_to "⇦", index_one_month_user_schedules_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
-          【<%= l(@first_day, format: :middle) %>】
-          <%= link_to "⇨", index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
+          <%= link_to "⇦", user_path(@user, date: @first_day.prev_month), class: "btn btn-primary btn-user"%>
+          【<%= l(@first_day, format: :short) %>】
+          <%= link_to "⇨", user_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
         </td>
-      </tr> 
+      </tr>
     </table>
   </div>
 
@@ -39,13 +39,12 @@
         <th></th>
         <th>時</th>
         <th>分</th>
-        
       </tr>
       </thead>
       <tbody>
         <% @schedules.each do |day| %>
           <%= f.fields_for "schedules[]", day do |s| %>
-            <% css_class = 
+            <% css_class =
               case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
               when '土'
                 'text-primary'
@@ -79,14 +78,14 @@
               <td><%= l(day.started_at.floor_to(60*15), format: :mini) if day.started_at.present?%></td>
               <td>
                 <% if (Date.current == day.worked_on) && day.started_at.nil? %>
-                  <%= link_to "出社", update_one_month_user_schedules_path(@user, day), method: :patch, class: "btn btn-primary btn-btn-schedule"%>
+                  <%= link_to "出社", update_one_month_user_schedules_path(@user, day: day), method: :patch, class: "btn btn-primary btn-btn-schedule"%>
                 <% end %>
               </td>
               <td><%= l(day.arrived_at, format: :hour) if day.arrived_at.present? %></td>
               <td><%= l(day.arrived_at.floor_to(60*15), format: :mini) if day.arrived_at.present? %></td>
               <td>
                 <% if (Date.current == day.worked_on) && day.started_at.present? && day.arrived_at.nil? %>
-                  <%= link_to "到着", update_one_month_user_schedules_path(@user, day), method: :patch, class: "btn btn-primary btn-btn-schedule" %>
+                  <%= link_to "到着", update_one_month_user_schedules_path(@user, day: day), method: :patch, class: "btn btn-primary btn-btn-schedule" %>
                 <% end %>
               </td>
               <td><%= l(day.finished_at, format: :hour) if day.finished_at.present? %></td>
@@ -94,7 +93,7 @@
 
               <td> 
                 <% if (Date.current == day.worked_on) && day.started_at.present? && day.arrived_at.present? && day.finished_at.nil? %>
-                  <%= link_to "退社", update_one_month_user_schedules_path(@user, day), method: :patch, class: "btn btn-primary btn-schedule" %>
+                  <%= link_to "退社", update_one_month_user_schedules_path(@user, day: day), method: :patch, class: "btn btn-primary btn-schedule" %>
                 <% end %>
               </td>
             </tr>

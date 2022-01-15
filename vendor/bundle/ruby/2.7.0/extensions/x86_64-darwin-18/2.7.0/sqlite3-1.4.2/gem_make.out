@@ -1,5 +1,5 @@
 current directory: /Users/shirakamikyouhei/trustmaterial_2/vendor/bundle/ruby/2.7.0/gems/sqlite3-1.4.2/ext/sqlite3
-/Users/shirakamikyouhei/.rbenv/versions/2.7.4/bin/ruby -I /Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20211121-21804-q3i902.rb extconf.rb
+/Users/shirakamikyouhei/.rbenv/versions/2.7.4/bin/ruby -I /Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20220105-29223-15jzhbs.rb extconf.rb
 checking for sqlite3.h... yes
 checking for pthread_create() in -lpthread... yes
 checking for -ldl... yes
@@ -28,25 +28,25 @@ compiling database.c
 database.c:726:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
     status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
                                                         ^~~~~~~~~~~~~~~~~~~~~~
-/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:405:9: note: passing argument to parameter 'callback' here
+/usr/local/Cellar/sqlite/3.37.0/include/sqlite3.h:428:9: note: passing argument to parameter 'callback' here
   int (*callback)(void*,int,char**,char**),  /* Callback function */
         ^
 database.c:726:81: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
     status = sqlite3_exec(ctx->db, StringValuePtr(sql), hash_callback_function, callback_ary, &errMsg);
                                                                                 ^~~~~~~~~~~~
-/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:406:9: note: passing argument to parameter here
+/usr/local/Cellar/sqlite/3.37.0/include/sqlite3.h:429:9: note: passing argument to parameter here
   void *,                                    /* 1st argument to callback */
         ^
 database.c:728:57: warning: incompatible pointer types passing 'int (VALUE, int, char **, char **)' (aka 'int (unsigned long, int, char **, char **)') to parameter of type 'int (*)(void *, int, char **, char **)' [-Wincompatible-pointer-types]
     status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~
-/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:405:9: note: passing argument to parameter 'callback' here
+/usr/local/Cellar/sqlite/3.37.0/include/sqlite3.h:428:9: note: passing argument to parameter 'callback' here
   int (*callback)(void*,int,char**,char**),  /* Callback function */
         ^
 database.c:728:84: warning: incompatible integer to pointer conversion passing 'VALUE' (aka 'unsigned long') to parameter of type 'void *' [-Wint-conversion]
     status = sqlite3_exec(ctx->db, StringValuePtr(sql), regular_callback_function, callback_ary, &errMsg);
                                                                                    ^~~~~~~~~~~~
-/usr/local/Cellar/sqlite/3.36.0/include/sqlite3.h:406:9: note: passing argument to parameter here
+/usr/local/Cellar/sqlite/3.37.0/include/sqlite3.h:429:9: note: passing argument to parameter here
   void *,                                    /* 1st argument to callback */
         ^
 4 warnings generated.
@@ -57,4 +57,4 @@ linking shared-object sqlite3/sqlite3_native.bundle
 
 current directory: /Users/shirakamikyouhei/trustmaterial_2/vendor/bundle/ruby/2.7.0/gems/sqlite3-1.4.2/ext/sqlite3
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20211121-21804-370ehx/sqlite3
+/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20220105-29223-1s3a55a/sqlite3

@@ -114,7 +114,7 @@ module ActiveModel
     #   note.text = 'Some text here'
     #
     #   user = User.new
-    #    = 'Napoleon'
+    #   user.name = 'Napoleon'
     #   user.notes = [note]
     #
     #   user.serializable_hash

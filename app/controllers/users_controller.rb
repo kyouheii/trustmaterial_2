@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show)
-  before_action :set_one_month, only: %i(show)
+  before_action :set_one_month, only: %i(show, update)
   # before_action :all_set_one_month, %i(show)
 
   def show
     @user = User.find(params[:id])
+    @Schedule = Schedule.find_by(user_id: params[:id])
   end
 
   def new

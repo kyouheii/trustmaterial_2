@@ -16,7 +16,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -42,11 +42,6 @@ ja:
       long: "%Y年%m月%d日(%a)"
       middle: "%Y年%m月"
       short: "%-m/%-d"
-<<<<<<< HEAD
-      
-      
-=======
->>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62
     month_names:
     - 
     - 1月
@@ -210,11 +205,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       time: "%H：%M"
-<<<<<<< HEAD
       hour: "%H"
       mini: "%M"
       veryshort: "%H.%M"
     pm: 午後
-=======
-    pm: 午後
->>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62

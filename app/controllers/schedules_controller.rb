@@ -74,9 +74,20 @@ class SchedulesController < ApplicationController
     flash[:danger] = "スケジュールを更新出来ませんでした。"
     redirect_to index_one_month_user_schedules_url(@user) and return
   end
-
+ 
+ 
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'schedules',
+               layout: 'pdf',
+               encording: 'UTF-8',
+               template: 'schedules/show',
+               orientation: 'Landscape'
+      end
+    end
 
   end
   
@@ -94,4 +105,5 @@ class SchedulesController < ApplicationController
   def schedules_params
     params.require(:user).permit(schedules: [:round_batsu, :color_round_batsu, :site_name, :color_change_site])[:schedules]
   end
+
 end

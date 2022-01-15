@@ -1,6 +1,6 @@
 "pkg-config --exists sqlite3"
 | pkg-config --libs sqlite3
-=> "-L/usr/local/Cellar/sqlite/3.36.0/lib -lsqlite3\n"
+=> "-L/usr/local/Cellar/sqlite/3.37.0/lib -lsqlite3\n"
 "clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7   "
 checked program was:
 /* begin */
@@ -12,7 +12,7 @@ checked program was:
 6: }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7 -L/usr/local/Cellar/sqlite/3.36.0/lib -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7 -L/usr/local/Cellar/sqlite/3.37.0/lib -lsqlite3  "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -24,20 +24,20 @@ checked program was:
 /* end */
 
 | pkg-config --cflags-only-I sqlite3
-=> "-I/usr/local/Cellar/sqlite/3.36.0/include\n"
+=> "-I/usr/local/Cellar/sqlite/3.37.0/include\n"
 | pkg-config --cflags-only-other sqlite3
 => "\n"
 | pkg-config --libs-only-l sqlite3
 => "-lsqlite3\n"
 package configuration for sqlite3
-incflags: -I/usr/local/Cellar/sqlite/3.36.0/include
+incflags: -I/usr/local/Cellar/sqlite/3.37.0/include
 cflags: 
-ldflags: -L/usr/local/Cellar/sqlite/3.36.0/lib
+ldflags: -L/usr/local/Cellar/sqlite/3.37.0/lib
 libs: -lsqlite3
 
 find_header: checking for sqlite3.h... -------------------- yes
 
-"clang -E -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe   conftest.c -o conftest.i"
+"clang -E -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe   conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -49,7 +49,7 @@ checked program was:
 
 find_library: checking for pthread_create() in -lpthread... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib     -lsqlite3 -lruby.2.7 -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib     -lsqlite3 -lruby.2.7 -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'pthread_create'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))pthread_create; return !p; }
                                                         ^
@@ -72,7 +72,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))pthread_create; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib     -lsqlite3 -lruby.2.7 -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib     -lsqlite3 -lruby.2.7 -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -96,7 +96,7 @@ checked program was:
 
 have_library: checking for -ldl... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lpthread  -lsqlite3 -lruby.2.7 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lpthread  -lsqlite3 -lruby.2.7 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -120,7 +120,7 @@ checked program was:
 
 find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_libversion_number'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
                                                         ^
@@ -143,7 +143,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -167,7 +167,7 @@ checked program was:
 
 have_func: checking for rb_proc_arity()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -190,7 +190,7 @@ checked program was:
 
 have_func: checking for rb_integer_pack()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -213,7 +213,7 @@ checked program was:
 
 have_func: checking for sqlite3_initialize()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_initialize'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
                                                         ^
@@ -236,7 +236,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -260,7 +260,7 @@ checked program was:
 
 have_func: checking for sqlite3_backup_init()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_backup_init'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
                                                         ^
@@ -283,7 +283,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -307,7 +307,7 @@ checked program was:
 
 have_func: checking for sqlite3_column_database_name()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_column_database_name'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
                                                         ^
@@ -330,7 +330,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -354,7 +354,7 @@ checked program was:
 
 have_func: checking for sqlite3_enable_load_extension()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_enable_load_extension'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
                                                         ^
@@ -377,7 +377,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -401,7 +401,7 @@ checked program was:
 
 have_func: checking for sqlite3_load_extension()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_load_extension'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
                                                         ^
@@ -424,7 +424,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -448,7 +448,7 @@ checked program was:
 
 have_func: checking for sqlite3_open_v2()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_open_v2'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
                                                         ^
@@ -471,7 +471,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -495,7 +495,7 @@ checked program was:
 
 have_func: checking for sqlite3_prepare_v2()... -------------------- yes
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 conftest.c:14:57: error: use of undeclared identifier 'sqlite3_prepare_v2'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
                                                         ^
@@ -518,7 +518,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.36.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
+"clang -o conftest -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe  conftest.c  -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib -L/usr/local/opt/sqlite/lib -L. -L/Users/shirakamikyouhei/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib -L/usr/local/Cellar/sqlite/3.37.0/lib    -lsqlite3 -ldl -lpthread  -lsqlite3 -lruby.2.7 -lsqlite3 -ldl -lpthread  -lsqlite3  "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -542,7 +542,7 @@ checked program was:
 
 have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
 
-"clang -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe    -c conftest.c"
+"clang -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe    -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -558,7 +558,7 @@ checked program was:
 
 have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
 
-"clang -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.36.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe    -c conftest.c"
+"clang -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin18 -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/usr/local/Cellar/sqlite/3.37.0/include -I/usr/local/opt/sqlite/include -I/Users/shirakamikyouhei/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe    -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"

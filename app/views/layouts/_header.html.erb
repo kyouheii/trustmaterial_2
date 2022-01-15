@@ -1,13 +1,10 @@
-<header> 
+<header>
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <%= link_to "TrustMterial", root_path, id: "logo" %>
      <ul class=loginname><%= current_user%></ul>
     <% unless user_signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-        <li><%= link_to "Top", root_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-=======
+        
         <% if user_signed_in? %>
           <% if current_user.id == 1 %>
             <li><%= link_to "Top",   root_path %></li>
@@ -20,7 +17,6 @@
             <li><%= link_to "ログアウト", logout_path %></li>
           <% end %>
         <% end %>
->>>>>>> ec53270ee43e5335374b55e55d124ebf7a012f62
       </ul>
     <% else %>
      <% if current_user == @user || current_user.admin? %>
@@ -30,11 +26,6 @@
             <li><%= link_to "交通費請求", "#" %></li>
             <li><%= link_to "見積表", "#" %></li>
             <li><%= link_to "請求書", "#" %></li>
-        <%
-=begin%>
- <%= image_tag @user.image.url, class: 'rounded-circle mr15', width: '40', height: '40' %> 
-<%
-=end%>
       </ul>
      <% end %>
       <div class="dropdown">
@@ -47,10 +38,17 @@
             <li><%= link_to "スケジュール表", index_one_month_user_schedules_path(current_user) %></li>
             <li><%= link_to "編集画面", edit_user_registration_path %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, class: "logout-btn", method: :delete %></li>
-             <li><%= link_to "スケジュール一覧",  all_index_one_month_user_schedules_path(current_user) %></li>
+            <li><%= link_to "スケジュール一覧",  all_index_one_month_user_schedules_path(current_user) %></li>
           </ul>
         </li>
       </div>
     <% end %>
   </nav>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </header>
