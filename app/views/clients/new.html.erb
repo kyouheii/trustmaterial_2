@@ -1,0 +1,30 @@
+<h1 class="title">
+  取引先登録
+</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!-- @clientという変数をコントローラから受け取るとする。 -->
+    <%= form_for @client do |f| %>
+      <%= f.label :client_number, "取引先番号", class: "label-signup" %>
+      <%= f.text_field :client_number, class: "form-control" %>
+
+      <%= f.label :client_name, "取引先名", class: "label-signup" %>
+      <%= f.text_field :client_name, class: "form-control" %>
+
+      <%= f.label :postal_code, "郵便番号", class: "label-signup" %>
+      <%= f.text_field :postal_code, class: "form-control" %>
+
+      <%= f.label :address, "住所", class: "label-signup" %>
+      <%= f.text_area :address, class: "form-control" %>
+
+      <%= f.label :manager, "担当者名", class: "label-signup" %>
+      <%= f.text_field :manager, class: "form-control" %>
+
+      <%= f.label :phone_number, "取引先電話番号", class: "label-signup" %>
+      <%= f.text_field :phone_number, class: "form-control" %>
+
+      <%= f.submit '保存', class: "btn btn-primary btn-block btn-login" %>
+    <% end %>
+  </div>
+</div>

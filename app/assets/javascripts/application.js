@@ -11,9 +11,14 @@ import '@fortawesome/fontawesome-free/js/all'
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for shows
 // about supported directives.
 //
-
 //= require rails-ujs
+//= require jquery_ujs
+//= require jquery
+//= require jquery3
+//= require bootstrap
 //= require turbolinks
 //= require jquery
 //= require bootstrap
+//= require bootstrap-sprockets
 //= require_tree .
+//= require popper
