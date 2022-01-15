@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  worked_on: 2021-10-10
+  site_id: 1
+  work_place: MyString
+  transportation: MyString
+  public_transportation: MyString
+  departure_place: MyString
+  arrival: MyString
+  place: MyString
+  amount: 1
+  moving_distance: 1
+  high_speed_rate: 1
+  parking_fee: 1
+  confirmed_flag: false
+  approval_flag: false
+  rejection_flag: false
+
+two:
+  worked_on: 2021-10-10
+  site_id: 1
+  work_place: MyString
+  transportation: MyString
+  public_transportation: MyString
+  departure_place: MyString
+  arrival: MyString
+  place: MyString
+  amount: 1
+  moving_distance: 1
+  high_speed_rate: 1
+  parking_fee: 1
+  confirmed_flag: false
+  approval_flag: false
+  rejection_flag: false

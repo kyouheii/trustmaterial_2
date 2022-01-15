@@ -5,10 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
-gem 'rails-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -30,13 +28,11 @@ gem 'omniauth-line'
 gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
-gem 'bootstrap-sass', '3.3.6'
-gem 'ransack'
+gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
-gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
 gem 'whenever', require: false
 gem 'wicked_pdf'
@@ -49,11 +45,23 @@ gem 'wkhtmltopdf-binary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'pry-rails', group: [:development, :test]
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+#日本語化する
+gem 'rails-i18n'
+gem 'sqlite3'
+#画像アップロード（追加）
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'
+#ページネーション機能でしよう
+gem 'will_paginate'
+# 検索機能
+gem 'ransack'
+gem 'pry-rails', group: [:development, :test] 
 
 group :development, :test do
+  gem 'pry-rails', group: [:development, :test]
+  gem 'wicked_pdf'
+  gem 'wkhtmltopdf-binary'
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
