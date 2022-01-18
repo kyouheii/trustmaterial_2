@@ -1,4 +1,9 @@
 class ImageUploader < CarrierWave::Uploader::Base
+  
+  #アップロードを許可するファイル種類を指定する。
+  def extension_allowlist
+    %w(jpg jpeg gif png)
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

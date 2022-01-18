@@ -103,3 +103,8 @@ h1, h2, h3, h4, h6 {
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ .container {
+   padding: 0px !important;
+   line-height: 2 !important;
+   margin-top: 50px;
+ }

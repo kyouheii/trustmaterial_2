@@ -8,8 +8,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :encrypted_password, null: false, default: ""
       t.string :name,               null: false, default: ""
       t.boolean :admin,                          default: false
-      t.string  :phone_number 
+      t.string  :phone_number
       t.string  :nearest_station
+      t.datetime :started_at
+      t.datetime :arrived_at
+      t.datetime :finished_at
+      t.string :site_name
 
       ## Recoverable
       t.string   :reset_password_token

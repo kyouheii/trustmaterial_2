@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth', '~> 1.9.1'
+gem 'line-bot-api'
 gem 'omniauth-line'
 gem 'dotenv-rails'
 gem 'googleauth'
@@ -30,6 +31,13 @@ gem 'font-awesome-sass' # snsのアイコン
 gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'mini_magick' # サイズ変更や保存形式の変更
+gem 'image_processing', '~> 1.2' # 画像サイズの調整
+gem 'rmagick'
+gem 'whenever', require: false
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -61,6 +69,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
