@@ -40,10 +40,9 @@ gem 'jquery-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-=======
 #日本語化する
 gem 'rails-i18n'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.4.1'
 #画像アップロード（追加）
 gem 'carrierwave'
 gem 'rmagick'
@@ -58,12 +57,14 @@ group :development, :test do
   gem 'pry-rails', group: [:development, :test]
   gem 'wicked_pdf'
   gem 'wkhtmltopdf-binary'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails', '~> 5.0'
 end
 
 group :development do

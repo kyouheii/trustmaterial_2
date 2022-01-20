@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.integer "card_labor_commuting_allowance"
     t.integer "cell_phone_sales_labor_cost"
     t.integer "cell_phone_sales_commuting_allowance"
-    t.integer "cell_phone_sales_labor_cost_saninline"
     t.integer "cell_phone_sales_saninline"
     t.integer "subtotal_fee"
     t.integer "tax"
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cell_phone_sales_labor_cost_saninline"
     t.index ["client_id"], name: "index_invoices_on_client_id"
   end
 
@@ -88,9 +88,6 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.time "work_start_time", default: "2000-01-01 09:00:00"
     t.time "work_end_time", default: "2000-01-01 18:00:00"
     t.time "break_time", default: "2000-01-01 01:00:00"
-    t.time "work_start_time", default: "2000-01-01 00:00:00"
-    t.time "work_end_time", default: "2000-01-01 09:00:00"
-    t.time "break_time", default: "2000-01-01 16:00:00"
     t.string "division"
     t.integer "unit_price"
     t.integer "gain_cards"
