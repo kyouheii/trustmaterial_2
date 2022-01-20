@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20211227132404) do
 
+  create_table "admins", force: :cascade do |t|
+    t.integer "line_messaging_id"
+    t.string "line_messaging_secret", null: false
+    t.string "line_messaging_token", null: false
+    t.integer "line_login_id", null: false
+    t.string "line_login_secret", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "carfares", force: :cascade do |t|
     t.integer "user_id"
     t.integer "carfare_id"
@@ -101,6 +111,22 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.index ["client_id"], name: "index_quotations_on_client_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.date "worked_on"
+    t.datetime "started_at"
+    t.datetime "arrived_at"
+    t.datetime "finished_at"
+    t.integer "user_id"
+    t.string "round_batsu"
+    t.string "note"
+    t.string "site_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "color_change_site", default: false
+    t.boolean "color_round_batsu", default: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -108,6 +134,10 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.boolean "admin", default: false
     t.string "phone_number"
     t.string "nearest_station"
+    t.datetime "started_at"
+    t.datetime "arrived_at"
+    t.datetime "finished_at"
+    t.string "site_name"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -116,6 +146,7 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.string "provider"
     t.string "uid"
     t.string "line"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

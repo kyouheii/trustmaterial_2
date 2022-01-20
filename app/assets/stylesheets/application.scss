@@ -338,3 +338,9 @@ table.detail tr.dataline:nth-child(odd) td {
 table.detail tr.dataline:nth-child(even) td {
   background-color: #ffffff;
 }
+
+ .container {
+   padding: 0px !important;
+   line-height: 2 !important;
+   margin-top: 50px;
+ }
