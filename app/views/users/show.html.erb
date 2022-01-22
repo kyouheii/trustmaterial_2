@@ -5,9 +5,9 @@
     <table class="table table-bordered table-condensed table-schedules">
       <tr>
         <td>
-          <%= link_to "⇦", user_path(@user, date: @first_day.prev_month), class: "btn btn-primary btn-user"%>
+          <%= link_to "⇦", user_path(@user, date: @first_day.prev_month), class: "btn btn-primary" %>
           【<%= l(@first_day, format: :short) %>】
-          <%= link_to "⇨", user_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
+          <%= link_to "⇨", user_path(@user, date: @first_day.next_month), class: "btn btn-primary" %>
         </td>
       </tr>
     </table>

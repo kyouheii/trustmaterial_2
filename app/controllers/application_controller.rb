@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   
   $days_of_the_week = %w{日 月 火 水 木 金 土}
 
+  UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください。"
+
   
 
    # ログイン済みのユーザーか確認する。
@@ -22,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def update 
     @user = User.find(params[:user_id])
-    # @schedule = Schedule.find(params[:id])
+    @Schedule = Schedule.find(params[:id])
     if @user.started_at.nil?
       if @user.update_attributes(started_at: Time.current.change(sec: 0))
         flash[:info] = "おはようございます！"
@@ -83,7 +85,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_one_month 
-    @first_day = params[:date].nil? ? #nilだったらその月　
+    @first_day = params[:date].nil? ? #nilだったらその月
     Date.current.beginning_of_month : params[:date].to_date
     @last_day = @first_day.end_of_month
     one_month = [*@first_day..@last_day] # 対象の月の日数を代入します。
@@ -103,7 +105,7 @@ class ApplicationController < ActionController::Base
   end
 
   def all_set_one_month
-    @first_day = params[:date].nil? ? #nilだったらその月　
+    @first_day = params[:date].nil? ? #nilだったらその月
     Date.current.beginning_of_month : params[:date].to_date
     @last_day = @first_day.end_of_month
     # 全ユーザーに紐付く一ヶ月分のレコードを検索し取得します。
