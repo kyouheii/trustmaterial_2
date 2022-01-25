@@ -3,7 +3,6 @@ class SchedulesController < ApplicationController
   before_action :admin_user, only: %i(all_index_one_month)
   before_action :set_one_month, only: %i(index_one_month)
   before_action :all_set_one_month, only: %i(all_index_one_month)
-  before_action :update, only: %i(update_one_month)
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください"
   
   def all_index_one_month
@@ -90,10 +89,36 @@ class SchedulesController < ApplicationController
     end
 
   end
-  
+
+  def update 
+    @user = User.find(params[:user_id])
+    @schedule = Schedule.find(params[:id])
+    if @schedule.started_at.nil?
+      if @schedule.update_attributes(started_at: Time.current.change(sec: 0))
+        flash[:info] = "おはようございます！"
+      else
+        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
+      end
+    elsif @schedule.arrived_at.nil?
+      if @schedule.update_attributes(arrived_at: Time.current.change(sec: 0))
+        flash[:info] = "よろしくお願いします"
+      else
+        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
+      end
+    elsif @schedule.finished_at.nil?
+      if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
+        flash[:info] = "お疲れ様でした。"
+      else
+        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
+      end
+    end
+    redirect_to @user
+  end
+
+
   private
 
-
+  
   def client #lineのクライアントはlineから呼び出される
     @client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]

@@ -22,30 +22,6 @@ class ApplicationController < ActionController::Base
     user == current_user
   end
 
-  def update 
-    @user = User.find(params[:user_id])
-    @Schedule = Schedule.find(params[:id])
-    if @user.started_at.nil?
-      if @user.update_attributes(started_at: Time.current.change(sec: 0))
-        flash[:info] = "おはようございます！"
-      else
-        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
-      end
-    elsif @schedules.arrived_at.nil?
-      if @schedule.update_attributes(arrived_at: Time.current.change(sec: 0))
-        flash[:info] = "よろしくお願いします"
-      else
-        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
-      end
-    elsif @schedule.finished_at.nil?
-      if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
-        flash[:info] = "お疲れ様でした。"
-      else
-        flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
-      end
-    end
-    redirect_to @user
-  end
 
    # current_userを@userにセット
   def set_user

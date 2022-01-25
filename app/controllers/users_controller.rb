@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @Schedule = Schedule.find_by(user_id: params[:id])
+    @schedules = @user.schedules.all.order(:worked_on)
   end
 
   def new
