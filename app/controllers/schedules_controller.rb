@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   before_action :admin_user, only: %i(all_index_one_month)
   before_action :set_one_month, only: %i(index_one_month)
   before_action :all_set_one_month, only: %i(all_index_one_month)
+  before_action :set_q, only: [:all_index_one_month, :search]
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください"
   
   def all_index_one_month
@@ -77,6 +78,8 @@ class SchedulesController < ApplicationController
  
 
   def show
+    @user = User.find_by(params[:id])
+    @schedules = @user.schedules.all.order(:worked_on)
     respond_to do |format|
       format.html
       format.pdf do
@@ -115,8 +118,16 @@ class SchedulesController < ApplicationController
     redirect_to @user
   end
 
+  def search
+    @results = @q.result
+  end
 
   private
+
+
+  def set_q
+    @q = Schedule.ransack(params[:q])
+  end
 
   
   def client #lineのクライアントはlineから呼び出される
