@@ -14,6 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :arrived_at
       t.datetime :finished_at
       t.string :site_name
+      t.date :worked_on
 
       ## Recoverable
       t.string   :reset_password_token

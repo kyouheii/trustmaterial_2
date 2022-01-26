@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         patch 'update_one_month'
         get  'all_index_one_month'  # 全体のスケジュール
         patch 'all_update_one_month'
+        get 'search'
       end
     end
   end
@@ -46,8 +47,6 @@ Rails.application.routes.draw do
     get "/quotations/show.pdf"=>"quotations#show"
   end
   
-  
-
   resources :users do
     resources :carfares do #交通費
       # idあり

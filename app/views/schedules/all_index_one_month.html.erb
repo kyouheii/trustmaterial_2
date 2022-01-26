@@ -9,6 +9,12 @@
     <table class="table table-bordered table-condensed table-schedules">
       <tr>
         <td>
+        <h3>ユーザー検索</h3>
+        <%= search_form_for @q, url: search_user_schedules_path do |f| %>
+          <%= f.label :user_id, 'ユーザー名' %>
+          <%= f.search_field :user_id %><br>
+          <%= f.submit '検索' %><br>
+        <% end %>
           <%= link_to "⇦", all_index_one_month_user_schedules_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
           【<%= l(@first_day, format: :short) %>】
           <%= link_to "⇨", all_index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
@@ -16,7 +22,8 @@
       </tr> 
     </table>
   </div>
-
+    
+    
   <div>
     <table class="table table-bordered table-condensed table-schedules">
       <thead>
