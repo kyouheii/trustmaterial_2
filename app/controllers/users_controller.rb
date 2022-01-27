@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show)
   before_action :set_one_month, only: %i(show, update)
-  before_action :all_set_one_month, only: %i(show)
-
   # before_action :all_set_one_month, %i(show)
-
-  
 
   def show
     @user = User.find(params[:id])
-    @schedules = @user.schedules.all.order(:worked_on)
+    @Schedule = Schedule.find_by(user_id: params[:id])
   end
 
   def new
@@ -24,16 +20,8 @@ class UsersController < ApplicationController
   
   end
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      # 保存に成功した場合は、ここに記述した処理が実行されます。
-      redirect_to :show
-    else
-      render :new
-    end
-  end
  
+
   # def update
   #   @user = User.find(params[:id])
   #   if @user.id == current_user.id
@@ -58,6 +46,7 @@ class UsersController < ApplicationController
     @now_users = User.includes(:schedules).references(:schedules).
     where('schedules.started_at IS NOT NULL').
     where('schedules.finished_at IS NULL')
+    # where('schedules.site_name IS NULL')
   end
   
   
