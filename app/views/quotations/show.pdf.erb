@@ -18,6 +18,7 @@
 
 <table class="table">
   <tr>
+    <td>No.</td>
     <td>店舗名</td>
     <td>業務日</td>
     <td>スタッフ名</td>
@@ -37,6 +38,7 @@
   </tr>  
   <% @quotations.each do |quotation| %>
     <tr>
+      <td><%= quotation.item_number %></td>
       <td><%= quotation.store %></td>
       <td><%= quotation.worked_date %></td>
       <td><%= quotation.staff_name %></td>
@@ -53,6 +55,26 @@
       <!-- <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
       <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
       <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
+    </tr>
+        <tr>
+      <td>合計</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= Quotation.all.sum(:unit_price) %></td>
+      <td><%= Quotation.all.sum(:gain_cards) %></td>
+      <td><%= Quotation.all.sum(:gain_apps) %></td>
+      <td><%= Quotation.all.sum(:incentive) %></td>
+      <td><%= Quotation.all.sum(:commuting_allowance) %></td>
+      <td></td>
+      <!-- <td></td>
+      <td></td>
+      <td></td>
+      <td></td> -->
     </tr>
   <% end %>
 </table>

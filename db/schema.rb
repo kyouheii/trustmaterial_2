@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211227132404) do
+ActiveRecord::Schema.define(version: 20220127000823) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "line_messaging_id"
@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.string "store"
     t.date "worked_date"
     t.string "staff_name"
-    t.time "work_start_time", default: "2000-01-01 09:00:00"
-    t.time "work_end_time", default: "2000-01-01 18:00:00"
-    t.time "break_time", default: "2000-01-01 01:00:00"
+    t.time "work_start_time"
+    t.time "work_end_time"
+    t.time "break_time"
     t.string "division"
     t.integer "unit_price"
     t.integer "gain_cards"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20211227132404) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_number"
     t.index ["client_id"], name: "index_quotations_on_client_id"
   end
 

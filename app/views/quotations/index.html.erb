@@ -1,4 +1,4 @@
-<h1>見積書一覧</h1>
+<h1>ご請求明細書</h1>
 
 <%= search_form_for @q, url: search_client_quotations_path do |f| %>
   <%= f.label :division_cont, "区分" %>
@@ -14,6 +14,7 @@
 
 <table class="table">
   <tr>
+    <td>No.</td>
     <td>店舗名</td>
     <td>業務日</td>
     <td>スタッフ名</td>
@@ -34,6 +35,7 @@
   </tr>  
   <% @quotations.each do |quotation| %>
     <tr>
+      <td><%= quotation.item_number %></td>
       <td><%= quotation.store %></td>
       <td><%= quotation.worked_date %></td>
       <td><%= quotation.staff_name %></td>
@@ -53,6 +55,29 @@
       <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
+    <tr>
+      <td>合計</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= Quotation.all.sum(:unit_price) %></td>
+      <td><%= Quotation.all.sum(:gain_cards) %></td>
+      <td><%= Quotation.all.sum(:gain_apps) %></td>
+      <td><%= Quotation.all.sum(:incentive) %></td>
+      <td><%= Quotation.all.sum(:commuting_allowance) %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
 </table>
 
 <%= link_to '見積書追加', new_client_quotation_path, class: "btn btn-primary" %>
+<%= link_to '出力 明細(カード)', new_client_quotation_path, class: "btn btn-primary" %>
+<%= link_to '出力 明細(通信)', new_client_quotation_path, class: "btn btn-primary" %>
+<%= link_to '出力 明細(通信山陰)', new_client_quotation_path, class: "btn btn-primary" %>

@@ -69,7 +69,7 @@ class QuotationsController < ApplicationController
   private
 
   def quotation_params
-    params.require(:quotation).permit(:store, :worked_date, :staff_name, :work_start_time, :work_end_time, :break_time, :division, :unit_price, :gain_cards, :gain_apps, :incentive, :commuting_allowance, :note)
+    params.require(:quotation).permit(:item_number, :store, :worked_date, :staff_name, :work_start_time, :work_end_time, :break_time, :division, :unit_price, :gain_cards, :gain_apps, :incentive, :commuting_allowance, :note)
   end
 
   #共通処理なので、before_actionで呼び出している
