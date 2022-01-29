@@ -7,11 +7,10 @@
     <tr>
       <td>出勤場所</td>
       <td>名前</td>
-      <td>体温</td>
     </tr>
       <% @now_users.each do |user| %>
     <tr>
-      <td><%= site_name %></td>
+      <td><%= user.site_name %></td>
       <td><%= user.name %></td>
       <% end %>
     </tr>

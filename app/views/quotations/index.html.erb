@@ -78,6 +78,9 @@
 </table>
 
 <%= link_to '見積書追加', new_client_quotation_path, class: "btn btn-primary" %>
-<%= link_to '出力 明細(カード)', new_client_quotation_path, class: "btn btn-primary" %>
-<%= link_to '出力 明細(通信)', new_client_quotation_path, class: "btn btn-primary" %>
-<%= link_to '出力 明細(通信山陰)', new_client_quotation_path, class: "btn btn-primary" %>
+
+<!-- <% @quotations.each do |quotation| %>
+  <tr> -->
+    <!-- <%= link_to '出力 明細(カード)', client_quotation_path(format: :pdf, id: quotation.id), class: "btn btn-secondary" %> -->
+  <!-- </tr>
+<% end %> -->

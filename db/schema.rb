@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20220127000823) do
     t.datetime "arrived_at"
     t.datetime "finished_at"
     t.string "site_name"
+    t.date "worked_on"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
