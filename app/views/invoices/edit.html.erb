@@ -6,6 +6,12 @@
   <div class="col-md-6 col-md-offset-3">
     <!-- @invoiceという変数をコントローラから受け取るとする。 -->
     <%= form_with(model: @invoice, url: client_invoice_path(@client, @invoice), local: true, method: :patch) do |f| %>
+      <%= f.label :invoice_number, "請求書番号", class: "label-signup" %>
+      <%= f.text_field :invoice_number, class: 'form-control' %>
+
+      <%= f.label :invoice_date, "請求書日付", class: "label-signup" %>
+      <%= f.text_field :invoice_date, class: 'form-control' %>
+
       <%= f.label :sales_staff, "営業担当者", class: "label-signup" %>
       <%= f.text_field :sales_staff, class: 'form-control' %>
 

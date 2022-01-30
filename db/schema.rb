@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220127000823) do
+ActiveRecord::Schema.define(version: 20220130121626) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "line_messaging_id"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20220127000823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cell_phone_sales_labor_cost_saninline"
+    t.string "invoice_date"
+    t.string "invoice_number"
     t.index ["client_id"], name: "index_invoices_on_client_id"
   end
 
@@ -112,6 +114,24 @@ ActiveRecord::Schema.define(version: 20220127000823) do
     t.index ["client_id"], name: "index_quotations_on_client_id"
   end
 
+  create_table "sanin_quotations", force: :cascade do |t|
+    t.integer "item_number"
+    t.string "store"
+    t.date "worked_date"
+    t.string "staff_name"
+    t.time "work_start_time"
+    t.time "work_end_time"
+    t.time "break_time"
+    t.string "division"
+    t.integer "unit_price"
+    t.integer "commuting_allowance"
+    t.string "note"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_sanin_quotations_on_client_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.date "worked_on"
     t.datetime "started_at"
@@ -126,6 +146,24 @@ ActiveRecord::Schema.define(version: 20220127000823) do
     t.boolean "color_change_site", default: false
     t.boolean "color_round_batsu", default: false
     t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
+  create_table "tusin_quotations", force: :cascade do |t|
+    t.integer "item_number"
+    t.string "store"
+    t.date "worked_date"
+    t.string "staff_name"
+    t.time "work_start_time"
+    t.time "work_end_time"
+    t.time "break_time"
+    t.string "division"
+    t.integer "unit_price"
+    t.integer "commuting_allowance"
+    t.string "note"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_tusin_quotations_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'sanin_quotations/index'
+
+  get 'sanin_quotations/show'
+
+  get 'sanin_quotations/new'
+
+  get 'sanin_quotations/edit'
+
   root 'static_pages#top'
 
   post '/callback' => 'linebot#callback'
@@ -49,6 +57,19 @@ Rails.application.routes.draw do
       end
     end
     get "/quotations/show.pdf"=>"quotations#show"
+    resources :tusin_quotations do
+      collection do
+        get 'search'
+      end
+    end
+    get "/tusin_quotations/show.pdf"=>"tusin_quotations#show"
+    resources :sanin_quotations do
+      collection do
+        get 'search'
+      end
+    end
+    get "/sanin_quotations/show.pdf"=>"sanin_quotations#show"
+
   end
   
   resources :users do
