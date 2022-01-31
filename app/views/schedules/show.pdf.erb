@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <style type="text/css">
       table { page-break-inside:auto }
-    tr { page-break-inside:avoid; page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,7 +20,7 @@
           【<%= l(@first_day, format: :short) %>】
           <%= link_to "⇨", all_index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
         </td>
-      </tr> 
+      </tr>
     </table>
   </div>
 
@@ -41,11 +41,11 @@
             <th width="300">備考</th>
           <% end %>
         </tr>
-      </thead>       
+      </thead>
       <tbody>
-        <% @schedules.each do |worked_on, schedules| %> 
-          <% css_class = 
-            case %w{日 月 火 水 木 金 土}[worked_on.wday]
+        <% @schedules.each do |schedule| %>
+          <% css_class =
+            case %w{日 月 火 水 木 金 土}[schedule.worked_on.wday]
             when '土'
               'text-primary'
             when '日'
@@ -53,34 +53,32 @@
             end
           %>
           <tr>
-            <td><%= l(worked_on, format: :short) %></td>
-            <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[worked_on.wday] %></td>
-            <% schedules.each do |day| %>
-              <%= f.fields_for "schedules[]", day do |s| %>
-                <td>
-                  <!--div class="form-group"-->
-                    <% if day.color_round_batsu? %>
-                      <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control form-round-batsu', style: 'color: red' } %>
-                    <% else %>
-                      <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control form-round-batsu' } %>
-                    <% end %>
-                  <!--/div-->
-                </td>
-                <td>
-                  <!--div class="form-group"-->
-                    <% if day.color_change_site? %>
-                      <%= s.text_field :site_name, class: "form-control", style: 'color: red' %>
-                    <% else %>
-                      <%= s.text_field :site_name, class: "form-control" %>
-                    <% end %>
-                  <!--/div-->
-                </td>
-                <td><%= s.text_field :note, class: "form-control" %></td>
-              <% end %>
+            <td><%= l(schedule.worked_on, format: :short) %></td>
+            <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[schedule.worked_on.wday] %></td>
+            <%= f.fields_for "schedules[]", schedule do |s| %>
+              <td>
+                <!--div class="form-group"-->
+                  <% if schedule.color_round_batsu? %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control form-round-batsu', style: 'color: red' } %>
+                  <% else %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control form-round-batsu' } %>
+                  <% end %>
+                <!--/div-->
+              </td>
+              <td>
+                <!--div class="form-group"-->
+                  <% if schedule.color_change_site? %>
+                    <%= s.text_field :site_name, class: "form-control", style: 'color: red' %>
+                  <% else %>
+                    <%= s.text_field :site_name, class: "form-control" %>
+                  <% end %>
+                <!--/div-->
+              </td>
+              <td><%= s.text_field :note, class: "form-control" %></td>
             <% end %>
           </tr>
         <% end %>
       </tbody>
-    </table> 
+    </table>
   </div>
 </html>
