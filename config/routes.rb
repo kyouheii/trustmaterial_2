@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       get 'go_work'
       get 'show'
     end
-    resources :schedules, except: %I(show) do
+    resources :schedules do
       get "/schedules/show.pdf"=>"schedules#show"
       collection do
         get 'index_one_month'
