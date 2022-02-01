@@ -6,6 +6,10 @@
   <div class="col-md-6 col-md-offset-3">
     <!-- @quotationという変数をコントローラから受け取るとする。 -->
     <%= form_with(model: @quotation, url: client_quotation_path(@client, @quotation), local: true, method: :patch) do |f| %>
+
+      <%= f.label :item_number, "No.", class: "label-signup" %>
+      <%= f.text_field :item_number, class: "form-control" %>
+
       <%= f.label :store, "店舗名", class: "label-signup" %>
       <%= f.text_field :store, class: "form-control" %>
 

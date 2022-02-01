@@ -37,7 +37,9 @@ Client.create!(client_number: 2,
 
 puts "clients created"
 
-Invoice.create!(sales_staff: "営業担当者1",
+Invoice.create!(invoice_date: "",
+  invoice_number: "",
+  sales_staff: "営業担当者1",
   item: "品名1",
   pay_terms: "支払条件1",
   due_date: "期日1",
@@ -52,7 +54,9 @@ Invoice.create!(sales_staff: "営業担当者1",
   tax: "消費税1",
   total_fee: "すべての項目合計1")
 
-Invoice.create!(sales_staff: "営業担当者2",
+Invoice.create!(invoice_date: "",
+  invoice_number: "",
+  sales_staff: "営業担当者2",
   item: "品名2",
   pay_terms: "支払条件2",
   due_date: "期日2",
@@ -69,32 +73,86 @@ Invoice.create!(sales_staff: "営業担当者2",
   
 puts "invoices created"
 
-Quotation.create!(store: "店舗名1",
+Quotation.create!(item_number: "",
+  store: "店舗名1",
   worked_date: "2021-01-01",
   staff_name: "スタッフ1",
   work_start_time: "09:00",
   work_end_time: "18:00",
   break_time: "01:00",
   division: "区分1",
-  unit_price: 13000,
-  gain_cards: 1,
-  gain_apps: 1,
-  incentive: 2000,
-  commuting_allowance: 1000,
+  unit_price: 0,
+  gain_cards: 0,
+  gain_apps: 0,
+  incentive: 0,
+  commuting_allowance: 0,
   note: "備考1")
 
-Quotation.create!(store: "店舗名2",
+Quotation.create!(item_number: "",
+  store: "店舗名2",
   worked_date: "2021-01-02",
   staff_name: "スタッフ12",
   work_start_time: "10:00",
   work_end_time: "19:00",
   break_time: "01:00",
   division: "区分2",
-  unit_price: 14000,
-  gain_cards: 2,
-  gain_apps: 2,
-  incentive: 3000,
-  commuting_allowance: 1500,
+  unit_price: 0,
+  gain_cards: 0,
+  gain_apps: 0,
+  incentive: 0,
+  commuting_allowance: 0,
   note: "備考2")
   
 puts "quotations created"
+
+TusinQuotation.create!(item_number: "",
+  store: "店舗名1",
+  worked_date: "2021-01-01",
+  staff_name: "スタッフ1",
+  work_start_time: "09:00",
+  work_end_time: "18:00",
+  break_time: "01:00",
+  division: "区分1",
+  unit_price: 0,
+  commuting_allowance: 0,
+  note: "備考1")
+
+TusinQuotation.create!(item_number: "",
+  store: "店舗名2",
+  worked_date: "2021-01-02",
+  staff_name: "スタッフ12",
+  work_start_time: "10:00",
+  work_end_time: "19:00",
+  break_time: "01:00",
+  division: "区分2",
+  unit_price: 0,
+  commuting_allowance: 0,
+  note: "備考2")
+  
+puts "tusin_quotations created"
+
+SaninQuotation.create!(item_number: "",
+  store: "店舗名1",
+  worked_date: "2021-01-01",
+  staff_name: "スタッフ1",
+  work_start_time: "09:00",
+  work_end_time: "18:00",
+  break_time: "01:00",
+  division: "区分1",
+  unit_price: 0,
+  commuting_allowance: 0,
+  note: "備考1")
+
+SaninQuotation.create!(item_number: "",
+  store: "店舗名2",
+  worked_date: "2021-01-02",
+  staff_name: "スタッフ12",
+  work_start_time: "10:00",
+  work_end_time: "19:00",
+  break_time: "01:00",
+  division: "区分2",
+  unit_price: 0,
+  commuting_allowance: 0,
+  note: "備考2")
+  
+puts "tusin_quotations created"

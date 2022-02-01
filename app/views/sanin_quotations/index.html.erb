@@ -1,0 +1,71 @@
+<h1>ご請求明細書</h1>
+
+<%= search_form_for @q, url: search_client_sanin_quotations_path do |f| %>
+  <%= f.label :division_cont, "区分" %>
+  <%= f.search_field :division_cont %>
+  <%= f.label :worked_date_gteq, "業務日" %>
+  <%= f.search_field :worked_date_gteq %>
+  <%= f.label :store_cont, "店舗名" %>
+  <%= f.search_field :store_cont %>
+  <%= f.label :staff_name_cont, "スタッフ名" %>
+  <%= f.search_field :staff_name_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<table class="table">
+  <tr>
+    <td>No.</td>
+    <td>店舗名</td>
+    <td>業務日</td>
+    <td>スタッフ名</td>
+    <td>開始時間</td>
+    <td>終了時間</td>
+    <td>休憩時間</td>
+    <td>区分</td>
+    <td>基本金額</td>
+    <td>交通費手当</td>
+    <td>備考</td>
+    <td>詳細</td>
+    <td>出力</td>
+    <td>編集</td>
+    <td>削除</td>
+  </tr>  
+  <% @sanin_quotations.each do |sanin_quotation| %>
+    <tr>
+      <td><%= sanin_quotation.item_number %></td>
+      <td><%= sanin_quotation.store %></td>
+      <td><%= sanin_quotation.worked_date %></td>
+      <td><%= sanin_quotation.staff_name %></td>
+      <td><%= format_basic_info(sanin_quotation.work_start_time) %></td>
+      <td><%= format_basic_info(sanin_quotation.work_end_time) %></td>
+      <td><%= format_basic_info(sanin_quotation.break_time) %></td>
+      <td><%= sanin_quotation.division %></td>
+      <td><%= sanin_quotation.unit_price.to_s(:delimited) %></td>
+      <td><%= sanin_quotation.commuting_allowance.to_s(:delimited) %></td>
+      <td><%= sanin_quotation.note %></td>
+      <td><%= link_to '詳細', client_quotation_path(@client, sanin_quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '出力', client_quotation_path(format: :pdf, id: sanin_quotation.id), class: "btn btn-secondary" %></td>
+      <td><%= link_to '編集', edit_client_quotation_path(@client, sanin_quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', client_quotation_path(@client, sanin_quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+    </tr>
+  <% end %>
+    <tr>
+      <td>合計</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= SaninQuotation.all.sum(:unit_price).to_s(:delimited) %></td>
+      <td><%= SaninQuotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+</table>
+
+<%= link_to '見積書追加', new_client_sanin_quotation_path, class: "btn btn-primary" %>

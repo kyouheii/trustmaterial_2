@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      table { page-break-inside:auto }
+    tr { page-break-inside:avoid; page-break-after:auto } 
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sheet.css">
+    <title>ご請求明細書</title>
+</head>
+
+<h1>ご請求明細書</h1>
+<h4 class="customer_name">株式会社エス・マーケティング・デザイン・ジャパン御中  2021年8月度  コスモ・ザ・カード獲得業務</h4>
+
+<table class="table">
+  <tr>
+    <td>No.</td>
+    <td>店舗名</td>
+    <td>業務日</td>
+    <td>スタッフ名</td>
+    <td>開始時間</td>
+    <td>終了時間</td>
+    <td>休憩時間</td>
+    <td>区分</td>
+    <td>基本金額</td>
+    <!-- <td>獲得枚数</td>
+    <td>アプリ獲得件数</td>
+    <td>インセンティブ</td> -->
+    <td>交通費手当</td>
+    <td>備考</td>
+    <!-- <td>詳細</td>
+    <td>編集</td>
+    <td>削除</td> -->
+  </tr>  
+  <% @sanin_quotations.each do |sanin_quotation| %>
+    <tr>
+      <td><%= sanin_quotation.item_number %></td>
+      <td><%= sanin_quotation.store %></td>
+      <td><%= sanin_quotation.worked_date %></td>
+      <td><%= sanin_quotation.staff_name %></td>
+      <td><%= format_basic_info(sanin_quotation.work_start_time) %></td>
+      <td><%= format_basic_info(sanin_quotation.work_end_time) %></td>
+      <td><%= format_basic_info(sanin_quotation.break_time) %></td>
+      <td><%= sanin_quotation.division %></td>
+      <td><%= sanin_quotation.unit_price.to_s(:delimited) %></td>
+      <!-- <td><%= quotation.gain_cards %></td>
+      <td><%= quotation.gain_apps %></td>
+      <td><%= quotation.incentive.to_s(:delimited) %></td> -->
+      <td><%= sanin_quotation.commuting_allowance.to_s(:delimited) %></td>
+      <td><%= sanin_quotation.note %></td>
+      <!-- <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
+  <% end %>
+    </tr>
+        <tr>
+      <td>合計</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= SaninQuotation.all.sum(:unit_price).to_s(:delimited) %></td>
+      <!-- <td><%= Quotation.all.sum(:gain_cards) %></td>
+      <td><%= Quotation.all.sum(:gain_apps) %></td>
+      <td><%= Quotation.all.sum(:incentive).to_s(:delimited) %></td> -->
+      <td><%= SaninQuotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+      <td></td>
+      <!-- <td></td>
+      <td></td>
+      <td></td>
+      <td></td> -->
+    </tr>
+</table>
+
+<!-- <%= link_to '見積書追加', new_client_quotation_path, class: "btn btn-primary" %> -->
+</html>

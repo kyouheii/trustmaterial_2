@@ -1,9 +1,12 @@
 class QuotationsController < ApplicationController
   before_action :set_client
   before_action :set_quotation, only: %i(show edit update destroy)
+  before_action :set_q, only: [:index, :search]
 
   def index
     @quotations = @client.quotations
+    # @q = @client.quotations.ransack(params[:q])
+    # @quotations = @q.result(distinct: true)
   end
 
   def show
@@ -59,11 +62,14 @@ class QuotationsController < ApplicationController
     redirect_to client_quotations_path(@client)
   end
 
+  def search
+    @results = @q.result
+  end
 
   private
 
   def quotation_params
-    params.require(:quotation).permit(:store, :worked_date, :staff_name, :work_start_time, :work_end_time, :break_time, :division, :unit_price, :gain_cards, :gain_apps, :incentive, :commuting_allowance, :note)
+    params.require(:quotation).permit(:item_number, :store, :worked_date, :staff_name, :work_start_time, :work_end_time, :break_time, :division, :unit_price, :gain_cards, :gain_apps, :incentive, :commuting_allowance, :note)
   end
 
   #共通処理なので、before_actionで呼び出している
@@ -81,4 +87,7 @@ class QuotationsController < ApplicationController
     @client = Client.find(params[:client_id])
   end
 
+  def set_q
+    @q = Quotation.ransack(params[:q])
+  end
 end
