@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def create
+    item_id = Item.find(code: params[:schedule][:item_id]).id
+    Schedule.create(site_params.merge(item_id: item_id))
+  end
+
   def destroy 
   
   end
@@ -54,5 +59,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :nearest_station, :phone_number, :image)
+  end
+
+  def site_params
+    params.require(:schedule).permit(:site_name)
   end
 end

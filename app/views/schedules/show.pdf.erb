@@ -51,7 +51,7 @@
           <tr>
             <td><%= l(schedule.worked_on, format: :short) %></td>
             <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[schedule.worked_on.wday] %></td>
-              <%= f.fields_for "schedules[]", schedule do |s| %>
+              <%= fields_for "schedules[]", schedule do |s| %>
                 <td>
                   <!--div class="form-group"-->
                     <% if schedule.color_round_batsu? %>
