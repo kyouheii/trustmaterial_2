@@ -66,11 +66,11 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><%= Quotation.all.sum(:unit_price).to_s(:delimited) %></td>
-      <td><%= Quotation.all.sum(:gain_cards) %></td>
-      <td><%= Quotation.all.sum(:gain_apps) %></td>
-      <td><%= Quotation.all.sum(:incentive).to_s(:delimited) %></td>
-      <td><%= Quotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+      <td><%= @quotations.all.sum(:unit_price).to_s(:delimited) %></td>
+      <td><%= @quotations.all.sum(:gain_cards) %></td>
+      <td><%= @quotations.all.sum(:gain_apps) %></td>
+      <td><%= @quotations.all.sum(:incentive).to_s(:delimited) %></td>
+      <td><%= @quotations.all.sum(:commuting_allowance).to_s(:delimited) %></td>
       <td></td>
       <!-- <td></td>
       <td></td>
