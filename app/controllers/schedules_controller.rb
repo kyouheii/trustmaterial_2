@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
-  before_action :set_user, only: %i(index_one_month all_index_one_month)
+  before_action :set_user, only: %i(index_one_month all_index_one_month show)
   before_action :admin_user, only: %i(all_index_one_month)
-  before_action :set_one_month, only: %i(index_one_month)
-  before_action :all_set_one_month, only: %i(all_index_one_month)
+  before_action :set_one_month, only: %i(index_one_month show)
+  before_action :all_set_one_month, only: %i(all_index_one_month show)
   before_action :set_q, only: [:all_index_one_month, :search]
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください"
   
@@ -78,7 +78,7 @@ class SchedulesController < ApplicationController
  
 
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
     @schedules = @user.schedules.all.order(:worked_on)
     respond_to do |format|
       format.html
