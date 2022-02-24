@@ -11,9 +11,13 @@
   <td>編集</td>
   <td>削除</td>
   <td>請求書</td>
+<<<<<<< HEAD
   <td>見積書(カード)</td>
   <td>見積書(通信)</td>
   <td>見積書(通信山陰)</td>
+=======
+  <td>見積書</td>
+>>>>>>> origin/public-transport-branch
 </tr>
   <% @clients.each do |client| %>
 
@@ -28,9 +32,13 @@
       <td><%= link_to "編集", edit_client_path(client), class: "btn btn-warning" %></td>
       <td><%= button_to "削除", client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       <td><%= link_to "請求書", client_invoices_path(client), class: "btn btn-info" %></td>
+<<<<<<< HEAD
       <td><%= link_to "見積書(カード)", client_quotations_path(client), class: "btn btn-secondary" %></td>
       <td><%= link_to "見積書(通信)", client_tusin_quotations_path(client), class: "btn btn-secondary" %></td>
       <td><%= link_to "見積書(通信山陰)", client_sanin_quotations_path(client), class: "btn btn-secondary" %></td>
+=======
+      <td><%= link_to "見積書", client_quotations_path(client), class: "btn btn-secondary" %></td>
+>>>>>>> origin/public-transport-branch
     </tr>
   <% end %>
 </table>
