@@ -29,7 +29,6 @@ gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
 gem 'bootstrap-sass'
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
@@ -50,7 +49,6 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 #日本語化する
 gem 'rails-i18n'
-gem 'sqlite3', '~> 1.4.1'
 #画像アップロード（追加）
 gem 'carrierwave'
 gem 'rmagick'
@@ -86,7 +84,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
