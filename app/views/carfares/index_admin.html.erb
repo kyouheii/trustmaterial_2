@@ -2,72 +2,153 @@
 <h1>
     全ユーザーの交通費管理画面（公共交通機関）
 </h1>
+<% if @carfares_count != 0 || @carfares_count_1 != 0 %>
+  <% if @carfares_count > 0 %>
+    <h3>
+      <b style="border:1px solid #F00; color: #F00"><%= "現在の申請中の件数: #{@carfares_count}件" %></b>
+    </h3>
+  <% end %>
+
+  <% if @carfares_count_1 > 0 %>
+    <h3>
+      <b style="border:1px solid #F00; color: #F00"><%= "現在の再申請の件数: #{@carfares_count_1}件" %></b>
+    </h3>
+  <% end %>
+<% else %>
+  <h3>
+      <b style="border:1px solid #808080; color: #808080"><%= "現在の交通費申請はありません。"%></b>
+  </h3>
+<% end %>
+
+<div class="carfare-t ransack_form" type="radio">
+  <%= search_form_for @q, url: search_admin_user_carfares_path(current_user) do |f| %>
+    <br><%= f.label :date_of_use, "交通機関利用日（範囲検索）" %><br>
+    <%= f.date_field :date_of_use_gteq, class: 'form-control date_of_use' %> 〜
+    <%= f.date_field :date_of_use_lteq, class: 'form-control date_of_use' %><br><br>
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :user_name_eq %><br><br>
+    <%= f.label :application, "申請状況" %><br>
+    <%= f.radio_button :application_eq, '申請中' %>申請中
+    <%= f.radio_button :application_eq, '再申請' %>再申請
+    <%= f.radio_button :application_ok_eq, '承認' %>承認
+    <%= f.radio_button :application_ok_eq, '否認' %>否認
+    <%= f.radio_button :application_ok_eq, '再否認' %>再否認<br><br>
+    <%= f.submit '検索', class: "btn btn-sm btn-primary" %><br><br>
+  <% end %>
+  <script>
+    var nowchecked = [];
+    $('input[type="radio"]:checked').each(function(){
+      nowchecked.push( $(this).attr('id') );
+    });
+
+    $('input[type="radio"]').click(function(){
+      var idx = $.inArray( $(this).attr('id'), nowchecked ); // nowcheckedにクリックされたボタンのidが含まれるか判定。なければ-1が返る。
+      if( idx >= 0 ) { // クリックしたボタンにチェックが入っていた場合
+        $(this).prop('checked', false); // チェックを外す
+        nowchecked.splice(idx,1); // nowcheckedからこのボタンのidを削除
+      } else { // チェックが入っていなかった場合
+      // 同じname属性のラジオボタンをnowcheckedから削除する
+        var name = $(this).attr('name');
+        $('input[name="' + name + '"]').each(function(){
+          var idx2 = $.inArray( $(this).attr('id'), nowchecked);
+          if( idx2 >= 0 ){
+            nowchecked.splice(idx2,1);
+          }
+        });
+        // チェックしたものをnowcheckedに追加
+        nowchecked.push( $(this).attr('id') );
+      }
+    });
+  </script>
+</div>
 
 <div class="carfare-t">
   <%= will_paginate @projects %>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>交通機関利用日</th>
-        <th>ユーザー名</th>
-        <th>勤務地</th>
-        <th>出発地</th>
-        <th>到着地</th>
-        <th>公共機関</th>
-        <th>公共機関金額</th>
-        <th>宿泊費</th>
-        <th>移動距離</th>
-        <th>高速料金</th>
-        <th>伝票画像</th>
-        <th>承認申請</th>
-      </tr>
-    </thead>
-    <tbody  class="table table-bordered table-condensed">
-      <% @carfares.each do |carfare| %>
+    <table class="table table-bordered table-condensed">
+      <thead>
         <tr>
-          <td><%= l(carfare.date_of_use, formats: :default) %></td>
-          <td><%= carfare.user.name %></td>
-          <td><%= carfare.commuting_place %></td>
-          <td><%= carfare.point_of_departure %></td>
-          <td><%= carfare.public_transportation_arrival %></td>
-          <td><%= carfare.public_institution %></td>
-          <td>
-            <% if carfare.public_transportation_cash.present? %>
-              <%= "#{carfare.public_transportation_cash}円" %>
-            <% else%>
-              <%= carfare.public_transportation_cash %>
-            <% end %>
-          </td>
-          <td>
-            <% if carfare.hotel_charge.present? %>
-              <%= "#{carfare.hotel_charge}円" %>
-            <% else%>
-              <%= carfare.hotel_charge %>
-            <% end %>
-          </td>
-          <td>
-            <% if carfare.moving_distance.present? %>
-              <%= "#{carfare.moving_distance}km" %>
-            <% else%>
-              <%= carfare.moving_distance %>
-          </td>
-          <% end %>
-          <td>
-            <% if carfare.highway_rate.present? %>
-              <%= "#{carfare.highway_rate}円" %></td>
-            <% else%>
-              <%= carfare.highway_rate %></td>
-          <% end %>
-          <td>
-            <%= link_to carfare.image.url, "data-lightbox" => carfare.image.url do %>
-              <%= image_tag carfare.image.url, size: "300x250", :style=>"400x300" unless carfare.image.blank? %>
-              <%= image_tag src='noimage_ピクト-580x440.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
-            <% end %>
-          </td>
-          <td></td>
+          <th>交通機関利用日</th>
+          <th>ユーザー名</th>
+          <th>勤務地</th>
+          <th>出発地</th>
+          <th>到着地</th>
+          <th>公共機関</th>
+          <th>公共機関金額</th>
+          <th>宿泊費</th>
+          <th>移動距離</th>
+          <th>高速料金</th>
+          <th>伝票画像</th>
+          <th>承認申請（承認/否認）</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody  class="table table-bordered table-condensed">
+        <% @carfares.each do |carfare| %>
+          <%= form_with(model: carfare, url: update_show_admin_user_carfare_path(current_user, carfare), local: true, method: :patch) do |f| %>
+          <tr>
+            <td><%= l(carfare.date_of_use, formats: :nil, default: '') %></td>
+            <td><%= carfare.user.name %></td>
+            <td><%= carfare.commuting_place %></td>
+            <td><%= carfare.point_of_departure %></td>
+            <td><%= carfare.public_transportation_arrival %></td>
+            <td><%= carfare.public_institution %></td>
+            <td>
+              <% if carfare.public_transportation_cash.present? %>
+                <%= "#{carfare.public_transportation_cash}円" %>
+              <% else%>
+                <%= carfare.public_transportation_cash %>
+              <% end %>
+            </td>
+            <td>
+              <% if carfare.hotel_charge.present? %>
+                <%= "#{carfare.hotel_charge}円" %>
+              <% else%>
+                <%= carfare.hotel_charge %>
+              <% end %>
+            </td>
+            <td>
+              <% if carfare.moving_distance.present? %>
+                <%= "#{carfare.moving_distance}km" %>
+              <% else%>
+                <%= carfare.moving_distance %>
+              <% end %>
+            </td>
+            <td>
+              <% if carfare.highway_rate.present? %>
+                <%= "#{carfare.highway_rate}円" %></td>
+              <% else%>
+                <%= carfare.highway_rate %></td>
+              <% end %>
+            <td>
+              <%= link_to carfare.image.url, "data-lightbox" => carfare.image.url do %>
+                <%= image_tag carfare.image.url, size: "300x250", :style=>"400x300" unless carfare.image.blank? %>
+                <%= image_tag src='20200502_noimage.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
+              <% end %>
+            </td>
+            <td>
+              <% if carfare.application == '申請中' && carfare.application_ok.blank? %>
+                <b style="border:1px solid #F00; color: #F00">申請中</b>
+                <%= f.select 'application_ok', options_for_select([['承認'], ['否認']]), :placeholder => "承認もしくは否認を選択して下さい", class: 'form-control', include_blank: true %><br><br>
+                <%= f.text_area :note, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）", class: 'form-control note' %>
+                <%= f.submit "承認/否認", class: "btn btn-sm btn-primary" %>
+              <% elsif carfare.application.present? && carfare.application_ok == '承認' %>
+                <b style="border:1px solid #00F; color: #00F">承認済</b>
+              <% elsif carfare.application == '申請中' && carfare.application_ok == '否認' %>
+                <b style="border:1px solid #008080; color: #008080">否認済</b><br><br>
+              <% elsif carfare.application == '再申請' && carfare.application_ok == '否認' %>
+                <b style="border:1px solid #008080; color: #008080">否認済</b><br><br>
+                <b style="border:1px solid #800080; color: #800080">再申請済</b>
+                <%= f.select 'application_ok', options_for_select([['承認'], ['再否認']]), :placeholder => "承認もしくは避妊を選択して下さい", class: 'form-control', include_blank: true %><br><br>
+                <%= f.text_area :note, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）", class: 'form-control note' %>
+                <%= f.submit "承認/否認", class: "btn btn-sm btn-primary" %>
+              <% end %>
+              <% if carfare.application_ok == '再否認' %>
+                <b style="border:1px solid #800080; color: #800080">再否認</b>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
   <%= will_paginate @projects %>
 </div>

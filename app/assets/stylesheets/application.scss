@@ -98,6 +98,34 @@ h1, h2, h3, h4, h6 {
   margin-top: 3rem !important;
 }
 
+#box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+}
+#box5 p {
+    margin: 0;
+    padding: 0;
+}
+
+.form-control {
+  width: 40%;
+}
+
+.date_of_use {
+  display: inline;
+  width: 20%;
+}
+
+.note {
+  width: 80%;
+}
+
+.ransack_form {
+  width: 70%;
+  border:1px solid rgb(189, 189, 189);
+  color: rgb(65, 65, 65)
+}
 
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
@@ -139,14 +167,14 @@ ul {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
-  
+
 
   /* 用紙サイズ A4 */
   height: 297mm;
   width: 210mm;
 
   /* 余白サイズ */
-  
+
   padding-top: 15mm;
   padding-left: 15mm;
   padding-right: 15mm;

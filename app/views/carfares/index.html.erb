@@ -2,6 +2,64 @@
 <h1>
     交通費管理画面（公共交通機関）
 </h1>
+<% if @carfares_count > 0 %>
+  <h3>
+    <b style="border:1px solid #008080; color: #008080"><%= "現在の否認件数: #{@carfares_count}件" %></b>
+  </h3>
+<% end %>
+<% if @carfares_count_A > 0 %>
+  <h3>
+    <b style="border:1px solid #800080; color: #800080"><%= "現在の再申請件数: #{@carfares_count_A}件" %></b>
+  </h3>
+<% end %>
+<% if @carfares_count_1 > 0 %>
+  <h3>
+    <b style="border:1px solid #222222; color: #222222"><%= "現在の未申請件数: #{@carfares_count_1}件" %></b>
+  </h3>
+<% end %>
+<% if @carfares_count_2 > 0 %>
+  <h3>
+  <b style="border:1px solid #FF0000; color: #FF0000"><%= "現在の申請件数: #{@carfares_count_2}件" %></b>
+  </h3>
+<% end %>
+
+<div class="carfare-t ransack_form" type="radio">
+  <%= search_form_for @q, url: search_user_carfares_path do |f| %>
+    <%= f.label :date_of_use, "交通機関利用日（範囲検索）" %><br>
+    <%= f.date_field :date_of_use_gteq, class: 'form-control date_of_use' %> 〜
+    <%= f.date_field :date_of_use_lteq, class: 'form-control date_of_use' %><br>
+    <%= f.label :application, "申請状況" %><br>
+    <%= f.radio_button :application, '', {:checked => false} %>指定なし
+    <%= f.radio_button :application_ok_eq, '承認' %>承認
+    <%= f.radio_button :application_ok_cont, '否認' %>未承認<br>
+    <%= f.submit '検索', class: "btn btn-sm btn-primary" %><br><br>
+  <% end %>
+  <script>
+    var nowchecked = [];
+    $('input[type="radio"]:checked').each(function(){
+      nowchecked.push( $(this).attr('id') );
+    });
+
+    $('input[type="radio"]').click(function(){
+      var idx = $.inArray( $(this).attr('id'), nowchecked ); // nowcheckedにクリックされたボタンのidが含まれるか判定。なければ-1が返る。
+      if( idx >= 0 ) { // クリックしたボタンにチェックが入っていた場合
+        $(this).prop('checked', false); // チェックを外す
+        nowchecked.splice(idx,1); // nowcheckedからこのボタンのidを削除
+      } else { // チェックが入っていなかった場合
+      // 同じname属性のラジオボタンをnowcheckedから削除する
+        var name = $(this).attr('name');
+        $('input[name="' + name + '"]').each(function(){
+          var idx2 = $.inArray( $(this).attr('id'), nowchecked);
+          if( idx2 >= 0 ){
+            nowchecked.splice(idx2,1);
+          }
+        });
+        // チェックしたものをnowcheckedに追加
+        nowchecked.push( $(this).attr('id') );
+      }
+    });
+  </script>
+</div>
 
 <div class="carfare-t">
   <%= will_paginate @projects %>
@@ -19,6 +77,8 @@
         <th>移動距離</th>
         <th>高速料金</th>
         <th>伝票画像</th>
+        <th>申請状況</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -61,11 +121,41 @@
           <td>
             <%= link_to carfare.image.url, "data-lightbox" => carfare.image.url do %>
               <%= image_tag carfare.image.url, size: "300x250", :style=>"400x300" unless carfare.image.blank? %>
-              <%= image_tag src='noimage_ピクト-580x440.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
+              <%= image_tag src='20200502_noimage.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
             <% end %>
           </td>
-          <td><%= button_to '編集',edit_user_carfare_path(id: carfare), method: :get %></td>
-          <td><%= button_to '削除',user_carfare_path(id: carfare), method: :delete %></td>
+          <td>
+            <% if carfare.application.blank? || carfare.application_ok == ''%>
+              <%= button_to '申請画面',user_carfare_path(current_user, carfare), method: :get, class: "btn btn-sm btn-primary" %>
+            <% end %>
+            <% if carfare.application == '申請中' && carfare.application_ok.blank? %>
+              <b style="border:1px solid #F00; color: #F00">申請済</b>
+            <% end %>
+            <% if carfare.application.present? && carfare.application_ok == '承認' %>
+              <b style="border:1px solid #00F; color: #00F">承認済</b>
+            <% end %>
+            <% if carfare.application == '申請中' && carfare.application_ok == '否認' && carfare.application_ok != '承認'  %>
+              <b style="border:1px solid #008080; color: #008080">否認済</b>
+              <%= button_to '再申請',user_carfare_path(current_user, carfare), method: :get, class: "btn btn-sm btn-primary" %>
+            <% end %>
+            <% if carfare.application == '再申請' && carfare.application_ok == '否認' %>
+              <b style="border:1px solid #008080; color: #008080">否認済</b><br>
+              <b style="border:1px solid #800080; color: #800080">再申請</b>
+            <% end %>
+            <% if carfare.application == '再申請' && carfare.application_ok == '再否認' %>
+              <b style="border:1px solid #AAAAAA; color: #AAAAAA">無効</b><br>
+              <%= "再申請が否認されました。" %><br><%= "こちらの登録内容を削除して再度交通費登録及び申請を行って下さい。" %>
+            <% end %>
+              <% if carfare.application_ok != '再否認' %>
+              <% if carfare.note.nil? %>
+                <%= carfare.note %>
+              <% elsif carfare.application_ok != '承認' %>
+                <br><%=safe_join(carfare.note.split("\n"),tag(:br))%>
+              <% end %>
+            <% end %>
+          </td>
+          <td><%= button_to '編集',edit_user_carfare_path(carfare.user.id, carfare), method: :get, class: "btn btn-sm btn-success" %></td>
+          <td><%= button_to '削除',user_carfare_path(carfare.user.id, carfare), method: :delete, class: "btn btn-sm btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

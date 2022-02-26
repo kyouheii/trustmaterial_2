@@ -54,12 +54,12 @@ gem 'sqlite3', '~> 1.4.1'
 #画像アップロード（追加）
 gem 'carrierwave'
 gem 'rmagick'
-gem 'mini_magick'
 #ページネーション機能でしよう
 gem 'will_paginate'
 # 検索機能
 gem 'ransack'
-gem 'pry-rails', group: [:development, :test] 
+gem 'active_model_serializers'
+#gem 'pry-rails', group: [:development, :test]
 
 group :development, :test do
   gem 'pry-rails', group: [:development, :test]

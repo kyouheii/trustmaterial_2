@@ -2,13 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success, :info, :warning, :danger
-  
+
   $days_of_the_week = %w{日 月 火 水 木 金 土}
-
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください。"
-
-  
-
    # ログイン済みのユーザーか確認する。
   # def logged_in_user
   #   unless user_signed_in?
@@ -53,14 +49,13 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-  
   # このアクションを追加
   def after_sign_in_path_for(resource)
     new_user_session_path
   end
 
 
-  def set_one_month 
+  def set_one_month
     @first_day = params[:date].nil? ? #nilだったらその月
     Date.current.beginning_of_month : params[:date].to_date
     @last_day = @first_day.end_of_month
@@ -94,7 +89,7 @@ class ApplicationController < ActionController::Base
     def admin_return
       redirect_to root_path if current_user.admin?
     end
-  
+
     def no_admin_return
       redirect_to root_path unless current_user.admin?
     end
@@ -107,7 +102,7 @@ class ApplicationController < ActionController::Base
       @admin_user = current_user ? current_user.admin? : current_user
     end
 
-    
+
   protected
 
   # 入力フォームからアカウント名情報をDBに保存するために追加
