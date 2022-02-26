@@ -24,31 +24,9 @@ class UsersController < ApplicationController
   def destroy 
   
   end
-
- 
-
-  # def update
-  #   @user = User.find(params[:id])
-  #   if @user.id == current_user.id
-  #     @user.update(user_params)
-  #     flash[:success] = "プロフィールが更新されました！"
-  #     redirect_to user_path(@user)
-  #   else
-  #     render root_path
-  #   end
-  # end
-  # def create
-  #   @user = User.new(params[:user])
-  #   if @user.save
-  #     redirect_to user
-  #   else
-  #     flash.now[:danger] = '認証に失敗しました。'
-  #     render :new
-  #   end
-  # end
-
+  
   def go_work
-    @now_users = User.includes(:schedules).references(:schedules).
+    @schedules = Schedule.includes(:user).where(worked_on: Time.current).
     where('schedules.started_at IS NOT NULL').
     where('schedules.finished_at IS NULL')
     # where('schedules.site_name IS NULL')
@@ -61,7 +39,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :nearest_station, :phone_number, :image)
   end
 
-  def site_params
-    params.require(:schedule).permit(:site_name)
-  end
 end

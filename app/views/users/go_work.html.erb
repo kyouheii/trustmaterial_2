@@ -8,11 +8,11 @@
       <td>出勤場所</td>
       <td>名前</td>
     </tr>
-      <% @now_users.each do |user| %>
-    <tr>
-      <td><%= user.site_name %></td>
-      <td><%= user.name %></td>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.site_name %></td>
+          <td><%= schedule.user.name %></td>
+        </tr>
       <% end %>
-    </tr>
   </table>
 </div>
