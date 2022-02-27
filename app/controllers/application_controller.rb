@@ -2,9 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success, :info, :warning, :danger
-  
-  $days_of_the_week = %w{日 月 火 水 木 金 土}
 
+  $days_of_the_week = %w{日 月 火 水 木 金 土}
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください。"
    # ログイン済みのユーザーか確認する。
   # def logged_in_user
@@ -56,27 +55,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def set_one_month 
-    @first_day = params[:date].nil? ? #nilだったらその月
-    Date.current.beginning_of_month : params[:date].to_date
-    @last_day = @first_day.end_of_month
-    one_month = [*@first_day..@last_day] # 対象の月の日数を代入します。
-    # ユーザーに紐付く一ヶ月分のレコードを検索し取得します。
-    @schedules = @user.schedules.where(worked_on: @first_day..@last_day).order(:worked_on)
-
-    unless one_month.count == @schedules.count # それぞれの件数（日数）が一致するか評価します。
-      ActiveRecord::Base.transaction do # トランザクションを開始します。
-        # 繰り返し処理により、1ヶ月分の勤怠データを生成します。
-        one_month.each { |day| @user.schedules.create!(worked_on: day) }
-    end
-    @schedules = @user.schedules.where(worked_on: @first_day..@last_day).order(:worked_on)
-  end
-  rescue ActiveRecord::RecordInvalid # トランザクションによるエラーの分岐です。
-    flash[:danger] = "ページ情報の取得に失敗しました、再アクセスしてください。"
-    redirect_to root_url
-  end
-
-  def set_one_month 
+  def set_one_month
     @first_day = params[:date].nil? ? #nilだったらその月
     Date.current.beginning_of_month : params[:date].to_date
     @last_day = @first_day.end_of_month
@@ -110,7 +89,7 @@ class ApplicationController < ActionController::Base
     def admin_return
       redirect_to root_path if current_user.admin?
     end
-  
+
     def no_admin_return
       redirect_to root_path unless current_user.admin?
     end
@@ -122,6 +101,7 @@ class ApplicationController < ActionController::Base
     def current_user_admin?
       @admin_user = current_user ? current_user.admin? : current_user
     end
+
 
   protected
 

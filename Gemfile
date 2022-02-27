@@ -33,7 +33,10 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
+gem 'rmagick'
 gem 'whenever', require: false
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -47,7 +50,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 #日本語化する
 gem 'rails-i18n'
-gem 'sqlite3', git: "https://github.com/sparklemotion/sqlite3-ruby"
+gem 'sqlite3', '~> 1.4.1'
 #画像アップロード（追加）
 gem 'carrierwave'
 gem 'rmagick'
@@ -56,12 +59,13 @@ gem 'will_paginate'
 # 検索機能
 gem 'ransack'
 gem 'active_model_serializers'
-#gem 'pry-rails', group: [:development, :test] 
+#gem 'pry-rails', group: [:development, :test]
 
 group :development, :test do
   gem 'pry-rails', group: [:development, :test]
-  #gem 'wicked_pdf'
-  #gem 'wkhtmltopdf-binary'
+  gem 'wicked_pdf'
+  gem 'wkhtmltopdf-binary'
+  gem 'sqlite3', '~> 1.4.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver

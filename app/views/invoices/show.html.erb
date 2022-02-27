@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <style type="text/css">
       table { page-break-inside:auto }
-    tr { page-break-inside:avoid; page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,26 +15,19 @@
 
 <body>
     <section class="sheet">
-<<<<<<< HEAD
-=======
         <div class="row_2">
             <h5 class="text-right">請求書番号    [100]</h5>
             <h5 class="text-right">日付  2021年8月31日</h5>
         </div>
->>>>>>> origin/public-transport-branch
         <div class="row_1">
           <ul>
             <h3 class="text-center">請  求  書</h3>
           </ul>
         </div>
-<<<<<<< HEAD
         <div class="row_1">
             <h5 class="text-right">請求書番号    [<%= @invoice.invoice_number %>]</h5>
             <h5 class="text-right">日付  <%= @invoice.invoice_date %></h5>
-            
         </div>
-=======
->>>>>>> origin/public-transport-branch
         <div class="row_3">
             <div class="col_1">
                 <ul>
@@ -73,11 +66,8 @@
                 </thead>
                 <tbody>
                     <tr class="dataline">
-<<<<<<< HEAD
                         <td class="text-center"><%= @invoice.sales_staff %></td>
-=======
                         <td class="text-center">丸川 伸</td>
->>>>>>> origin/public-transport-branch
                         <td class="text-center">イベント委託費</td>
                         <td class="text-center">振り込み</td>
                         <td class="text-center">2021.9.30</td>
@@ -157,7 +147,6 @@
                         <td> </td>
                         <td> </td>
                     </tr>
-<<<<<<< HEAD
                     <tr class="dataline">
                         <td> </td>
                         <td> </td>
@@ -201,20 +190,6 @@
                     <tr>
                         <th> 合計 </th>
                         <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*1.1, unit: "¥") %></td>
-=======
-                    <tr>
-                        <td class="space" rowspan="3" colspan="2"> </td>
-                        <th> 小計 </th>
-                        <td><%= number_to_currency(@invoice.subtotal_fee.to_s(:delimited), unit: "¥") %></td>
-                    </tr>
-                    <tr>
-                        <th> 消費税 </th>
-                        <td><%= number_to_currency(@invoice.tax.to_s(:delimited), unit: "¥") %></td>
-                    </tr>
-                    <tr>
-                        <th> 合計 </th>
-                        <td><%= number_to_currency(@invoice.total_fee.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                     </tr>
                 </tbody>
             </table>

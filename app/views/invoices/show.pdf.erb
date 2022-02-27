@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <style type="text/css">
       table { page-break-inside:auto }
-    tr { page-break-inside:avoid; page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,13 +16,8 @@
 <body>
     <section class="sheet">
         <div class="row_2">
-<<<<<<< HEAD
             <h5 class="text-right">請求書番号    [<%= @invoice.invoice_number %>]</h5>
             <h5 class="text-right">日付  <%= @invoice.invoice_date %></h5>
-=======
-            <h5 class="text-right">請求書番号    [100]</h5>
-            <h5 class="text-right">日付  2021年8月31日</h5>
->>>>>>> origin/public-transport-branch
         </div>
         <div class="row_1">
           <ul>
@@ -91,31 +86,19 @@
                         <td class="text-left">コスモカード 人件費</td>
                         <td></td>
                         <td></td>
-<<<<<<< HEAD
                         <td><%= number_to_currency(@invoice.card_labor_cost.to_i, unit: "¥") %></td>
-=======
-                        <td><%= number_to_currency(@invoice.card_labor_cost.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                     </tr>
                     <tr class="dataline">
                       <td class="text-left">コスモカード 獲得インセンティブ</td>
                       <td></td>
                       <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.card_incentive.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.card_incentive.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                       <td class="text-left">コスモカードスタッフ 交通費</td>
                       <td></td>
                       <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.card_labor_commuting_allowance.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.card_labor_commuting_allowance.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                         <td> </td>
@@ -127,21 +110,13 @@
                       <td class="text-left">通信事業 人件費</td>
                       <td></td>
                       <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                       <td class="text-left">通信事業 交通費 ※備品代込</td>
                       <td></td>
                       <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.cell_phone_sales_commuting_allowance.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.cell_phone_sales_commuting_allowance.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                         <td> </td>
@@ -153,21 +128,12 @@
                       <td class="text-left">通信事業（山陰ライン）人件費</td>
                       <td></td>
                       <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost_saninline.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost_saninline.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                       <td class="text-left">通信事業（山陰ライン）交通費 ※備品代込</td>
                       <td></td>
-                      <td></td>
-<<<<<<< HEAD
                       <td><%= number_to_currency(@invoice.cell_phone_sales_saninline.to_i, unit: "¥") %></td>
-=======
-                      <td><%= number_to_currency(@invoice.cell_phone_sales_saninline.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                   </tr>
                     <tr class="dataline">
                         <td> </td>
@@ -178,7 +144,6 @@
                     <tr>
                         <td class="space" rowspan="3" colspan="2"> </td>
                         <th> 小計 </th>
-<<<<<<< HEAD
                         <td><%= number_to_currency(@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i, unit: "¥") %></td>
                     </tr>
                     <tr>
@@ -188,17 +153,14 @@
                     <tr>
                         <th> 合計 </th>
                         <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*1.1, unit: "¥") %></td>
-=======
-                        <td><%= number_to_currency(@invoice.subtotal_fee.to_s(:delimited), unit: "¥") %></td>
                     </tr>
                     <tr>
                         <th> 消費税 </th>
-                        <td><%= number_to_currency(@invoice.subtotal_fee.to_s(:delimited), unit: "¥") %></td>
+                        <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*0.1, unit: "¥") %></td>
                     </tr>
                     <tr>
                         <th> 合計 </th>
                         <td><%= number_to_currency(@invoice.total_fee.to_s(:delimited), unit: "¥") %></td>
->>>>>>> origin/public-transport-branch
                     </tr>
                 </tbody>
             </table>

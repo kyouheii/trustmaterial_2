@@ -6,15 +6,12 @@
   <div class="col-md-6 col-md-offset-3">
     <!-- @invoiceという変数をコントローラから受け取るとする。 -->
     <%= form_with(model:@invoice, url: client_invoices_path(@client), local: true) do |f| %>
-<<<<<<< HEAD
       <%= f.label :invoice_number, "請求書番号", class: "label-signup" %>
       <%= f.text_field :invoice_number, class: 'form-control' %>
 
       <%= f.label :invoice_date, "請求書日付", class: "label-signup" %>
       <%= f.text_field :invoice_date, class: 'form-control' %>
 
-=======
->>>>>>> origin/public-transport-branch
       <%= f.label :sales_staff, "営業担当者", class: "label-signup" %>
       <%= f.text_field :sales_staff, class: 'form-control' %>
 
@@ -47,7 +44,7 @@
 
       <%= f.label :cell_phone_sales_saninline, "通信事業（山陰ライン）交通費（備品代込み）", class: "label-signup" %>
       <%= f.text_field :cell_phone_sales_saninline, class: "form-control" %>
-      
+
       <%= f.label :subtotal_fee, "小計", class: "label-signup" %>
       <%= f.text_field :subtotal_fee, class: "form-control" %>
 
