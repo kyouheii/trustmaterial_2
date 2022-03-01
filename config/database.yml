@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: cap_psql_production
+  username: PostgreSQLのユーザーネーム
+  password: <%= ENV['CAP_PSQL_DATABASE_PASSWORD'] %>
