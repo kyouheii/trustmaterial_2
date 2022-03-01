@@ -74,7 +74,7 @@ class SchedulesController < ApplicationController
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
       }
       response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
-      p response
+       p response
 
       redirect_to index_one_month_user_schedules_url(@user) and return
     end
@@ -107,7 +107,7 @@ class SchedulesController < ApplicationController
       if @schedule.update_attributes!(started_at: Time.current.change(sec: 0)) && (@schedule.site_name)
         flash[:info] = "おはようございます！"
         flash[:success] = "スケジュールを更新しました。"
-        message.push({
+        messages.push({
           type: 'text',
           text: schedule['@user']['site_name'],
         })
