@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <style type="text/css">
       table { page-break-inside:auto }
-    tr { page-break-inside:avoid; page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,7 +20,7 @@
           【<%= l(@first_day, format: :short) %>】
           <%= link_to "⇨", all_index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
         </td>
-      </tr> 
+      </tr>
     </table>
   </div>
 
@@ -37,16 +37,18 @@
             <th width="500">現場名</th>
             <th width="300">備考</th>   
         </tr>
-      </thead>       
+      </thead>
       <tbody>
         <% @schedules.each do |schedule| %> 
           <% css_class = 
+          
             case %w{日 月 火 水 木 金 土}[schedule.worked_on.wday]
             when '土'
               'text-primary'
             when '日'
               'text-danger'
             end
+            
           %>
           <tr>
             <td><%= l(schedule.worked_on, format: :short) %></td>
@@ -75,6 +77,6 @@
           </tr>
         <% end %>
       </tbody>
-    </table> 
+    </table>
   </div>
 </html>

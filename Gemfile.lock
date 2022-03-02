@@ -346,7 +346,8 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  x86_64-darwin-20
+  ruby
+  x86_64-darwin-18
 
 DEPENDENCIES
   activerecord
