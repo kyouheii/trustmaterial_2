@@ -11,7 +11,11 @@
   </head>
   <body>
     <% flash.each do |message_type, message| %>
-      <p class="alert alert-<%= message_type %>">
+      <%
+=begin%>
+ <p class="alert alert-<%= message_type %>"> 
+<%
+=end%>
         <%= message %>
       </p>
     <% end %>

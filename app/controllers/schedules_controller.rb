@@ -103,14 +103,17 @@ class SchedulesController < ApplicationController
   def update 
     @user = User.find(params[:user_id])
     @schedule = Schedule.find(params[:id])
-    if @schedule.started_at.nil? && @schedule.site_name.nil?
-      if @schedule.update_attributes!(started_at: Time.current.change(sec: 0)) && (@schedule.site_name)
+    if @schedule.site_name.nil?
+      flash[:danger] = "勤務地が入ってないため出勤報告ができません。"
+    elsif @schedule.started_at.nil?
+      if @schedule.update_attributes!(started_at: Time.current.change(sec: 0))
         flash[:info] = "おはようございます！"
         flash[:success] = "スケジュールを更新しました。"
-        messages.push({
+        text = @user.name + " " + @schedule.site_name + " " + "出発しました。"
+        message = {
           type: 'text',
-          text: schedule['@user']['site_name'],
-        })
+          text: text
+        }
         client = Line::Bot::Client.new { |config|
           config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
           config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
@@ -123,21 +126,35 @@ class SchedulesController < ApplicationController
       end
     elsif @schedule.arrived_at.nil?
       if @schedule.update_attributes(arrived_at: Time.current.change(sec: 0))
-        flash[:info] = "よろしくお願いします"
+        flash.now[:info] = "よろしくお願いします"
+        text = @user.name + " " + @schedule.site_name + " " + "到着しました。"
         message = {
           type: 'text',
-          text: '到着しました。'
+          text: text
         }
+        client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+        p response
       else
         flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
       end
     elsif @schedule.finished_at.nil?
       if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
-        flash[:info] = "お疲れ様でした。"
+        flash.now[:info] = "お疲れ様でした。"
+        text = @user.name + " " + @schedule.site_name + " " + "退店しました。"
         message = {
           type: 'text',
-          text: '退店しました。'
+          text: text
         }
+        client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+        p response
       else
         flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
       end

@@ -17,9 +17,9 @@
 @import "bootstrap";
 /* universal */
 
-body {
-  // padding-top: 50px;
-}
+// body {
+//   // padding-top: 50px;
+// }
 
 section {
   overflow: auto;
@@ -259,9 +259,9 @@ td {
 }
 
 table th {
-  background: #3366cc;
+  background: #C0C0C0;
   font-weight: normal;
-  color: #ffffff;
+  color: #000;
 }
 table td {
   text-align: right;
@@ -345,7 +345,6 @@ table.detail tr.dataline:nth-child(even) td {
    margin-top: 50px;
  }
 
-<<<<<<< HEAD
  .top-btn{
   text-align: center;
   border: none;
@@ -440,7 +439,7 @@ margin: 5px 0px;
 
 .addon-line {
 background-color:#00c300;
-border: none;
+// border: none;
 border-radius: 2px 0px 0px 2px;
 color:#00c300;
 }
@@ -462,6 +461,7 @@ color: #fff;
 
 .fa-line{
 color:#00c300;
+background-color: #0F0;
 }
 
 
@@ -491,19 +491,19 @@ strong {
 color: #95a5bb;
 }
 
-.form-control {
-  background: none;
-  height: 40px;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-  color: #8b9eb6;
-  padding: 0px;
-}
+// .form-control {
+//   background: none;
+//   height: 40px;
+//   border: none;
+//   border-radius: 0px;
+//   box-shadow: none;
+//   color: #8b9eb6;
+//   padding: 0px;
+// }
 
-.form-control:focus {
-  box-shadow: none;
-}
+// .form-control:focus {
+//   box-shadow: none;
+// }
 
 .p-top p {
   position: absolute;/*絶対配置*/
@@ -513,7 +513,9 @@ color: #95a5bb;
 	vertical-align: bottom;
   }
 
-
+*{
+  text-align: center;
+}
 .dropdown{
 	text-align: right;
 }
@@ -522,9 +524,8 @@ color: #95a5bb;
 	color: #222222;
 	text-align: center !important;
 	font-size: 3vw;
+}
 
-=======
  table {
-  border: 2px solid black ;
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
+  border: 2px solid black;
 }

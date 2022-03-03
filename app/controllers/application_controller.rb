@@ -2,7 +2,7 @@ require 'line/bot'
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :validate_signature, except: [:new, :create]
+  # before_action :validate_signature, except: [:new, :create]
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success, :info, :warning, :danger
   
@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
 
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください。"
 
-  def validate_signature
-    body = request.body.read
-    signature = request.env['HTTP_X_LINE_SIGNATURE']
-    unless client.validate_signature(body, signature)
-  end  
+  # def validate_signature
+  #   body = request.body.read
+  #   signature = request.env['HTTP_X_LINE_SIGNATURE']
+  #   unless client.validate_signature(body, signature)
+  # end  
 
   def client
     @client ||= Line::Bot::Client.new { |config|
@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
       config.channel_token = "8hOhcc4BeDmJ9bNt5WwDlCtNW+atD3DBE23onzavM53ZZRppDP7fuYrZE3+46KJEb2R8NpyvnSoNlLol//50T4mv4QXxGaX2me0ejcvbdMdzOwh9g09xr65SXa3myxEh5CaTn7p8tD7UY6xEhqvW2gdB04t89/1O/w1cDnyilFU="
     }
   end
-end
 
    # ログイン済みのユーザーか確認する。
   # def logged_in_user

@@ -3,7 +3,7 @@ require 'net/http'
 require 'uri'
 
 class Line
-  TOKEN = "mId6kDooBfvYyfpTySKAv1xqQLYvPFF4EvVTr5YBi1c"
+  TOKEN = "MjBWi8ikjo9mIJ0xPpylaAJ066x24Dc9BgY7hKyCUqO"
   URI = URI.parse("https://notify-api.line.me/api/notify")
 
   def make_request(msg)
