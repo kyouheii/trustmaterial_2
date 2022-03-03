@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show)
-  before_action :set_one_month, only: %i(show, update)
-  before_action :all_set_one_month, only: %i(show)
-
+  before_action :set_one_month, only: %i(show)
   # before_action :all_set_one_month, %i(show)
-
-  
 
   def show
     @user = User.find(params[:id])
@@ -20,44 +16,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def create
+    item_id = Item.find(code: params[:schedule][:item_id]).id
+    Schedule.create(site_params.merge(item_id: item_id))
+  end
+
   def destroy 
   
   end
-
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      # 保存に成功した場合は、ここに記述した処理が実行されます。
-      redirect_to :show
-    else
-      render :new
-    end
-  end
- 
-  # def update
-  #   @user = User.find(params[:id])
-  #   if @user.id == current_user.id
-  #     @user.update(user_params)
-  #     flash[:success] = "プロフィールが更新されました！"
-  #     redirect_to user_path(@user)
-  #   else
-  #     render root_path
-  #   end
-  # end
-  # def create
-  #   @user = User.new(params[:user])
-  #   if @user.save
-  #     redirect_to user
-  #   else
-  #     flash.now[:danger] = '認証に失敗しました。'
-  #     render :new
-  #   end
-  # end
-
+  
   def go_work
-    @now_users = User.includes(:schedules).references(:schedules).
+    @schedules = Schedule.includes(:user).where(worked_on: Time.current).
     where('schedules.started_at IS NOT NULL').
     where('schedules.finished_at IS NULL')
+    # where('schedules.site_name IS NULL')
   end
   
   
@@ -66,4 +38,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :nearest_station, :phone_number, :image)
   end
+
 end

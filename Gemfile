@@ -24,7 +24,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth', '~> 1.9.1'
 gem 'line-bot-api'
+gem "dotenv"
+gem 'rake'
+gem 'sinatra-activerecord'
+gem 'activerecord'
 gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
