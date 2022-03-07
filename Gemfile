@@ -31,7 +31,6 @@ gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
 gem 'whenever', require: false
 
