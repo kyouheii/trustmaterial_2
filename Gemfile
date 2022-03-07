@@ -33,10 +33,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
-gem 'rmagick'
 gem 'whenever', require: false
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
