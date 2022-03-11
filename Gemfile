@@ -61,9 +61,10 @@ gem 'will_paginate'
 # 検索機能
 gem 'ransack'
 gem 'active_model_serializers'
+#gem 'pry-rails', group: [:development, :test]
 
 group :development, :test do
-  gem 'pry-rails'
+  gem 'pry-rails', group: [:development, :test]
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver

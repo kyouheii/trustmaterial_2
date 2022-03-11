@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.integer "sanin_public_transportation_arrival_fee"
     t.date "date_of_use"
     t.date "date_of_use_private_car"
+<<<<<<< HEAD
     t.string "application"
     t.string "application_1"
     t.string "application_ok"
@@ -98,6 +99,8 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.integer "sanin_public_transportation_arrival_fee"
     t.date "date_of_use"
     t.date "date_of_use_private_car"
+=======
+>>>>>>> origin/public-transport-branch
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -132,10 +135,15 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.datetime "updated_at", null: false
     t.integer "cell_phone_sales_labor_cost_saninline"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.string "invoice_date"
     t.string "invoice_number"
 >>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
+=======
+    t.string "invoice_date"
+    t.string "invoice_number"
+>>>>>>> origin/public-transport-branch
     t.index ["client_id"], name: "index_invoices_on_client_id"
   end
 
@@ -143,6 +151,7 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.string "store"
     t.date "worked_date"
     t.string "staff_name"
+<<<<<<< HEAD
 <<<<<<< HEAD
     t.time "work_start_time", default: "2000-01-01 09:00:00"
     t.time "work_end_time", default: "2000-01-01 18:00:00"
@@ -152,6 +161,11 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.time "work_end_time"
     t.time "break_time"
 >>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
+=======
+    t.time "work_start_time", default: "2000-01-01 09:00:00"
+    t.time "work_end_time", default: "2000-01-01 18:00:00"
+    t.time "break_time", default: "2000-01-01 01:00:00"
+>>>>>>> origin/public-transport-branch
     t.string "division"
     t.integer "unit_price"
     t.integer "gain_cards"

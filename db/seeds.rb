@@ -4,7 +4,6 @@ User.create!(name: "管理者",
   password_confirmation: "password",
   admin: true)
 
-
 User.create!(name: "宅麻伸",
   email: "sample-1@email.com",
   phone_number: "090-0000-0000",
