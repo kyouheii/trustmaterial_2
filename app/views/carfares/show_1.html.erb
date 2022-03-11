@@ -4,7 +4,11 @@
 </h1>
 
 <div class="carfare-t">
+<<<<<<< HEAD
 <%= form_with(model: @carfare, url: update_show_1_user_carfare_path(@user,@carfare), method: :patch, local: true) do |f| %>
+=======
+<%= form_with(model: @carfare, url: update_show_1_user_carfare_path(@user,@carfare), method: :patch) do |f| %>
+>>>>>>> origin/public-transport-branch
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
@@ -60,7 +64,11 @@
         <td>
           <%= link_to @carfare.image_private_car.url, "data-lightbox" => @carfare.image_private_car.url do %>
             <%= image_tag @carfare.image_private_car.url, size: "300x250", :style=>"400x300" unless @carfare.image_private_car.blank? %>
+<<<<<<< HEAD
             <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if @carfare.image_private_car.blank? %>
+=======
+            <%= image_tag src='20200502_noimage.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if @carfare.image_private_car.blank? %>
+>>>>>>> origin/public-transport-branch
           <% end %>
         </td>
         <td>
