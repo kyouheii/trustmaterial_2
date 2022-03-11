@@ -1,0 +1,55 @@
+<h1>
+    交通費登録ページ（公共交通機関）
+</h1>
+<body>
+  <%= form_for @carfare, url: user_carfares_path(current_user), method: :post do |f| %>
+    <p>
+        <%= f.label :date_of_use, "交通機関利用日" %><br>
+        <%= f.date_select :date_of_use, class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :commuting_place, "勤務地" %><br>
+        <%= f.text_field :commuting_place, :placeholder => "自家用車を利用された日の勤務地を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+      <%= f.label :point_of_departure, "出発地"%><br>
+      <%= f.text_field :point_of_departure, :placeholder => "利用された公共機関の出発地を入力して下さい。", class: 'form-control center'%>
+    </p>
+    <p>
+    <%= f.label :public_transportation_arrival, "到着地" %><br>
+        <%= f.text_field :public_transportation_arrival, :placeholder => "利用された公共機関の到着地を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+        <%= f.label :public_institution  , "公共機関" %><br>
+        <%= f.text_field :public_institution , :placeholder => "タクシーや電車など利用された公共機関名を入力", class: 'form-control center' %>
+    </p>
+    <p>
+    <%= f.label :public_transportation_cash, "公共機関金額" %><br>
+        <%= f.number_field :public_transportation_cash, :placeholder => "利用された公共機関の費用を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+        <%= f.label :public_transportation_departure, "駐車場名" %><br>
+        <%= f.text_field :public_transportation_departure, :placeholder => "利用された駐車場名を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <%= f.label :parking_fee,  "駐車料金" %><br>
+        <%= f.number_field :parking_fee , :placeholder => "高速料金を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+    <%= f.label :hotel_charge, "宿泊費" %><br>
+        <%= f.number_field :hotel_charge, :placeholder => "利用されたホテルなどの金額を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+    <%= f.label :moving_distance, "移動距離" %><br>
+        <%= f.number_field :moving_distance, :placeholder => "車で移動した際の移動距離を入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+    <%= f.label :highway_rate, "高速料金" %><br>
+        <%= f.number_field :highway_rate , :placeholder => "高速料金入力して下さい。", class: 'form-control center' %>
+    </p>
+    <p>
+      <%=f.label :image, "画像をアップロード" %>
+      <%= f.file_field :image, :placeholder => "画像を選択してください。", class: 'form-control center' %>
+    </p>
+    <%= f.submit "登録する", class:"btn btn-primary"%>
+  <% end %>
+</body>

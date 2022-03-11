@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      table { page-break-inside:auto }
+    tr { page-break-inside:avoid; page-break-after:auto }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sheet.css">
+    <title>請求書</title>
+</head>
+
+<body>
+    <section class="sheet">
+        <div class="row_2">
+            <h5 class="text-right">請求書番号    [<%= @invoice.invoice_number %>]</h5>
+            <h5 class="text-right">日付  <%= @invoice.invoice_date %></h5>
+        </div>
+        <div class="row_1">
+          <ul>
+            <h3 class="text-center">請  求  書</h3>
+          </ul>
+        </div>
+        <div class="row_3">
+            <div class="col_1">
+                <ul>
+                    <li>
+                        <h6 class="customer_name">(株)エス・マーケティング・デザイン・ジャパン 御中</h6>
+                    </li>
+                    <li class="text-left">〒150-0001</li>
+                    <li class="text-left">東京都渋谷区神宮前6-25-8</li>
+                    <li class="text-left">神宮前コーポラス 1408号</li>
+                    <li class="text-left">TEL 03-6419-7730</li>
+                </ul>
+            </div>
+            <div class="col_2">
+                <ul >
+                    <li>
+                        <h4 class="text-left">株式会社Trust Material</h4>
+                    </li>
+                    <li class="text-left">〒703-8243</li>
+                    <li class="text-left">岡山県岡山市中区清水502-202</li>
+                    <li class="text-left">代表取締役 木野 誠也</li>
+                    <li class="text-left">TEL 080-6133-6111</li>
+                </ul>
+            </div>
+            <div class="clear-element"></div>
+        </div>
+
+        <div class="row_4">
+            <table class="detail">
+                <thead>
+                    <tr>
+                        <th class="contact_person">営業担当者</th>
+                        <th class="product_name">品名</th>
+                        <th class="payment_terms">支払条件</th>
+                        <th class="fixed_date">期日</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="dataline">
+                        <td class="text-center">丸川 伸</td>
+                        <td class="text-center">イベント委託費</td>
+                        <td class="text-center">振り込み</td>
+                        <td class="text-center">2021.9.30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row_5">
+            <table class="detail">
+                <thead>
+                    <tr>
+                        <th class="item">内容</th>
+                        <th class="amount">数量</th>
+                        <th class="unit_price">単価</th>
+                        <th class="subtotal">金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="dataline">
+                        <td class="text-left">コスモカード 人件費</td>
+                        <td></td>
+                        <td></td>
+                        <td><%= number_to_currency(@invoice.card_labor_cost.to_i, unit: "¥") %></td>
+                    </tr>
+                    <tr class="dataline">
+                      <td class="text-left">コスモカード 獲得インセンティブ</td>
+                      <td></td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.card_incentive.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                      <td class="text-left">コスモカードスタッフ 交通費</td>
+                      <td></td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.card_labor_commuting_allowance.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr class="dataline">
+                      <td class="text-left">通信事業 人件費</td>
+                      <td></td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                      <td class="text-left">通信事業 交通費 ※備品代込</td>
+                      <td></td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.cell_phone_sales_commuting_allowance.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr class="dataline">
+                      <td class="text-left">通信事業（山陰ライン）人件費</td>
+                      <td></td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.cell_phone_sales_labor_cost_saninline.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                      <td class="text-left">通信事業（山陰ライン）交通費 ※備品代込</td>
+                      <td></td>
+                      <td><%= number_to_currency(@invoice.cell_phone_sales_saninline.to_i, unit: "¥") %></td>
+                  </tr>
+                    <tr class="dataline">
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td class="space" rowspan="3" colspan="2"> </td>
+                        <th> 小計 </th>
+                        <td><%= number_to_currency(@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i, unit: "¥") %></td>
+                    </tr>
+                    <tr>
+                        <th> 消費税 </th>
+                        <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*0.1, unit: "¥") %></td>
+                    </tr>
+                    <tr>
+                        <th> 合計 </th>
+                        <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*1.1, unit: "¥") %></td>
+                    </tr>
+                    <tr>
+                        <th> 消費税 </th>
+                        <td><%= number_to_currency((@invoice.card_labor_cost.to_i + @invoice.card_incentive.to_i + @invoice.card_labor_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost.to_i + @invoice.cell_phone_sales_commuting_allowance.to_i + @invoice.cell_phone_sales_labor_cost_saninline.to_i + @invoice.cell_phone_sales_saninline.to_i)*0.1, unit: "¥") %></td>
+                    </tr>
+                    <tr>
+                        <th> 合計 </th>
+                        <td><%= number_to_currency(@invoice.total_fee.to_s(:delimited), unit: "¥") %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <ul>
+          <li class="text-left">中国銀行 倉敷北支店</li>
+          <li class="text-left">普通 1397719</li>
+          <li class="text-left">株式会社Trust Material</li>
+          <li class="text-left">代表取締役 木野 誠也</li>
+          <li class="text-left">いつもご利用ありがとうございます。</li>
+        </ul>
+    </section>
+</body>
+
+</html>

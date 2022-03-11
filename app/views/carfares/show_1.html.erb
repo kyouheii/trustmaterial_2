@@ -1,0 +1,78 @@
+<% provide(:title, "交通費管理画面") %>
+<h1>
+    交通費管理画面（自家用車）
+</h1>
+
+<div class="carfare-t">
+<%= form_with(model: @carfare, url: update_show_1_user_carfare_path(@user,@carfare), method: :patch, local: true) do |f| %>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>自家用車利用日</th>
+        <th>ユーザー名</th>
+        <th>勤務地</th>
+        <th>出発地</th>
+        <th>到着地</th>
+        <th>駐車場名</th>
+        <th>駐車料金</th>
+        <th>宿泊費</th>
+        <th>移動距離</th>
+        <th>高速料金</th>
+        <th>伝票画像</th>
+        <th>申請</th>
+      </tr>
+    </thead>
+
+    <tbody  class="table table-bordered table-condensed">
+      <td><%= l(@carfare.date_of_use_private_car, formats: :nil, default: '') %></td>
+        <td><%= @user.name %></td>
+        <td><%= @carfare.commuting_place_private_car %></td>
+        <td><%= @carfare.point_of_departure_private_car %></td>
+        <td><%= @carfare.arrival_private_car %></td>
+        <td><%= @carfare.parking_name_private_car %></td>
+        <td>
+          <% if @carfare.parking_fee_private_car.present? %>
+            <%= "#{@carfare.parking_fee_private_car}円" %>
+          <% else%>
+            <%= @carfare.parking_fee_private_car %>
+          <% end %>
+        </td>
+        <td>
+          <% if @carfare.hotel_charge_private_car.present? %>
+            <%= "#{@carfare.hotel_charge_private_car}円" %>
+          <% else%>
+            <%= @carfare.hotel_charge_private_car %>
+          <% end %>
+        </td>
+        <td>
+          <% if @carfare.moving_distance_private_car.present? %>
+            <%= "#{@carfare.moving_distance_private_car}km" %>
+          <% else%>
+            <%= @carfare.moving_distance_private_car %>
+        </td>
+        <% end %>
+        <td>
+          <% if @carfare.highway_rate_private_car.present? %>
+            <%= "#{@carfare.highway_rate_private_car}円" %></td>
+          <% else%>
+            <%= @carfare.highway_rate_private_car %></td>
+        <% end %>
+        <td>
+          <%= link_to @carfare.image_private_car.url, "data-lightbox" => @carfare.image_private_car.url do %>
+            <%= image_tag @carfare.image_private_car.url, size: "300x250", :style=>"400x300" unless @carfare.image_private_car.blank? %>
+            <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if @carfare.image_private_car.blank? %>
+          <% end %>
+        </td>
+        <td>
+          <% if @carfare.application_ok_1.blank? %>
+            <%= f.select 'application_1', options_for_select([['申請中']]), include_blank: true %>
+          <% elsif @carfare.application_ok_1 == '否認' %>
+            <%= f.select 'application_1', options_for_select([['再申請']]), include_blank: true %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit "交通費申請", class: "btn btn-sm btn-primary" %>
+<% end %>
+</div>

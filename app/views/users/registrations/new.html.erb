@@ -1,6 +1,6 @@
 <h1>新規登録</h1>
-<%= form_for(resource, as: resource_name, url: "#") do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -32,7 +32,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

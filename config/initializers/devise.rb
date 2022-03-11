@@ -25,6 +25,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.omniauth :line, ENV["LINE_KEY"], ENV["LINE_SECRET"]
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -267,7 +268,7 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-  config.omniauth :line, ENV['1656271480'], ENV['9ca441011faf6cb1f67323335e15f90a']
+  config.omniauth :line, ENV['LINE_KEY'], ENV['LINE_SECRET']
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
