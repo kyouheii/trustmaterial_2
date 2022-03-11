@@ -28,7 +28,7 @@ class SchedulesController < ApplicationController
         end
         schedule.update_attributes!(item)
       end
-      # flash[:success] = "スケジュールを更新しました。"
+      flash[:success] = "スケジュールを更新しました。"
       message = {
         type: 'text',
         text: 'スケジュールを更新しました。 確認して下さい。'
@@ -108,7 +108,6 @@ class SchedulesController < ApplicationController
     elsif @schedule.started_at.nil?
       if @schedule.update_attributes!(started_at: Time.current.change(sec: 0))
         flash[:info] = "おはようございます！"
-        flash[:success] = "スケジュールを更新しました。"
         text = @user.name + " " + @schedule.site_name + " " + "出発しました。"
         message = {
           type: 'text',
@@ -143,7 +142,7 @@ class SchedulesController < ApplicationController
       end
     elsif @schedule.finished_at.nil?
       if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
-        flash.now[:info] = "お疲れ様でした。"
+        flash[:info] = "お疲れ様でした。"
         text = @user.name + " " + @schedule.site_name + " " + "退店しました。"
         message = {
           type: 'text',

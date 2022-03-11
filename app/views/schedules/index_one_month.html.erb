@@ -69,6 +69,6 @@
 
   <div class="center">
     <%= f.submit "まとめて更新", class: "btn btn-lg btn-primary" %>
-    <%= link_to "キャンセル", users_path(date: @first_day), class: "btn btn-lg btn-default" %>
+    <%= link_to "キャンセル", user_path(@user), class: "btn btn-lg btn-default" %>
   </div>
 <% end %>

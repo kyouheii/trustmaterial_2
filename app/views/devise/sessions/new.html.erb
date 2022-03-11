@@ -29,9 +29,8 @@
     <% end %>
 
     <div class="box-newusr btn btn-lg btn-#0F0">
-      <%= link_to "#", method: :get do %>
-        <i class="fab fa-line"></i> ログイン
-      <% end %>
+      <%= link_to "ログイン", user_line_omniauth_authorize_path, method: :post %>
+        <i class="fab fa-line"></i>
     </div>
     <div class="box-newusr">
       <%= link_to "新規作成", new_user_registration_path %>
