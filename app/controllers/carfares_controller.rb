@@ -1,7 +1,7 @@
 class CarfaresController < ApplicationController
   before_action :set_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
   before_action :current_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
-  before_action :correct_user, only: [:new, :new_1,:destroy, :update, :edit, :show, :index]
+  # before_action :correct_user, only: [:new, :new_1,:destroy, :update, :edit, :show, :index]
 
   # 交通費新規登録ページ（公共機関）
   def index

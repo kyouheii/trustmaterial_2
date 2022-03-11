@@ -4,6 +4,7 @@ User.create!(name: "管理者",
   password_confirmation: "password",
   admin: true)
 
+
 User.create!(name: "宅麻伸",
   email: "sample-1@email.com",
   phone_number: "090-0000-0000",
@@ -17,6 +18,12 @@ User.create!(name: "オダギリジョー",
   nearest_station: "倉敷",
   password: "password",
   password_confirmation: "password")
+
+  User.create!(name: "白神恭平",
+    email: "sample-3@email.com",
+    password: "password",
+    password_confirmation: "password",
+    admin: false)
 
 puts "users created"
 

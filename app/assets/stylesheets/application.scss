@@ -17,9 +17,9 @@
 @import "bootstrap";
 /* universal */
 
-body {
-  // padding-top: 50px;
-}
+// body {
+//   // padding-top: 50px;
+// }
 
 section {
   overflow: auto;
@@ -99,15 +99,15 @@ h1, h2, h3, h4, h6 {
 }
 
 
- @import 'font-awesome-sprockets';
- @import 'font-awesome';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
  // Place all the styles related to the invoices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  /* 印刷時の用紙設定 */
- @page {
+@page {
   size: A4; /* 用紙サイズ */
   margin: 0; /* ヘッダー・フッダーを無効化 */
 }
@@ -163,6 +163,33 @@ ul {
     box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3); /* ドロップシャドウ */
     margin: 5mm auto;
   }
+}
+
+/* フラッシュメッセージ */
+flash {
+  padding: 10px 0;
+  color: white;
+  background: #7FC3FF;
+  text-align: center;
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}
+
+/* 「ログインしました」などのフラッシュ用スタイル */
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert {
+  margin-bottom: 0;
 }
 
 /* 汎用クラス */
@@ -259,9 +286,9 @@ td {
 }
 
 table th {
-  background: #3366cc;
+  background: #C0C0C0;
   font-weight: normal;
-  color: #ffffff;
+  color: #000;
 }
 table td {
   text-align: right;
@@ -345,8 +372,7 @@ table.detail tr.dataline:nth-child(even) td {
    margin-top: 50px;
  }
 
-<<<<<<< HEAD
- .top-btn{
+.top-btn{
   text-align: center;
   border: none;
   background: none;
@@ -440,7 +466,7 @@ margin: 5px 0px;
 
 .addon-line {
 background-color:#00c300;
-border: none;
+// border: none;
 border-radius: 2px 0px 0px 2px;
 color:#00c300;
 }
@@ -462,6 +488,7 @@ color: #fff;
 
 .fa-line{
 color:#00c300;
+background-color: #0F0;
 }
 
 
@@ -491,29 +518,31 @@ strong {
 color: #95a5bb;
 }
 
-.form-control {
-  background: none;
-  height: 40px;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-  color: #8b9eb6;
-  padding: 0px;
+// .form-control {
+//   background: none;
+//   height: 40px;
+//   border: none;
+//   border-radius: 0px;
+//   box-shadow: none;
+//   color: #8b9eb6;
+//   padding: 0px;
+// }
+
+// .form-control:focus {
+//   box-shadow: none;
+// }
+
+// .p-top p {
+//   position: absolute;/*絶対配置*/
+//   color: white;/*文字は白に*/
+//   top: 0;
+//   left: 0;
+// 	vertical-align: bottom;
+//   }
+
+*{
+  text-align: center;
 }
-
-.form-control:focus {
-  box-shadow: none;
-}
-
-.p-top p {
-  position: absolute;/*絶対配置*/
-  color: white;/*文字は白に*/
-  top: 0;
-  left: 0;
-	vertical-align: bottom;
-  }
-
-
 .dropdown{
 	text-align: right;
 }
@@ -522,9 +551,8 @@ color: #95a5bb;
 	color: #222222;
 	text-align: center !important;
 	font-size: 3vw;
+}
 
-=======
  table {
-  border: 2px solid black ;
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
+  border: 2px solid black;
 }
