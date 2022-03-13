@@ -123,7 +123,7 @@
             <% end %>
           </td>
           <td>
-            <% if carfare.application.blank? || carfare.application_ok.blank? %>
+            <% if carfare.application.blank? || carfare.application_ok == '' %>
               <%= button_to '申請画面',user_carfare_path(current_user, carfare), method: :get, class: "btn btn-sm btn-primary" %>
             <% end %>
             <% if carfare.application == '申請中' && carfare.application_ok.blank? %>

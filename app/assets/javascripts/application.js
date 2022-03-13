@@ -18,3 +18,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require popper
+// フラッシュメッセージ
+$(function(){
+  $('.flash').fadeOut(4000);  //４秒かけて消えていく
+});

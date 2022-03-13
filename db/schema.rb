@@ -55,52 +55,12 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.integer "sanin_public_transportation_arrival_fee"
     t.date "date_of_use"
     t.date "date_of_use_private_car"
-<<<<<<< HEAD
     t.string "application"
     t.string "application_1"
     t.string "application_ok"
     t.string "application_ok_1"
     t.string "note"
     t.string "note_1"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "carfares", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "carfare_id"
-    t.date "worked_day"
-    t.string "commuting_place"
-    t.string "commuting_place_private_car"
-    t.string "public_institution"
-    t.string "public_transportation_departure"
-    t.string "public_transportation_departure_private_car"
-    t.string "point_of_departure"
-    t.string "point_of_departure_private_car"
-    t.string "public_transportation_arrival"
-    t.string "arrival_private_car"
-    t.integer "public_transportation_cash"
-    t.integer "hotel_charge"
-    t.integer "hotel_charge_private_car"
-    t.integer "moving_distance"
-    t.integer "moving_distance_private_car"
-    t.integer "highway_rate"
-    t.integer "highway_rate_private_car"
-    t.string "parking_name"
-    t.string "parking_name_private_car"
-    t.integer "parking_fee"
-    t.integer "parking_fee_private_car"
-    t.boolean "check_flag"
-    t.boolean "check_flag_private_car"
-    t.string "image"
-    t.string "image_private_car"
-    t.integer "all_pe_tr_ex"
-    t.integer "sanin_public_transportation_departure"
-    t.integer "sanin_public_transportation_arrival_fee"
-    t.date "date_of_use"
-    t.date "date_of_use_private_car"
-=======
->>>>>>> origin/public-transport-branch
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,16 +94,8 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cell_phone_sales_labor_cost_saninline"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     t.string "invoice_date"
     t.string "invoice_number"
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
-=======
-    t.string "invoice_date"
-    t.string "invoice_number"
->>>>>>> origin/public-transport-branch
     t.index ["client_id"], name: "index_invoices_on_client_id"
   end
 
@@ -151,21 +103,9 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.string "store"
     t.date "worked_date"
     t.string "staff_name"
-<<<<<<< HEAD
-<<<<<<< HEAD
-    t.time "work_start_time", default: "2000-01-01 09:00:00"
-    t.time "work_end_time", default: "2000-01-01 18:00:00"
-    t.time "break_time", default: "2000-01-01 01:00:00"
-=======
     t.time "work_start_time"
     t.time "work_end_time"
     t.time "break_time"
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
-=======
-    t.time "work_start_time", default: "2000-01-01 09:00:00"
-    t.time "work_end_time", default: "2000-01-01 18:00:00"
-    t.time "break_time", default: "2000-01-01 01:00:00"
->>>>>>> origin/public-transport-branch
     t.string "division"
     t.integer "unit_price"
     t.integer "gain_cards"

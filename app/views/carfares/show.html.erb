@@ -3,6 +3,8 @@
     交通費管理画面（公共交通機関）
 </h1>
 
+<h3 class="center"><%= link_to "（一覧へ戻る）", user_carfares_path(current_user) %></h3>
+
 <div class="carfare-t">
 <%= form_with(model: @carfare, url: update_show_user_carfare_path(@user,@carfare), method: :patch, local: true) do |f| %>
   <table class="table table-bordered table-condensed">

@@ -1,5 +1,4 @@
 class CarfaresController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :show_1, :index, :create, :update_show, :update_show_admin, :carfares_application]
   before_action :current_user, only: [:new, :new_1, :destroy, :admin_destroy_1, :update, :edit, :show, :show_1, :index, :create, :update_show, :update_show_admin]
   # before_action :correct_user, only: [:new, :new_1,:destroy, :update, :edit, :show, :show_1, :index, :update_show]
@@ -7,11 +6,8 @@ class CarfaresController < ApplicationController
   before_action :set_q_1, only: [:index_1, :search_1]
   before_action :set_q_admin, only: [:index_admin, :search_admin]
   before_action :set_q_admin_1, only: [:index_admin_1, :search_admin_1]
-=======
-  before_action :set_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
-  before_action :current_user, only: [:new, :new_1, :destroy, :update, :edit, :show, :index]
-  # before_action :correct_user, only: [:new, :new_1,:destroy, :update, :edit, :show, :index]
->>>>>>> 1588daeabf499aa836b3e1ca4362c36e0c0d7291
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, { only: [new, :new_1, :destroy, :update, :edit, :show, :show_1, :index, :index_1, :index_admin, :index_admin_1, :create, :update_show, :update_show_admin, :carfares_application, :search, :search_1, :search_admin, :search_admin_1] }
 
   # 交通費新規登録ページ（公共機関）
   def index
@@ -422,5 +418,13 @@ class CarfaresController < ApplicationController
   # 全ユーザーの一覧画面の編集機能（自家用車）
   def set_q_admin_1
     @q = Carfare.ransack(params[:q])
+  end
+
+  # 直打ち防止
+  def ensure_correct_user
+    @carfare = Carfare.find_by(id: params[:id])
+    return unless @carfare == current_user
+
+    redirect_to root_path
   end
 end
