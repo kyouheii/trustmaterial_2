@@ -51,7 +51,6 @@ class ApplicationController < ActionController::Base
   #     redirect_to root_url
   #   end
   # end
-  # def correct_user   #   unless current_user?(@user)   #     flash[:danger] = "他のユーザーは権限がありません。"   #     redirect_to root_url   #   end   # end 
   # システム管理権限所有かどうか判定する。
   def admin_user
     unless user_signed_in? && current_user.admin?
