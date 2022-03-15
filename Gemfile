@@ -4,6 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+ruby "2.7.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -34,14 +35,9 @@ gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass' # snsのアイコン
 gem 'bootstrap-sass'
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-gem 'mini_magick' # サイズ変更や保存形式の変更
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
-gem 'rmagick'
 gem 'whenever', require: false
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -55,7 +51,6 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 #日本語化する
 gem 'rails-i18n'
-gem 'sqlite3', '~> 1.4.1'
 #画像アップロード（追加）
 gem 'carrierwave'
 gem 'rmagick'
@@ -64,7 +59,7 @@ gem 'mini_magick'
 gem 'will_paginate'
 # 検索機能
 gem 'ransack'
-gem 'pry-rails', group: [:development, :test] 
+gem 'pry-rails', group: [:development, :test]
 
 group :development, :test do
   gem 'pry-rails', group: [:development, :test]

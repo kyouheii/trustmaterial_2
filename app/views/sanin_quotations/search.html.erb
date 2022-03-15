@@ -10,9 +10,6 @@
       <td>休憩時間</td>
       <td><%= sort_link(@q, :division, "区分") %></td>
       <td>基本金額</td>
-      <!-- <td>獲得枚数</td>
-      <td>アプリ獲得件数</td>
-      <td>インセンティブ</td> -->
       <td>交通費手当</td>
       <td>備考</td>
       <td>詳細</td>
@@ -34,9 +31,6 @@
         <td><%= format_basic_info(sanin_quotation.break_time) %></td>
         <td><%= sanin_quotation.division %></td>
         <td><%= sanin_quotation.unit_price %></td>
-        <!-- <td><%= quotation.gain_cards %></td>
-        <td><%= quotation.gain_apps %></td>
-        <td><%= quotation.incentive %></td> -->
         <td><%= sanin_quotation.commuting_allowance %></td>
         <td><%= sanin_quotation.note %></td>
         <td><%= link_to '詳細', client_sanin_quotation_path(@client, sanin_quotation), class: "btn btn-success" %></td>
