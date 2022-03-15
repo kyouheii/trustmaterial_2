@@ -518,15 +518,16 @@ strong {
 color: #95a5bb;
 }
 
-// .form-control {
-//   background: none;
-//   height: 40px;
-//   border: none;
-//   border-radius: 0px;
-//   box-shadow: none;
-//   color: #8b9eb6;
-//   padding: 0px;
-// }
+.form-control {
+  background: none;
+  width: 250px;
+  height: 40px;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  color: #8b9eb6;
+  padding: 0px;
+}
 
 // .form-control:focus {
 //   box-shadow: none;
@@ -555,4 +556,10 @@ color: #95a5bb;
 
  table {
   border: 2px solid black;
+}
+
+textarea {
+  resize: none;
+  width:300px;
+  height:200px;
 }
