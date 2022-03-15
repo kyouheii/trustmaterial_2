@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     :omniauth_callbacks =>  'omniauth_callbacks'
   } 
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'users/sessions#destroy'
   end
 
 
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       get 'go_work'
       get 'show'
     end
-    resources :schedules, except: %I(show) do
+    resources :schedules do
       get "/schedules/show.pdf"=>"schedules#show"
       collection do
         get 'index_one_month'

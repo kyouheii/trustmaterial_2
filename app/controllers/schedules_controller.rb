@@ -1,9 +1,10 @@
 class SchedulesController < ApplicationController
-  before_action :set_user, only: %i(index_one_month all_index_one_month)
+  require 'line/bot' 
+  before_action :set_user, only: %i(index_one_month all_index_one_month show)
   before_action :admin_user, only: %i(all_index_one_month)
-  before_action :set_one_month, only: %i(index_one_month)
-  before_action :all_set_one_month, only: %i(all_index_one_month)
-  before_action :set_q, only: [:all_index_one_month, :search]
+  before_action :set_one_month, only: %i(index_one_month show)
+  before_action :all_set_one_month, only: %i(all_index_one_month show)
+  # before_action :create, only: [:all_update_one_month, :update]
   UPDATE_ERROR_MSG = "勤怠登録に失敗しました。やり直してください"
   
   def all_index_one_month
@@ -32,7 +33,7 @@ class SchedulesController < ApplicationController
         type: 'text',
         text: 'スケジュールを更新しました。 確認して下さい。'
       }
-      response = client.broadcast(message)
+      # response = client.broadcast(message)
       p response
       redirect_to all_index_one_month_user_schedules_url(@user) and return
     end
@@ -68,6 +69,13 @@ class SchedulesController < ApplicationController
         type: 'text',
         text: 'スケジュールを更新しました。 確認して下さい。'
       }
+      client = Line::Bot::Client.new { |config|
+        config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+        config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      }
+      response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+       p response
+
       redirect_to index_one_month_user_schedules_url(@user) and return
     end
   rescue ActiveRecord::RecordInvalid # トランザクションによるエラーの分岐です。
@@ -78,7 +86,7 @@ class SchedulesController < ApplicationController
  
 
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
     @schedules = @user.schedules.all.order(:worked_on)
     respond_to do |format|
       format.html
@@ -90,27 +98,62 @@ class SchedulesController < ApplicationController
                orientation: 'Landscape'
       end
     end
-
   end
 
   def update 
     @user = User.find(params[:user_id])
     @schedule = Schedule.find(params[:id])
-    if @schedule.started_at.nil?
-      if @schedule.update_attributes(started_at: Time.current.change(sec: 0))
+    if @schedule.site_name.nil?
+      flash[:danger] = "勤務地が入ってないため出勤報告ができません。"
+    elsif @schedule.started_at.nil?
+      if @schedule.update_attributes!(started_at: Time.current.change(sec: 0))
         flash[:info] = "おはようございます！"
+        text = @user.name + " " + @schedule.site_name + " " + "出発しました。"
+        message = {
+          type: 'text',
+          text: text
+        }
+        client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+        p response
+
       else
         flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
       end
     elsif @schedule.arrived_at.nil?
       if @schedule.update_attributes(arrived_at: Time.current.change(sec: 0))
-        flash[:info] = "よろしくお願いします"
+        flash.now[:info] = "よろしくお願いします"
+        text = @user.name + " " + @schedule.site_name + " " + "到着しました。"
+        message = {
+          type: 'text',
+          text: text
+        }
+        client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+        p response
       else
         flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
       end
     elsif @schedule.finished_at.nil?
       if @schedule.update_attributes(finished_at: Time.current.change(sec: 0))
         flash[:info] = "お疲れ様でした。"
+        text = @user.name + " " + @schedule.site_name + " " + "退店しました。"
+        message = {
+          type: 'text',
+          text: text
+        }
+        client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
+        p response
       else
         flash[:danger] = "無効なデータがあった為、更新をキャンセルしました。"
       end
@@ -118,16 +161,12 @@ class SchedulesController < ApplicationController
     redirect_to @user
   end
 
-  def search
-    @results = @q.result
-  end
+ 
 
   private
 
 
-  def set_q
-    @q = Schedule.ransack(params[:q])
-  end
+  
 
   
   def client #lineのクライアントはlineから呼び出される

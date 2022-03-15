@@ -61,7 +61,7 @@
           <td>
             <%= link_to carfare.image.url, "data-lightbox" => carfare.image.url do %>
               <%= image_tag carfare.image.url, size: "300x250", :style=>"400x300" unless carfare.image.blank? %>
-              <%= image_tag src='noimage_ピクト-580x440.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
+              <%= image_tag src='20200502_noimage.png', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image.blank? %>
             <% end %>
           </td>
           <td><%= button_to '編集',edit_user_carfare_path(id: carfare), method: :get %></td>

@@ -20,11 +20,11 @@
     <table class="table table-bordered table-condensed table-schedules">
       <thead>
         <tr>
-          <th width="50">日付</th>
-          <th width="50">曜日</th>
-          <th width="200">出勤(○or×)</th>
-          <th width="300">現場名</th>
-          <th width="100">備考</th>
+          <th class="text-center" width="50">日付</th>
+          <th class="text-center" width="50">曜日</th>
+          <th class="text-center" width="50">出勤(○or×)</th>
+          <th class="text-center" width="300">現場名</th>
+          <th class="text-center" width="100">備考</th>
         </tr>
       </thead>
       <tbody>
@@ -39,14 +39,14 @@
               end
             %>
             <tr>
-              <td><%= l(day.worked_on, format: :short) %></td>
-              <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.worked_on.wday] %></td>
+              <td class="text-center"><%= l(day.worked_on, format: :short) %></td>
+              <td class="<%= css_class %> text-center"><%= %w{日 月 火 水 木 金 土}[day.worked_on.wday] %></td>
               <td>
-                <div class="form-group">
+                <div class="form-group"> 
                   <% if day.color_round_batsu? %>
-                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control', style: 'color: red' } %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control text-center', style: 'color: red' } %>
                   <% else %>
-                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control' } %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control text-center' } %>
                   <% end %>
                 </div>
               </td>
@@ -69,6 +69,6 @@
 
   <div class="center">
     <%= f.submit "まとめて更新", class: "btn btn-lg btn-primary" %>
-    <%= link_to "キャンセル", users_path(date: @first_day), class: "btn btn-lg btn-default" %>
+    <%= link_to "キャンセル", user_path(@user), class: "btn btn-lg btn-default" %>
   </div>
 <% end %>

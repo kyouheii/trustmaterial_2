@@ -5,12 +5,11 @@
      <h1>勤怠管理システム</h1>
   </div>
 
-  <% unless user_signed_in? %>
-    <%= link_to "新規作成", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  <% else %>
-    <%= link_to "新規作成", new_user_registration_path, class: "btn btn-lg btn-primary #{"disabled"}" %>
-  <% end %>
-
-  
-</div>
+  <div class="top-btn">
+    <% unless user_signed_in? %>
+      <%= link_to "新規作成", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <% else %>
+      <%= link_to "新規作成", new_user_registration_path, class: "btn btn-lg btn-primary #{"disabled"}" %>
+    <% end %>
+  </div>
 </div>

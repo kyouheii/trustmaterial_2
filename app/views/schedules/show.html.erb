@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <style type="text/css">
+<%= render 'layouts/flash_messages' %>
+<style type="text/css">
       table { page-break-inside:auto }
     tr { page-break-inside:avoid; page-break-after:auto } 
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="sheet.css">
-    <title>スケジュール表</title>
-</head>
-
+<h1>スケジュール一覧</h1>
+<%= form_with(model: @user, url: all_update_one_month_user_schedules_path(@user), local: true) do |f| %>
   <div>
     <table class="table table-bordered table-condensed table-schedules">
       <tr>
@@ -83,4 +78,9 @@
       </tbody>
     </table> 
   </div>
-</html>
+
+  <div class="center">
+    <%= f.submit "まとめて更新", class: "btn btn-lg btn-primary" %>
+    <%= link_to "キャンセル", user_path(@user), class: "btn btn-lg btn-default" %>
+  </div>
+<% end %>
