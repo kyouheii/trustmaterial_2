@@ -140,14 +140,14 @@ ul {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
-  
+
 
   /* 用紙サイズ A4 */
   height: 297mm;
   width: 210mm;
 
   /* 余白サイズ */
-  
+
   padding-top: 15mm;
   padding-left: 15mm;
   padding-right: 15mm;
@@ -348,4 +348,3 @@ table.detail tr.dataline:nth-child(even) td {
 
  table {
   border: 2px solid black ;
-}
