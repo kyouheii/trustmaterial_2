@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree .
  */
 
 @import "bootstrap-sprockets";
@@ -139,14 +140,14 @@ ul {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
-  
+
 
   /* 用紙サイズ A4 */
   height: 297mm;
   width: 210mm;
 
   /* 余白サイズ */
-  
+
   padding-top: 15mm;
   padding-left: 15mm;
   padding-right: 15mm;
@@ -556,7 +557,7 @@ color: #95a5bb;
 
  table {
   border: 2px solid black;
-}
+ }
 
 textarea {
   resize: none;

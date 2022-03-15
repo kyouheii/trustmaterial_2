@@ -4,9 +4,6 @@
 //= require action_cable
 //= require_self
 //= require_tree ./channels
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 
 (function() {
   this.App || (this.App = {});

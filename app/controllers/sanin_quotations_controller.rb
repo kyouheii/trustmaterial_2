@@ -24,7 +24,7 @@ class SaninQuotationsController < ApplicationController
   end
 
   def new
-    @sanin_quotation = saninQuotation.new
+    @sanin_quotation = SaninQuotation.new
   end
 
   def create

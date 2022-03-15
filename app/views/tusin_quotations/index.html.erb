@@ -43,10 +43,10 @@
       <td><%= tusin_quotation.unit_price.to_s(:delimited) %></td>
       <td><%= tusin_quotation.commuting_allowance.to_s(:delimited) %></td>
       <td><%= tusin_quotation.note %></td>
-      <td><%= link_to '詳細', client_quotation_path(@client, tusin_quotation), class: "btn btn-success" %></td>
-      <td><%= link_to '出力', client_quotation_path(format: :pdf, id: tusin_quotation.id), class: "btn btn-secondary" %></td>
-      <td><%= link_to '編集', edit_client_quotation_path(@client, tusin_quotation), class: "btn btn-warning" %></td>
-      <td><%= button_to '削除', client_quotation_path(@client, tusin_quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      <td><%= link_to '詳細', client_tusin_quotation_path(@client, tusin_quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '出力', client_tusin_quotation_path(format: :pdf, id: tusin_quotation.id), class: "btn btn-secondary" %></td>
+      <td><%= link_to '編集', edit_client_tusin_quotation_path(@client, tusin_quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', client_tusin_quotation_path(@client, tusin_quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
     <tr>
@@ -58,8 +58,8 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><%= TusinQuotation.all.sum(:unit_price).to_s(:delimited) %></td>
-      <td><%= TusinQuotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+      <td><%= @tusin_quotations.all.sum(:unit_price).to_s(:delimited) %></td>
+      <td><%= @tusin_quotations.all.sum(:commuting_allowance).to_s(:delimited) %></td>
       <td></td>
       <td></td>
       <td></td>
