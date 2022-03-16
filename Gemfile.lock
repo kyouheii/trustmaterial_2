@@ -144,13 +144,13 @@ GEM
     minitest (5.15.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
-    mustermann (1.1.1)
-      ruby2_keywords (~> 0.0.1)
     oauth2 (1.4.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -323,12 +323,12 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  x86_64-darwin-18
   x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
   activerecord
-  bootstrap (~> 4.1.1)
   bootstrap-sass
   byebug
   capybara (~> 2.13)
