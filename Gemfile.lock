@@ -100,7 +100,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
-    font-awesome-sass (6.0.0)
+    font-awesome-sass (6.1.0)
       sassc (>= 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -141,12 +141,16 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
+    nokogiri (1.13.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
@@ -320,6 +324,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
@@ -334,7 +339,7 @@ DEPENDENCIES
   dotenv
   dotenv-rails
   factory_bot_rails (~> 5.0)
-  font-awesome-sass
+  font-awesome-sass (~> 6.1.0)
   googleauth
   image_processing (~> 1.2)
   jbuilder (~> 2.5)

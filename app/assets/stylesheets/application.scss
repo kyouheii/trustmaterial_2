@@ -17,10 +17,8 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 /* universal */
+@import "font-awesome";
 
-// body {
-//   // padding-top: 50px;
-// }
 
 section {
   overflow: auto;
@@ -98,14 +96,6 @@ p {
 h1, h2, h3, h4, h6 {
   margin-top: 3rem !important;
 }
-
-
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-
- // Place all the styles related to the invoices controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
  /* 印刷時の用紙設定 */
 @page {
@@ -383,11 +373,11 @@ table.detail tr.dataline:nth-child(even) td {
 .brand {
   font-weight: bold;
   font-size: 20px; }
- 
+
 .site-header {
   position: relative;
   background-color: #def7ff; }
-  
+
 .site-header__wrapper {
   padding-top: 1rem;
   padding-bottom: 1rem; }
@@ -487,12 +477,6 @@ border-radius: 2px 0px 0px 2px;
 color: #fff;
 }
 
-.fa-line{
-color:#00c300;
-background-color: #0F0;
-}
-
-
 .btn-primary {
 border-radius: 2px;
 background-color: #23a9f6;
@@ -502,7 +486,7 @@ margin: 10px 0px;
 
 p {
 color: #aebbcb;
-} 
+}
 
 
 .divider-form {
@@ -557,5 +541,3 @@ color: #95a5bb;
  table {
   border: 2px solid black;
  }
-@import "font-awesome-compass"
-@import "font-awesome";
