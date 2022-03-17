@@ -17,6 +17,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 /* universal */
+@import "font-awesome";
 
 // body {
 //   // padding-top: 50px;
@@ -557,5 +558,3 @@ color: #95a5bb;
  table {
   border: 2px solid black;
  }
-@import "font-awesome-compass"
-@import "font-awesome";
