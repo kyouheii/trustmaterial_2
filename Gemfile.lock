@@ -100,7 +100,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
     ffi (1.15.5)
-    font-awesome-sass (6.0.0)
+    font-awesome-sass (6.1.0)
       sassc (>= 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -337,7 +337,7 @@ DEPENDENCIES
   dotenv
   dotenv-rails
   factory_bot_rails (~> 5.0)
-  font-awesome-sass
+  font-awesome-sass (~> 6.1.0)
   googleauth
   image_processing (~> 1.2)
   jbuilder (~> 2.5)

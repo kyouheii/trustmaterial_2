@@ -33,7 +33,7 @@ gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 gem 'googleauth'
-gem 'font-awesome-sass' # snsのアイコン
+gem 'font-awesome-sass', '~> 6.1.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
