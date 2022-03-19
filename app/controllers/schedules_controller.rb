@@ -95,11 +95,11 @@ class SchedulesController < ApplicationController
                layout: 'pdf',
                encording: 'UTF-8',
                template: 'schedules/show',
-               orientation: 'Landscape',
-               
+               orientation: 'Landscape'
       end
     end
   end
+  
 
   def update 
     @user = User.find(params[:user_id])
@@ -167,9 +167,6 @@ class SchedulesController < ApplicationController
   private
 
 
-  
-
-  
   def client #lineのクライアントはlineから呼び出される
     @client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
@@ -181,5 +178,4 @@ class SchedulesController < ApplicationController
   def schedules_params
     params.require(:user).permit(schedules: [:round_batsu, :color_round_batsu, :site_name, :color_change_site])[:schedules]
   end
-
 end

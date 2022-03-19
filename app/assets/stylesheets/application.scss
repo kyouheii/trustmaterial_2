@@ -99,11 +99,10 @@ h1, h2, h3, h4, h6 {
   margin-top: 3rem !important;
 }
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-
- // Place all the styles related to the invoices controller here.
+// Place all the styles related to the invoices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -455,7 +454,7 @@ border-radius:6px;
 width: 300px;
 text-align: center;
 padding: 20px;
-padding-top: 30px;
+padding-top: 0px;
 margin-top: 30px; /*Remove, its example*/
 margin:50px auto;
 box-shadow:15px 5px 0px rgba(17, 15, 15, 0.1);
@@ -521,7 +520,7 @@ color: #95a5bb;
 
 .form-control {
   background: none;
-  width: 250px;
+  width: 125px;
   height: 40px;
   border: none;
   border-radius: 0px;
@@ -545,6 +544,7 @@ color: #95a5bb;
 *{
   text-align: center;
 }
+
 .dropdown{
 	text-align: right;
 }
@@ -564,6 +564,3 @@ textarea {
   width:300px;
   height:200px;
 }
-// .div{
-//   page-break-inside :回避;
-// }
