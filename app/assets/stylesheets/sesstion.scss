@@ -68,10 +68,16 @@
 
 
 .btn-primary {
-	border-radius: 2px;
-	background-color: #23a9f6;
-	border-color: #23a9f6;
-	margin: 10px 0px;
+	// border-radius: 2px;
+	// background-color: #23a9f6;
+	// border-color: #23a9f6;
+	// margin: 10px 0px;
+	width: 300px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #68779a;
+	background: #cbe8fa;
+	cursor: pointer;
 }
 
 p {
