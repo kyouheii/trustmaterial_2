@@ -95,7 +95,7 @@ class SchedulesController < ApplicationController
                layout: 'pdf',
                encording: 'UTF-8',
                template: 'schedules/show',
-               orientation: 'Landscape',
+               orientation: 'Landscape'
                
       end
     end
