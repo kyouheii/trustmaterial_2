@@ -96,7 +96,6 @@ class SchedulesController < ApplicationController
                encording: 'UTF-8',
                template: 'schedules/show',
                orientation: 'Landscape'
-               
       end
     end
   end
