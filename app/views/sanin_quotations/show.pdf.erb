@@ -27,8 +27,19 @@
     <td>休憩時間</td>
     <td>区分</td>
     <td>基本金額</td>
+<<<<<<< HEAD
     <td>交通費手当</td>
     <td>備考</td>
+=======
+    <!-- <td>獲得枚数</td>
+    <td>アプリ獲得件数</td>
+    <td>インセンティブ</td> -->
+    <td>交通費手当</td>
+    <td>備考</td>
+    <!-- <td>詳細</td>
+    <td>編集</td>
+    <td>削除</td> -->
+>>>>>>> 81b7a4ec488e78a74397ff5460f61acf4777a59a
   </tr>  
   <% @sanin_quotations.each do |sanin_quotation| %>
     <tr>
@@ -41,8 +52,19 @@
       <td><%= format_basic_info(sanin_quotation.break_time) %></td>
       <td><%= sanin_quotation.division %></td>
       <td><%= sanin_quotation.unit_price.to_s(:delimited) %></td>
+<<<<<<< HEAD
       <td><%= sanin_quotation.commuting_allowance.to_s(:delimited) %></td>
       <td><%= sanin_quotation.note %></td>
+=======
+      <!-- <td><%= quotation.gain_cards %></td>
+      <td><%= quotation.gain_apps %></td>
+      <td><%= quotation.incentive.to_s(:delimited) %></td> -->
+      <td><%= sanin_quotation.commuting_allowance.to_s(:delimited) %></td>
+      <td><%= sanin_quotation.note %></td>
+      <!-- <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
+      <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
+      <td><%= button_to '削除', client_quotation_path(@client, quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
+>>>>>>> 81b7a4ec488e78a74397ff5460f61acf4777a59a
   <% end %>
     </tr>
         <tr>
@@ -54,9 +76,22 @@
       <td></td>
       <td></td>
       <td></td>
+<<<<<<< HEAD
       <td><%= @sanin_quotations.all.sum(:unit_price).to_s(:delimited) %></td>
       <td><%= @sanin_quotations.all.sum(:commuting_allowance).to_s(:delimited) %></td>
       <td></td>
+=======
+      <td><%= SaninQuotation.all.sum(:unit_price).to_s(:delimited) %></td>
+      <!-- <td><%= Quotation.all.sum(:gain_cards) %></td>
+      <td><%= Quotation.all.sum(:gain_apps) %></td>
+      <td><%= Quotation.all.sum(:incentive).to_s(:delimited) %></td> -->
+      <td><%= SaninQuotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+      <td></td>
+      <!-- <td></td>
+      <td></td>
+      <td></td>
+      <td></td> -->
+>>>>>>> 81b7a4ec488e78a74397ff5460f61acf4777a59a
     </tr>
 </table>
 

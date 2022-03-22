@@ -46,11 +46,19 @@
       <td><%= format_basic_info(quotation.work_end_time) %></td>
       <td><%= format_basic_info(quotation.break_time) %></td>
       <td><%= quotation.division %></td>
+<<<<<<< HEAD
       <td><%= quotation.unit_price %></td>
       <td><%= quotation.gain_cards %></td>
       <td><%= quotation.gain_apps %></td>
       <td><%= quotation.incentive %></td>
       <td><%= quotation.commuting_allowance %></td>
+=======
+      <td><%= quotation.unit_price.to_s(:delimited) %></td>
+      <td><%= quotation.gain_cards %></td>
+      <td><%= quotation.gain_apps %></td>
+      <td><%= quotation.incentive.to_s(:delimited) %></td>
+      <td><%= quotation.commuting_allowance.to_s(:delimited) %></td>
+>>>>>>> 81b7a4ec488e78a74397ff5460f61acf4777a59a
       <td><%= quotation.note %></td>
       <!-- <td><%= link_to '詳細', client_quotation_path(@client, quotation), class: "btn btn-success" %></td>
       <td><%= link_to '編集', edit_client_quotation_path(@client, quotation), class: "btn btn-warning" %></td>
@@ -66,11 +74,19 @@
       <td></td>
       <td></td>
       <td></td>
+<<<<<<< HEAD
       <td><%= @quotations.all.sum(:unit_price).to_s(:delimited) %></td>
       <td><%= @quotations.all.sum(:gain_cards) %></td>
       <td><%= @quotations.all.sum(:gain_apps) %></td>
       <td><%= @quotations.all.sum(:incentive).to_s(:delimited) %></td>
       <td><%= @quotations.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+=======
+      <td><%= Quotation.all.sum(:unit_price).to_s(:delimited) %></td>
+      <td><%= Quotation.all.sum(:gain_cards) %></td>
+      <td><%= Quotation.all.sum(:gain_apps) %></td>
+      <td><%= Quotation.all.sum(:incentive).to_s(:delimited) %></td>
+      <td><%= Quotation.all.sum(:commuting_allowance).to_s(:delimited) %></td>
+>>>>>>> 81b7a4ec488e78a74397ff5460f61acf4777a59a
       <td></td>
       <!-- <td></td>
       <td></td>
