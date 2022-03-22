@@ -1,0 +1,18 @@
+<% provide(:title, '出勤中社員') %>
+<h1>出勤中社員</h1>
+
+<div>
+  <table class="table table-bordered table-condensed user-table">
+  <thead>
+    <tr>
+      <td>出勤場所</td>
+      <td>名前</td>
+    </tr>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.site_name %></td>
+          <td><%= schedule.user.name %></td>
+        </tr>
+      <% end %>
+  </table>
+</div>

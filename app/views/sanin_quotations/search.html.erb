@@ -1,0 +1,45 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <td><%= sort_link(@q, :store, "店舗名") %></td>
+      <td><%= sort_link(@q, :worked_date, "業務日") %></td>
+      <td><%= sort_link(@q, :staff_name, "スタッフ名") %></td>
+      <td>開始時間</td>
+      <td>終了時間</td>
+      <td>休憩時間</td>
+      <td><%= sort_link(@q, :division, "区分") %></td>
+      <td>基本金額</td>
+      <td>交通費手当</td>
+      <td>備考</td>
+      <td>詳細</td>
+      <td>出力</td>
+      <td>編集</td>
+      <td>削除</td>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |sanin_quotation| %>
+      <tr>
+        <td><%= sanin_quotation.store %></td>
+        <td><%= sanin_quotation.worked_date %></td>
+        <td><%= sanin_quotation.staff_name %></td>
+        <td><%= format_basic_info(sanin_quotation.work_start_time) %></td>
+        <td><%= format_basic_info(sanin_quotation.work_end_time) %></td>
+        <td><%= format_basic_info(sanin_quotation.break_time) %></td>
+        <td><%= sanin_quotation.division %></td>
+        <td><%= sanin_quotation.unit_price %></td>
+        <td><%= sanin_quotation.commuting_allowance %></td>
+        <td><%= sanin_quotation.note %></td>
+        <td><%= link_to '詳細', client_sanin_quotation_path(@client, sanin_quotation), class: "btn btn-success" %></td>
+        <td><%= link_to '出力', client_sanin_quotation_path(format: :pdf, id: sanin_quotation.id), class: "btn btn-secondary" %></td>
+        <td><%= link_to '編集', edit_client_sanin_quotation_path(@client, sanin_quotation), class: "btn btn-warning" %></td>
+        <td><%= button_to '削除', client_sanin_quotation_path(@client, sanin_quotation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '戻る', client_sanin_quotations_path, class: "btn btn-primary" %>
