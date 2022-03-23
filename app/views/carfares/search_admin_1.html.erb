@@ -6,17 +6,17 @@
 
 <div>
   <table class="table table-bordered table-condensed">
-    <% @sum_total = 0 %>
+    <% @sum = 0 %>
     <% @results.each do |result| %>
       <% if result.application_ok_1 == '承認' %>
-        <% @sum_parking = result.parking_fee_private_car.to_i %>
-        <% @sum_highway_rate = result.highway_rate_private_car.to_i %>
-        <% @sum_hotel =  result.hotel_charge_private_car.to_i %>
-        <% @sum_total = result.parking_fee_private_car.to_i + result.highway_rate_private_car.to_i + result.hotel_charge_private_car.to_i %>
+        <% @sum_parking = @sum_parking.to_i + result.parking_fee_private_car.to_i %>
+        <% @sum_highway_rate = @sum_highway_rate.to_i + result.highway_rate_private_car.to_i %>
+        <% @sum_hotel =  @sum_hotel.to_i + result.hotel_charge_private_car.to_i %>
+        <% @sum = @sum.to_i + result.parking_fee_private_car.to_i + result.highway_rate_private_car.to_i + result.hotel_charge_private_car.to_i %>
       <% end %>
     <% end %>
 
-    <% if @sum_total.to_i != 0%>
+    <% if @sum.to_i != 0%>
       <tr>
         <th class="center" colspan = "5">承認済み交通費</th>
       </tr>
@@ -42,8 +42,8 @@
         <% else %>
           <td class="center"></td>
         <% end %>
-        <% if @sum_total.to_i > 0 %>
-          <td class="center"><%= "#{@sum_total.to_s(:delimited)}円" %></td>
+        <% if @sum.to_i > 0 %>
+          <td class="center"><%= "#{@sum.to_s(:delimited)}円" %></td>
         <% else %>
           <td class="center"></td>
         <% end %>

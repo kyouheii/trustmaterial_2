@@ -8,10 +8,10 @@
     <% @sum = 0 %>
     <% @results.each do |result| %>
       <% if result.application_ok == '承認' %>
-        <% @sum_public = result.public_transportation_cash.to_i %>
-        <% @sum_highway_rate = result.highway_rate.to_i %>
-        <% @sum_hotel =  result.hotel_charge.to_i %>
-        <% @sum = result.public_transportation_cash.to_i + result.highway_rate.to_i + result.hotel_charge.to_i %>
+        <% @sum_public = @sum_public.to_i + result.public_transportation_cash.to_i %>
+        <% @sum_highway_rate = @sum_highway_rate.to_i + result.highway_rate.to_i %>
+        <% @sum_hotel =  @sum_hotel.to_i + result.hotel_charge.to_i %>
+        <% @sum = @sum.to_i + result.public_transportation_cash.to_i + result.highway_rate.to_i + result.hotel_charge.to_i %>
       <% end %>
     <% end %>
 
