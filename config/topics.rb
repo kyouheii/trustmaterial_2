@@ -1,0 +1,1 @@
+scope :recent, -> { order(craeted_at: desc)}

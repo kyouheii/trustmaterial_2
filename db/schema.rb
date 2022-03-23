@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220130121626) do
+ActiveRecord::Schema.define(version: 20220322233440) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "line_messaging_id"
@@ -91,6 +91,10 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.string "invoice_date"
     t.string "invoice_number"
     t.index ["client_id"], name: "index_invoices_on_client_id"
+  end
+
+  create_table "pdf_to_topics", force: :cascade do |t|
+    t.string "pdf"
   end
 
   create_table "quotations", force: :cascade do |t|

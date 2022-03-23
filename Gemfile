@@ -38,6 +38,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
 gem 'whenever', require: false
+gem 'pdftotext'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -53,6 +54,8 @@ gem 'wkhtmltopdf-binary'
 gem 'rails-i18n'
 #画像アップロード（追加）
 gem 'carrierwave'
+gem 'cloudinary'
+gem 'dotenv-rails'
 gem 'rmagick'
 gem 'mini_magick'
 #ページネーション機能でしよう
