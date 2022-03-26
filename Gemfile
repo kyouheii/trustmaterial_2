@@ -54,7 +54,7 @@ gem 'wkhtmltopdf-binary'
 gem 'rails-i18n'
 #画像アップロード（追加）
 gem 'carrierwave'
-gem 'cloudinary'
+# gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'rmagick'
 gem 'mini_magick'
