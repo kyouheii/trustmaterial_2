@@ -1,1 +1,2 @@
-scope :recent, -> { order(craeted_at: desc)}
+cloudinary：      
+   service：Cloudinary 
