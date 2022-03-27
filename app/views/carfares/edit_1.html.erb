@@ -1,0 +1,50 @@
+<h1>
+    交通費編集ページ（自家用車）
+</h1>
+<h3 class="center"><%= link_to "（一覧へ戻る）", index_1_user_carfares_path(current_user) %></h3>
+<body>
+
+  <%= form_for @carfare, url: update_1_user_carfare_path(id: @carfare), method: :PATCH do |f| %>
+  
+    <p>
+        <%= f.label :date_of_use_private_car, "自家用車利用日" %><br>
+        <%= f.date_select :date_of_use_private_car, class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :commuting_place_private_car, "勤務地" %><br>
+        <%= f.text_field :commuting_place_private_car, :placeholder => "自家用車を利用された日の勤務地を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.label :point_of_departure_private_car, "出発地"%><br>
+      <%= f.text_field :point_of_departure_private_car, :placeholder => "自家用車を利用された日の出発地を入力して下さい。", class: 'form-control' %>
+    </p>
+    <%= f.label :arrival_private_car, "到着地" %><br>
+        <%= f.text_field :arrival_private_car, :placeholder => "自家用車を利用された日の到着地を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+        <%= f.label :parking_name_private_car, "駐車場名" %><br>
+        <%= f.text_field :parking_name_private_car, :placeholder => "利用された駐車場名を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :parking_fee_private_car,  "駐車料金" %><br>
+        <%= f.number_field :parking_fee_private_car, :placeholder => "高速料金を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :hotel_charge_private_car, "宿泊費" %><br>
+        <%= f.number_field :hotel_charge_private_car, :placeholder => "利用されたホテルなどの金額を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :highway_rate_private_car, "高速料金" %><br>
+        <%= f.number_field :highway_rate_private_car, :placeholder => "高速料金入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+    <%= f.label :moving_distance_private_car, "移動距離" %><br>
+        <%= f.number_field :moving_distance_private_car, :placeholder => "車で移動した際の移動距離を入力して下さい。", class: 'form-control' %>
+    </p>
+    <p>
+      <%=f.label :image_private_car, "画像をアップロード" %>
+      <%= f.file_field :image_private_car, :placeholder => "画像を選択してください。", class: 'form-control' %>
+    </p>
+    <%= f.submit "編集する", class:"btn btn-primary"%>
+  <% end %>
+</body>

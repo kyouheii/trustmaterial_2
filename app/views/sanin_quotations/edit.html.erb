@@ -1,0 +1,46 @@
+<h1 class="title">
+  見積書編集
+</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!-- @quotationという変数をコントローラから受け取るとする。 -->
+    <%= form_with(model: @sanin_quotation, url: client_sanin_quotation_path(@client, @sanin_quotation), local: true, method: :patch) do |f| %>
+
+      <%= f.label :item_number, "No.", class: "label-signup" %>
+      <%= f.text_field :item_number, class: "form-control" %>
+
+      <%= f.label :store, "店舗名", class: "label-signup" %>
+      <%= f.text_field :store, class: "form-control" %>
+
+      <%= f.label :worked_date, "業務日", class: "label-signup" %>
+      <%= f.text_field :worked_date, class: "form-control" %>
+
+      <%= f.label :staff_name, "スタッフ名", class: "label-signup" %>
+      <%= f.text_field :staff_name, class: "form-control" %>
+
+      <%= f.label :work_start_time, "開始時間", class: "label-signup" %>
+      <%= f.text_field :work_start_time, class: "form-control" %>
+
+      <%= f.label :work_end_time, "終了時間", class: "label-signup" %>
+      <%= f.text_field :work_end_time, class: "form-control" %>
+
+      <%= f.label :break_time, "休憩時間", class: "label-signup" %>
+      <%= f.text_field :break_time, class: "form-control" %>
+
+      <%= f.label :division, "区分", class: "label-signup" %>
+      <%= f.text_field :division, class: "form-control" %>
+
+      <%= f.label :unit_price, "基本金額", class: "label-signup" %>
+      <%= f.text_field :unit_price, class: "form-control" %>
+      
+      <%= f.label :commuting_allowance, "交通費手当", class: "label-signup" %>
+      <%= f.text_field :commuting_allowance, class: "form-control" %>
+
+      <%= f.label :note, "備考", class: "label-signup" %>
+      <%= f.text_field :note, class: "form-control" %>
+
+      <%= f.submit '保存', class: "btn btn-primary btn-block btn-login" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<%= render 'layouts/flash_messages' %>
+<h1>スケジュール表</h1>
+<%= form_with(model: @user, url: update_one_month_user_schedules_path(@user), local: true) do |f| %>
+  <div>
+    <table class="table table-bordered table-condensed table-schedules">
+      <tr>
+        <td>
+          <%= link_to "⇦", index_one_month_user_schedules_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
+          【<%= l(@first_day, format: :middle) %>】
+          <%= link_to "⇨", index_one_month_user_schedules_path(@user, date: @first_day.next_month), class: "btn btn-primary" %>
+        </td>
+      </tr> 
+    </table>
+  </div>
+
+  <div>
+    <h1>
+      <%= current_user.name %>
+    </h1>
+    <table class="table table-bordered table-condensed table-schedules">
+      <thead>
+        <tr>
+          <th class="text-center" width="50">日付</th>
+          <th class="text-center" width="50">曜日</th>
+          <th class="text-center" width="50">出勤(○or×)</th>
+          <th class="text-center" width="300">現場名</th>
+          <th class="text-center" width="100">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @schedules.each do |day| %>
+          <%= f.fields_for "schedules[]", day do |s| %>
+            <% css_class = 
+              case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+              when '土'
+                'text-primary'
+              when '日'
+                'text-danger'
+              end
+            %>
+            <tr>
+              <td class="text-center"><%= l(day.worked_on, format: :short) %></td>
+              <td class="<%= css_class %> text-center"><%= %w{日 月 火 水 木 金 土}[day.worked_on.wday] %></td>
+              <td>
+                <div class="form-group"> 
+                  <% if day.color_round_batsu? %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control text-center', style: 'color: red' } %>
+                  <% else %>
+                    <%= s.select :round_batsu, {'○': 1, '×': 2}, { include_blank: ''}, { class: 'form-control text-center' } %>
+                  <% end %>
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                    <% if day.color_change_site? %>
+                      <%= s.text_field :site_name, class: "form-control", style: 'color: red' %>
+                    <% else %>
+                      <%= s.text_field :site_name, class: "form-control" %>
+                    <% end %>
+                </div>
+              </td>
+              <td><%= s.text_field :note, class: "form-control" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+
+  <div class="d-grid gap-2">
+    <%= f.submit "まとめて更新", class: "btn btn-lg btn-primary" %>
+    <%= link_to "キャンセル", user_path(@user), class: "btn btn-lg btn-default" %>
+  </div>
+<% end %>

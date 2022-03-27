@@ -1,4 +1,3 @@
-import '@fortawesome/fontawesome-free/js/all'
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -8,10 +7,13 @@ import '@fortawesome/fontawesome-free/js/all'
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file. JavaScript code in this file should be added after the last require_* statement.
 //
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for shows
 // about supported directives.
 //
-
 //= require rails-ujs
+//= require jquery_ujs
+//= require jquery
+//= require bootstrap
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .

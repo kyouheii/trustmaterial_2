@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sa_re: 1
+  item: MyString
+  pay_terms: MyString
+  due_date: 1
+  all_la_co_ca: 1
+  all_incentive: MyString
+  all_tr_ex_ca: 1
+  all_la_co: 1
+  all_tr_ex: 1
+  all_la_co_san: 1
+  all_tr_ex_san: 1
+  sub_total: 1
+  tax: 1
+  all_item_cost: 1
+
+two:
+  sa_re: 1
+  item: MyString
+  pay_terms: MyString
+  due_date: 1
+  all_la_co_ca: 1
+  all_incentive: MyString
+  all_tr_ex_ca: 1
+  all_la_co: 1
+  all_tr_ex: 1
+  all_la_co_san: 1
+  all_tr_ex_san: 1
+  sub_total: 1
+  tax: 1
+  all_item_cost: 1
