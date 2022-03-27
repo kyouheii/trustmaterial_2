@@ -1,0 +1,159 @@
+<div class="carfare-t">
+<h1 style="color: #800080">＜＜検索結果＞＞</h1>
+<h1>
+    交通費管理画面（自家用車）
+</h1><br>
+
+<div>
+  <table class="table table-bordered table-condensed">
+    <% @sum = 0 %>
+    <% @results.each do |result| %>
+      <% if result.application_ok_1 == '承認' %>
+        <% @sum_parking = @sum_parking.to_i + result.parking_fee_private_car.to_i %>
+        <% @sum_highway_rate = @sum_highway_rate.to_i + result.highway_rate_private_car.to_i %>
+        <% @sum_hotel = @sum_hotel.to_i + result.hotel_charge_private_car.to_i %>
+        <% @sum = @sum.to_i + result.parking_fee_private_car.to_i + result.highway_rate_private_car.to_i + result.hotel_charge_private_car.to_i %>
+      <% end %>
+    <% end %>
+
+    <% if @sum.to_i != 0%>
+      <tr>
+        <th class="center" colspan = "5">承認済み交通費</th>
+      </tr>
+      <tr>
+        <th class="center">駐車料金</th>
+        <th class="center">高速料金</th>
+        <th class="center">宿泊費</th>
+        <th class="center">合計</th>
+      </tr> 
+      <tr>
+        <% if @sum_parking.to_i > 0 %>
+          <td class="center"><%= "#{@sum_parking.to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="center"></td>
+        <% end %>
+        <% if @sum_highway_rate.to_i > 0 %>
+          <td class="center"><%= "#{@sum_highway_rate.to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="center"></td>
+        <% end %>
+        <% if @sum_hotel.to_i > 0 %>
+          <td class="center"><%= "#{@sum_hotel.to_s(:delimited)}円"%></td>
+        <% else %>
+          <td class="center"></td>
+        <% end %>
+        <% if @sum.to_i > 0 %>
+          <td class="center"><%= "#{@sum.to_s(:delimited)}円" %></td>
+        <% else %>
+          <td class="center"></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<h3 class="center"><%= link_to "（一覧へ戻る）", index_1_user_carfares_path(current_user) %></h3>
+  <table class="table table_sticky table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>自家用車利用日</th>
+        <th>ユーザー名</th>
+        <th>勤務地</th>
+        <th>出発地</th>
+        <th>到着地</th>
+        <th>駐車場名</th>
+        <th>駐車料金</th>
+        <th>宿泊費</th>
+        <th>移動距離</th>
+        <th>高速料金</th>
+        <th>伝票画像</th>
+        <th>申請状況</th>
+        <th colspan="2" ></th>
+      </tr>
+    </thead>
+
+    <tbody  class="table table-bordered table-condensed">
+      <% @results.each do |result| %>
+        <tr>
+          <td><%= l(result.date_of_use_private_car, formats: :default) %></td>
+          <td><%= result.user.name %></td>
+          <td><%= result.commuting_place_private_car %></td>
+          <td><%= result.point_of_departure_private_car %></td>
+          <td><%= result.arrival_private_car %></td>
+          <td><%= result.parking_name_private_car %></td>
+          <td>
+            <% if result.parking_fee_private_car.present? %>
+              <%= "#{result.parking_fee_private_car.to_s(:delimited)}円" %>
+            <% else%>
+              <%= result.parking_fee_private_car %>
+            <% end %>
+          </td>
+          <td>
+            <% if result.hotel_charge_private_car.present? %>
+              <%= "#{result.hotel_charge_private_car}円" %>
+            <% else%>
+              <%= result.hotel_charge_private_car %>
+            <% end %>
+          </td>
+          <td>
+            <% if result.moving_distance_private_car.present? %>
+              <%= "#{result.moving_distance_private_car}km" %>
+            <% else%>
+              <%= result.moving_distance_private_car %>
+          </td>
+          <% end %>
+          <td>
+            <% if result.highway_rate_private_car.present? %>
+              <%= "#{result.highway_rate_private_car}円" %></td>
+            <% else%>
+              <%= result.highway_rate_private_car %></td>
+          <% end %>
+          <td>
+            <%= link_to result.image_private_car.url, "data-lightbox" => result.image_private_car.url do %>
+              <%= image_tag result.image_private_car.url, size: "300x250", :style=>"400x300" unless result.image_private_car.blank? %>
+              <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if result.image_private_car.blank? %>
+            <% end %>
+          </td>
+          <td>
+            <% if result.application_1.blank? || result.application_ok_1 == ''%>
+              <%= button_to '申請画面',show_1_user_carfare_path(current_user, result), method: :get, class: "btn btn-sm btn-primary" %>
+            <% end %>
+            <% if result.application_1 == '申請中' && result.application_ok_1.blank? %>
+              <b style="border:1px solid #F00; color: #F00">申請済</b>
+            <% end %>
+            <% if result.application_1.present? && result.application_ok_1 == '承認' %>
+              <b style="border:1px solid #00F; color: #00F">承認済</b>
+            <% end %>
+            <% if result.application_1 == '申請中' && result.application_ok_1 == '否認' && result.application_ok_1 != '承認'  %>
+              <b style="border:1px solid #008080; color: #008080">否認済</b>
+              <%= button_to '再申請',show_1_user_carfare_path(current_user, result), method: :get, class: "btn btn-sm btn-primary" %>
+            <% end %>
+            <% if result.application_1 == '再申請' && result.application_ok_1 == '否認' %>
+              <b style="border:1px solid #800080; color: #800080">再申請</b>
+            <% end %>
+            <% if result.application_1 == '再申請' && result.application_ok_1 == '再否認' %>
+              <b style="border:1px solid #AAAAAA; color: #AAAAAA">無効</b><br>
+              <%= "再申請が否認されました。" %><br><%= "こちらの登録内容を削除して再度交通費登録及び申請を行って下さい。" %>
+            <% end %>
+              <% if result.application_ok_1 != '再否認' %>
+              <% if result.note_1.nil? %>
+                <%= result.note_1 %>
+              <% elsif result.application_ok_1 != '承認' %>
+                <br><%=safe_join(result.note_1.split("\n"),tag(:br))%>
+              <% end %>
+            <% end %>
+          </td>
+          <% if result.application_1 != '申請中' || result.application_1 == '申請中' && result.application_ok_1 == '否認'%>
+            <% if result.application_1 != '再申請' %>
+              <% if result.application_ok_1 != '承認' %>
+                <% if result.application_ok_1 != '再否認' %>
+                <td><%= button_to '編集',edit_1_user_carfare_path(result.user.id, result), method: :get, class: "btn btn-sm btn-success" %></td>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

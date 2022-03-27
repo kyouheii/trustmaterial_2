@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem "sass-rails", "~> 6"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -31,7 +31,6 @@ gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
-gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass', '~> 6.1.0'
 gem 'bootstrap-sass'
@@ -47,9 +46,10 @@ gem 'pdftotext'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+# gem 'cloudinary'
+
 #日本語化する
 gem 'rails-i18n'
 #画像アップロード（追加）
@@ -57,18 +57,14 @@ gem 'carrierwave'
 # gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'rmagick'
-gem 'mini_magick'
 #ページネーション機能でしよう
 gem 'will_paginate'
 # 検索機能
 gem 'ransack'
-gem 'pry-rails', group: [:development, :test]
+gem 'sqlite3', '~> 1.4.1'
 
 group :development, :test do
   gem 'pry-rails', group: [:development, :test]
-  gem 'wicked_pdf'
-  gem 'wkhtmltopdf-binary'
-  gem 'sqlite3', '~> 1.4.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver

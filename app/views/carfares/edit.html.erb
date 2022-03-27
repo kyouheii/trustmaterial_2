@@ -1,6 +1,9 @@
 <h1>
     交通費編集ページ（公共交通機関）
 </h1>
+
+<h3 class="center"><%= link_to "（一覧へ戻る）", user_carfares_path(current_user) %></h3>
+
 <body>
   <%= form_for @carfare, url: user_carfare_path(id: @carfare), method: :PATCH do |f| %>
     <p>
