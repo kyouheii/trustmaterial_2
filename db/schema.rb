@@ -131,11 +131,6 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cell_phone_sales_labor_cost_saninline"
-<<<<<<< HEAD
-=======
-    t.string "invoice_date"
-    t.string "invoice_number"
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
     t.index ["client_id"], name: "index_invoices_on_client_id"
   end
 
@@ -143,15 +138,9 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.string "store"
     t.date "worked_date"
     t.string "staff_name"
-<<<<<<< HEAD
     t.time "work_start_time", default: "2000-01-01 09:00:00"
     t.time "work_end_time", default: "2000-01-01 18:00:00"
     t.time "break_time", default: "2000-01-01 01:00:00"
-=======
-    t.time "work_start_time"
-    t.time "work_end_time"
-    t.time "break_time"
->>>>>>> 44af3af7a73ac8d83e3df0fdadcccf3fa08b3bd2
     t.string "division"
     t.integer "unit_price"
     t.integer "gain_cards"
