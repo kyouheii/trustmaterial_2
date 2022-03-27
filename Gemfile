@@ -35,6 +35,7 @@ gem 'dotenv-rails'
 gem 'googleauth'
 gem 'font-awesome-sass', '~> 6.1.0'
 gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'image_processing', '~> 1.2' # 画像サイズの調整
 gem 'whenever', require: false
@@ -49,12 +50,12 @@ gem 'pdftotext'
 # gem 'capistrano-rails', group: :development
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+# gem 'cloudinary'
+
 #日本語化する
 gem 'rails-i18n'
-gem 'cloudinary'
 #画像アップロード（追加）
 gem 'carrierwave'
-# gem 'cloudinary'
 gem 'rmagick'
 #ページネーション機能でしよう
 gem 'will_paginate'
