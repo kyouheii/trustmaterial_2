@@ -46,8 +46,6 @@ gem 'pdftotext'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 # gem 'cloudinary'
 
 #日本語化する
@@ -61,9 +59,12 @@ gem 'rmagick'
 gem 'will_paginate'
 # 検索機能
 gem 'ransack'
-gem 'sqlite3', '~> 1.4.1'
+#gem 'sqlite3', '~> 1.4.1'
 
 group :development, :test do
+  gem 'wicked_pdf'
+  gem 'wkhtmltopdf-binary'
+  gem 'sqlite3', '~> 1.4.1'
   gem 'pry-rails', group: [:development, :test]
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

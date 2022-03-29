@@ -100,6 +100,41 @@ h1, h2, h3, h4, h6 {
   margin-top: 3rem !important;
 }
 
+#box5 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+}
+#box5 p {
+    margin: 0;
+    padding: 0;
+}
+
+.form-control {
+  width: 60%;
+  margin: auto;
+}
+
+.date_of_use {
+  display: inline;
+  width: 20%;
+}
+
+.note {
+  width: auto;
+}
+
+.ransack_form {
+  width: 70%;
+  margin: auto;
+  border:1px solid rgb(189, 189, 189);
+  color: rgb(65, 65, 65)
+}
+
+// @import 'font-awesome-sprockets';
+// @import 'font-awesome';
+
+ // Place all the styles related to the invoices controller here.
 // @import "font-awesome-sprockets";
 @import "font-awesome";
 // Place all the styles related to the invoices controller here.
