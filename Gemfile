@@ -40,7 +40,7 @@ gem 'whenever', require: false
 gem 'pdftotext'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'sqlite3', '~> 1.4.1'
+# gem 'sqlite3', '~> 1.4.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
