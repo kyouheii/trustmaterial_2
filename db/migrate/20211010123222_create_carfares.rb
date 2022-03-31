@@ -34,6 +34,12 @@ class CreateCarfares < ActiveRecord::Migration[5.1]
       t.integer :sanin_public_transportation_arrival_fee #山陰公共手段金額
       t.date :date_of_use #公共機関利用日 （平野追加）
       t.date :date_of_use_private_car #公共機関利用日（自家用車で移動）
+      t.string :application #申請（公共機関）
+      t.string :application_1 #申請（自家用車）
+      t.string :application_ok #承認or否認（公共機関）
+      t.string :application_ok_1 #承認or否認（機関）
+      t.string :note #否認時コメント（公共機関）
+      t.string :note_1 #否認時コメント（自家用車）
       t.timestamps
     end
   end

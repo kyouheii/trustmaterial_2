@@ -19,18 +19,17 @@ Rails.application.routes.draw do
   #   sessions: 'users/sessions',
   #   registrations: 'users/registrations',
   #   omniauth_callbacks: 'omniauth_callbacks'
-  # } 
+  # }
 
   devise_for :users, :controllers => {
     # :sessions => 'users/sessions',
     sessions: 'users/sessions',
     :registrations => 'users/registrations',
     :omniauth_callbacks =>  'omniauth_callbacks'
-  } 
+  }
   devise_scope :user do
     get '/users/sign_out' => 'users/sessions#destroy'
   end
-
 
   resources :users, except: %i(show) do
     member do
@@ -72,38 +71,58 @@ Rails.application.routes.draw do
     get "/sanin_quotations/show.pdf"=>"sanin_quotations#show"
 
   end
-  
+
   resources :users do
     resources :carfares do #交通費
       # idあり
       member do
+        get 'search_show'
+        get 'search_show_1'
+        get 'show_1'
         get 'edit_1'
         get 'admin_edit'
         get 'admin_1_edit'
+        post 'carfares_application'
         patch 'update_1'
         patch 'admin_update'
         patch 'admin_update_1'
+        patch 'update_show'
+        patch 'update_show_1'
+        patch 'update_show_admin'
+        patch 'update_show_admin_1'
+        patch 'update_search_show'
         delete 'destroy_1'
         delete 'admin_destroy'
         delete 'admin_destroy_1'
+        delete 'destroy_show_admin'
+        delete 'destroy_show_admin_1'
       end
       # idなし
       collection do
         get 'new_1'
-        post 'create_1'
         get 'index_1'
         get 'index_admin'
         get 'index_admin_1'
+        get 'search'
+        get 'search_1'
+        get 'search_admin'
+        get 'search_admin_1'
+        post 'create_1'
       end
     end
   end
-  # root to: "home#index"  
+
+  devise_scope :user do
+    get "user/:id", :to => "users/registrations#detail"
+    get "signup", :to => "users/registrations#new"
+    get "logout", :to => "users/sessions#destroy"
+  # root to: "home#index"
   # devise_scope :users do
   # #   # get "user/:id", :to => "users/registrations#show"
   #   get "login", :to => "users/sessions#new"
   #   get "signup", :to => "users/registrations#new"
   #   get "logout", :to => "users/sessions#destroy"
-  # end
+  end
 
   resources :users do
     member do
@@ -115,8 +134,6 @@ Rails.application.routes.draw do
           patch 'all_update_one_month'
         end
       end
-
     end
   end
-
 end

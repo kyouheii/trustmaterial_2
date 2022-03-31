@@ -1,6 +1,7 @@
 <h1>
     交通費登録ページ（自家用車）
 </h1>
+<h3 class="center"><%= link_to "（一覧へ戻る）", index_1_user_carfares_path(current_user) %></h3>
 <body>
   <%= form_for @carfare, url: create_1_user_carfares_path(id: current_user), method: :POST do |f| %>
     <p>
