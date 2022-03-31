@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth', '~> 1.9.1'
 gem 'line-bot-api'
 gem "dotenv"
-gem 'rake'
+gem 'rake', '~> 13.0.1'
 gem 'sinatra-activerecord'
 gem 'activerecord'
 gem 'omniauth-line'

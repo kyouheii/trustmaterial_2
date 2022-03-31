@@ -354,7 +354,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.6)
   rails-i18n
-  rake
+  rake (~> 13.0.1)
   ransack
   rmagick
   rspec-rails (~> 3.8)
