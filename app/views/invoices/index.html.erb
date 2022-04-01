@@ -37,9 +37,6 @@
       <td><%= invoice.cell_phone_sales_commuting_allowance.to_s(:delimited) if invoice.cell_phone_sales_commuting_allowance %></td>
       <td><%= invoice.cell_phone_sales_labor_cost_saninline.to_s(:delimited) if invoice.cell_phone_sales_labor_cost_saninline %></td>
       <td><%= invoice.cell_phone_sales_saninline.to_s(:delimited) if invoice.cell_phone_sales_saninline %></td>
-      <td><%= invoice.subtotal_fee %></td>
-      <td><%= invoice.tax %></td>
-      <td><%= invoice.total_fee %></td>
       <td><%= invoice.subtotal_fee.to_s(:delimited) if invoice.subtotal_fee %></td>
       <td><%= invoice.tax.to_s(:delimited) if invoice.tax %></td>
       <td><%= invoice.total_fee.to_s(:delimited) if invoice.total_fee %></td>
