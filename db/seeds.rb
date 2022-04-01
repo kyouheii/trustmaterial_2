@@ -1,7 +1,9 @@
 User.create!(name: "管理者",
-  email: "sample@email.com",
-  password: "password",
-  password_confirmation: "password",
+  email: "ytve1052@yahoo.co.jp",
+  phone_number: "090-0000-0001",
+  nearest_station: "岡山",
+  password: "ytve1052",
+  password_confirmation: "ytve1052",
   admin: true)
 
 
