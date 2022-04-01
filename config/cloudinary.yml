@@ -15,4 +15,8 @@
 #   api_key: <%= ENV['CLOUDINARY_API_KEY'] %>
 #   api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
 #   enhance_image_tag: true
+<<<<<<< HEAD
 #   static_file_support: false
+=======
+#   static_file_support: false
+>>>>>>> 6305c36ad9ad86c64ff74b0c718f0dea402e6e92
