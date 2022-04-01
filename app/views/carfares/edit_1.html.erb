@@ -1,8 +1,11 @@
 <h1>
     交通費編集ページ（自家用車）
 </h1>
+<h3 class="center"><%= link_to "（一覧へ戻る）", index_1_user_carfares_path(current_user) %></h3>
 <body>
+
   <%= form_for @carfare, url: update_1_user_carfare_path(id: @carfare), method: :PATCH do |f| %>
+  
     <p>
         <%= f.label :date_of_use_private_car, "自家用車利用日" %><br>
         <%= f.date_select :date_of_use_private_car, class: 'form-control' %>

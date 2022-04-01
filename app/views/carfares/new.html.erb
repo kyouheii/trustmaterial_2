@@ -2,13 +2,13 @@
     交通費登録ページ（公共交通機関）
 </h1>
 <body>
-  <%= form_for @carfare, url: user_carfares_path(id: current_user), method: :post do |f| %>
+  <%= form_for @carfare, url: user_carfares_path(current_user), method: :post do |f| %>
     <p>
         <%= f.label :date_of_use, "交通機関利用日" %><br>
-        <%= f.date_select :date_of_use, class: 'form-control' %>
+        <%= f.date_select :date_of_use, class: 'new-form' %>
     </p>
     <p>
-    <%= f.label :commuting_place, "勤務地" %><br>
+        <%= f.label :commuting_place, "勤務地" %><br>
         <%= f.text_field :commuting_place, :placeholder => "自家用車を利用された日の勤務地を入力して下さい。", class: 'form-control' %>
     </p>
     <p>

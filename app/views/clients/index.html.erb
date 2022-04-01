@@ -14,6 +14,7 @@
   <td>見積書(カード)</td>
   <td>見積書(通信)</td>
   <td>見積書(通信山陰)</td>
+  <td>見積書</td>
 </tr>
   <% @clients.each do |client| %>
 
@@ -31,6 +32,7 @@
       <td><%= link_to "見積書(カード)", client_quotations_path(client), class: "btn btn-secondary" %></td>
       <td><%= link_to "見積書(通信)", client_tusin_quotations_path(client), class: "btn btn-secondary" %></td>
       <td><%= link_to "見積書(通信山陰)", client_sanin_quotations_path(client), class: "btn btn-secondary" %></td>
+      <td><%= link_to "見積書", client_quotations_path(client), class: "btn btn-secondary" %></td>
     </tr>
   <% end %>
 </table>
