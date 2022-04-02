@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :schedules, dependent: :destroy
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format:{ with: VALID_EMAIL_REGEX }
@@ -29,7 +29,7 @@ class User < ApplicationRecord
     # self.set_values_by_raw_info(omniauth['extra']['raw_info'])
   end
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   
   def set_values_by_raw_info(raw_info)
     self.raw_info = raw_info.to_json
