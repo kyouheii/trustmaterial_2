@@ -100,9 +100,9 @@ h1, h2, h3, h4, h6 {
   margin-top: 3rem !important;
 }
 
-// @import "font-awesome-sprockets";
-@import "font-awesome";
-// Place all the styles related to the invoices controller here.
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ 
 // Place all the styles related to the invoices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -559,9 +559,3 @@ color: #95a5bb;
  table {
   border: 2px solid black;
  }
-
-textarea {
-  resize: none;
-  width:300px;
-  height:200px;
-}
