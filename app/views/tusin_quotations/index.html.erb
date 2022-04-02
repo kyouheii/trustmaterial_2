@@ -36,12 +36,12 @@
       <td><%= tusin_quotation.store %></td>
       <td><%= tusin_quotation.worked_date %></td>
       <td><%= tusin_quotation.staff_name %></td>
-      <td><%= format_basic_info(tusin_quotation.work_start_time) %></td>
-      <td><%= format_basic_info(tusin_quotation.work_end_time) %></td>
-      <td><%= format_basic_info(tusin_quotation.break_time) %></td>
+      <td><%= format_basic_info(tusin_quotation.work_start_time) if tusin_quotation.work_start_time %></td>
+      <td><%= format_basic_info(tusin_quotation.work_end_time) if tusin_quotation.work_end_time %></td>
+      <td><%= format_basic_info(tusin_quotation.break_time) if tusin_quotation.break_time %></td>
       <td><%= tusin_quotation.division %></td>
-      <td><%= tusin_quotation.unit_price.to_s(:delimited) %></td>
-      <td><%= tusin_quotation.commuting_allowance.to_s(:delimited) %></td>
+      <td><%= tusin_quotation.unit_price.to_s(:delimited) if tusin_quotation.unit_price %></td>
+      <td><%= tusin_quotation.commuting_allowance.to_s(:delimited) if tusin_quotation.commuting_allowance %></td>
       <td><%= tusin_quotation.note %></td>
       <td><%= link_to '詳細', client_tusin_quotation_path(@client, tusin_quotation), class: "btn btn-success" %></td>
       <td><%= link_to '出力', client_tusin_quotation_path(format: :pdf, id: tusin_quotation.id), class: "btn btn-secondary" %></td>
