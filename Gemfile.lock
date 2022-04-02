@@ -68,7 +68,6 @@ GEM
     childprocess (4.1.0)
     chronic (0.10.2)
     cliver (0.3.2)
-    coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -132,7 +131,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.15.0)
+    loofah (2.16.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -149,8 +148,6 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     nokogiri (1.13.3-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
     oauth2 (1.4.9)
       faraday (>= 0.17.3, < 3.0)
@@ -174,14 +171,9 @@ GEM
     os (1.1.4)
     pdftotext (0.2.1)
       cliver (~> 0.3)
-    pg (0.20.0)
+    pg (1.3.5)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
-    pry (0.14.1)
-      coderay (~> 1.1)
-      method_source (~> 1.0)
-    pry-rails (0.3.9)
-      pry (>= 0.10.4)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.6.0)
@@ -253,19 +245,16 @@ GEM
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     rubyzip (2.3.2)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.7)
-      railties (>= 4.0.0, < 6)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (>= 1.1, < 3)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -287,7 +276,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (3.7.2)
+    sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.2)
@@ -327,7 +316,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
-  x86_64-linux
 
 DEPENDENCIES
   activerecord
@@ -347,21 +335,19 @@ DEPENDENCIES
   jquery-rails
   line-bot-api
   listen (>= 3.0.5, < 3.2)
-  mini_magick
   omniauth (~> 1.9.1)
   omniauth-line
   omniauth-rails_csrf_protection
   pdftotext
-  pg (= 0.20.0)
-  pry-rails
+  pg
   puma (~> 3.7)
   rails (~> 5.1.6)
   rails-i18n
-  rake (~> 13.0.1)
+  rake
   ransack
   rmagick
   rspec-rails (~> 3.8)
-  sass-rails (~> 5.0)
+  sass-rails (~> 6)
   selenium-webdriver
   sinatra-activerecord
   spring
