@@ -142,7 +142,7 @@
             <% end %>
             <% if carfare.application == '再申請' && carfare.application_ok == '再否認' %>
               <b style="border:1px solid #AAAAAA; color: #AAAAAA">無効</b><br>
-              <%= "再申請が否認されました。" %><br><%= "こちらの登録内容を削除して再度交通費登録及び申請を行って下さい。" %>
+              <P><%= "再申請が否認されました。" %><br><%= "こちらの登録内容を削除して再度交通費登録及び申請を行って下さい。" %></P>
             <% end %>
               <% if carfare.application_ok != '再否認' %>
               <% if carfare.note.nil? %>
