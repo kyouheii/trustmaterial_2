@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20220130121626) do
     t.integer "sanin_public_transportation_arrival_fee"
     t.date "date_of_use"
     t.date "date_of_use_private_car"
+    t.string "application"
+    t.string "application_1"
+    t.string "application_ok"
+    t.string "application_ok_1"
+    t.string "note"
+    t.string "note_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

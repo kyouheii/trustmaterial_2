@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   has_many :schedules, dependent: :destroy
   # mount_uploader :image, ImageUploader
+  has_many :carfares, dependent: :destroy
+  mount_uploader :image, ImageUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length:{minimum: 8}
+  #validates :password, presence: true, length:{minimum: 8}
   # 交通費=carfare
   has_many :carfares, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -12,7 +14,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[line]
-
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
   end

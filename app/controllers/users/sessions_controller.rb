@@ -31,7 +31,6 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
-  # DELETE /resource/sign_out
   # def destroy
   # ログイン中の場合のみログアウト処理を実行します。
   #   # log_out if user_signed_in?

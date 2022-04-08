@@ -11,7 +11,7 @@
 // }
 
 .top-center {
-  padding: 10px 0 100px;
+  padding: 100px 0 100px;
   text-align: center;
   position: absolute;
   width: 100%;
@@ -112,6 +112,18 @@ strong {
 //     box-shadow: none;
 // }
 // top画面
+
+
+
+
+.p-top p {
+  position: absolute;/*絶対配置*/
+  color: white;/*文字は白に*/
+  top: 0;
+  left: 0;
+	vertical-align: bottom;
+  }
+
 
 .dropdown{
 	text-align: right;
