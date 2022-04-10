@@ -252,11 +252,14 @@ div.row_6 {
 
 /* タイトル */
 h1 {
-  background: #3366cc;
+  background: #3366cc; 
+  text-align:center;
   font-size: 30px;
   font-weight: normal;
   letter-spacing: 30px;
   color: #ffffff;
+  margin-left: 6px;
+  text-align: center;
 }
 
 /* 顧客名・自社名 */
@@ -376,9 +379,14 @@ table.detail tr.dataline:nth-child(even) td {
 }
 
  .container {
-   padding: 0px !important;
-   line-height: 2 !important;
-   margin-top: 50px;
+  padding: 0px !important;
+  line-height: 2 !important;
+  // margin-top: 50px;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;
  }
 
 .top-btn{
@@ -527,20 +535,27 @@ strong {
 color: #95a5bb;
 }
 
-.form-control {
-  background: none;
-  // width: 125px;
-  height: 40px;
-  // border: none;
-  border-radius: 0px;
-  box-shadow: none;
-  color: #8b9eb6;
-  padding: 0px;
-}
+// .form-control {
+//   background: none;
+//   // width: 60%;
+//   margin: 0 auto;
+//   height: 40px;
+//   // border: none;
+//   border-radius: 0px;
+//   box-shadow: none;
+//   color: #8b9eb6;
+//   padding: 0px;
+// }
 
 // .form-control:focus {
 //   box-shadow: none;
 // }
+
+.p-top h1 {
+  color: white;/*文字は白に*/
+  margin-left: -34px;
+	vertical-align: bottom;
+  }
 
 *{
   text-align: center;
@@ -556,9 +571,9 @@ color: #95a5bb;
 	font-size: 3vw;
 }
 
- table {
-  border: 2px solid black;
- }
+table {
+ border: 2px solid black;
+}
 
  /*画面スクロール*/
 .table_sticky {

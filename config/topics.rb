@@ -1,2 +1,0 @@
-cloudinary：      
-   service：Cloudinary 

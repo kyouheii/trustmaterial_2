@@ -65,16 +65,18 @@ class SchedulesController < ApplicationController
         schedule.update_attributes!(item)
       end
       flash[:success] = "スケジュールを更新しました。"
+      text = @user.name + " " + "スケジュールを更新しました。"
       message = {
         type: 'text',
-        text: 'スケジュールを更新しました。 確認して下さい。'
+        text: text
       }
       client = Line::Bot::Client.new { |config|
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
       }
       response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
-       p response
+      p response
+
 
       redirect_to index_one_month_user_schedules_url(@user) and return
     end
