@@ -15,8 +15,11 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def create
     @client = Client.new(client_params)
-    @client.save
-    redirect_to client_path(@client)
+    if @client.save
+      redirect_to client_path(@client)
+    else
+      render ("clients/new")
+    end
   end
 
   #edit->編集ページの表示
