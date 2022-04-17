@@ -1,4 +1,4 @@
-<div class="carfare-t">
+app/views/carfares/search_admin.html.erb<div class="carfare-t">
 <h1 style="color: #800080">＜＜検索結果＞＞</h1>
 <h1>
     交通費管理画面（自家用車）
@@ -68,7 +68,7 @@
         <th>高速料金</th>
         <th>伝票画像</th>
         <th>申請状況</th>
-        <th colspan="2" ></th>
+        <th colspan="2" class="carfare_width"></th>
       </tr>
     </thead>
 
@@ -152,6 +152,7 @@
               <% end %>
             <% end %>
           <% end %>
+          <td><%= button_to '削除',destroy_1_user_carfare_path(id: result), method: :delete, class: "btn btn-sm btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
