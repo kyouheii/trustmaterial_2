@@ -32,7 +32,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">スケジュール <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "スケジュール表", index_one_month_schedules_path(current_user) %></li>
-                <li><%= link_to "毎日の報告", user_path(current_user)%></li>
+                <li><%= link_to "毎日の報告", user_path(current_user) %></li>
                 <% if current_user.admin? %>
                   <li><%= link_to "出勤中社員確認", go_work_user_path(current_user)  %></li>
                   <li><%= link_to "スケジュール一覧",  all_index_one_month_user_schedules_path(current_user) %></li>
