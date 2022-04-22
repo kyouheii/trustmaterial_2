@@ -16,7 +16,7 @@ before_action :set_client, only: [:show, :edit, :update, :destroy]
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to client_path(@client)
+      redirect_to clients_path
     else
       render ("clients/new")
     end

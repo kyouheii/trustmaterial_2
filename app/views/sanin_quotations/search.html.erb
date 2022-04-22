@@ -26,9 +26,9 @@
         <td><%= sanin_quotation.store %></td>
         <td><%= sanin_quotation.worked_date %></td>
         <td><%= sanin_quotation.staff_name %></td>
-        <td><%= format_basic_info(sanin_quotation.work_start_time) %></td>
-        <td><%= format_basic_info(sanin_quotation.work_end_time) %></td>
-        <td><%= format_basic_info(sanin_quotation.break_time) %></td>
+        <td><%= format_basic_info(sanin_quotation.work_start_time) if sanin_quotation.work_start_time %></td>
+        <td><%= format_basic_info(sanin_quotation.work_end_time) if sanin_quotation.work_end_time %></td>
+        <td><%= format_basic_info(sanin_quotation.break_time) if sanin_quotation.break_time %></td>
         <td><%= sanin_quotation.division %></td>
         <td><%= sanin_quotation.unit_price %></td>
         <td><%= sanin_quotation.commuting_allowance %></td>
