@@ -272,6 +272,12 @@ GEM
     sinatra-activerecord (2.0.25)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-contrib (2.2.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.2.0)
+      sinatra (= 2.2.0)
+      tilt (~> 2.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -349,7 +355,9 @@ DEPENDENCIES
   rspec-rails (~> 3.8)
   sass-rails (~> 6)
   selenium-webdriver
+  sinatra
   sinatra-activerecord
+  sinatra-contrib
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4.1)

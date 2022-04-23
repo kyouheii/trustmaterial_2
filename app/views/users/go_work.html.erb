@@ -5,14 +5,14 @@
   <table class="table table-bordered table-condensed user-table">
   <thead>
     <tr>
-      <td>出勤場所</td>
       <td>名前</td>
+      <td>出勤場所</td>
     </tr>
-      <% @schedules.each do |schedule| %>
-        <tr>
-          <td><%= schedule.site_name %></td>
-          <td><%= schedule.user.name %></td>
-        </tr>
+      <% @now_users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.site_name %></td>
       <% end %>
+    </tr>
   </table>
 </div>
