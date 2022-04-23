@@ -71,8 +71,8 @@
         <th>移動距離</th>
         <th>高速料金</th>
         <th>伝票画像</th>
-        <th>承認申請</th>
-        <th></th>
+        <th class="carfare_width_A">承認申請</th>
+        <th class="carfare_width_1"></th>
       </tr>
     </thead>
     <tbody  class="table table-bordered table-condensed">
@@ -122,8 +122,8 @@
                 </td>
                 <td>
                     <% if carfare.application_1.present? && carfare.application_ok_1.blank? %>
-                      <%= f.select 'application_ok_1', options_for_select([['承認'], ['否認']]), :placeholder => "承認もしくは否認を選択して下さい", class: 'form-control', include_blank: true %><br><br>
-                      <%= f.text_area :note_1, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）", class: 'form-control' %>
+                      <%= f.select 'application_ok_1', options_for_select([['承認'], ['否認']]), :placeholder => "承認もしくは否認を選択して下さい", class: 'form-control note', include_blank: true %><br><br>
+                      <%= f.text_area :note_1, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）" ,class: 'form-control note' %>
                       <%= f.submit "承認/否認", class: "btn btn-sm btn-primary" %>
                     <% elsif carfare.application_1.present? && carfare.application_ok_1 == '承認' %>
                       <b style="border:1px solid #00F; color: #00F">承認済</b>
@@ -132,8 +132,8 @@
                     <% elsif carfare.application_1 == '再申請' && carfare.application_ok_1 == '否認' %>
                       <b style="border:1px solid #008080; color: #008080">否認済</b><br><br>
                       <b style="border:1px solid #800080; color: #800080">再申請済</b>
-                      <%= f.select 'application_ok_1', options_for_select([['承認'], ['再否認']]), :placeholder => "承認もしくは避妊を選択して下さい", class: 'form-control', include_blank: true %><br><br>
-                      <%= f.text_area :note_1, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）", class: 'form-control' %>
+                      <%= f.select 'application_ok_1', options_for_select([['承認'], ['再否認']]), :placeholder => "承認もしくは否認を選択して下さい" ,class: 'form-control note', include_blank: true %><br><br>
+                      <%= f.text_area :note_1, :placeholder => "否認時の理由をご記入ください。（承認時も入力可）" ,class: 'form-control note' %>
                       <%= f.submit "承認/否認", class: "btn btn-sm btn-primary" %>
                     <% end %>
                     <% if carfare.application_ok_1 == '再否認' %>
@@ -141,7 +141,7 @@
                     <% end %>
                 </td>
             <% end %>
-          <% if carfare.application_ok_1 == '承認' || carfare.application_ok_1 == '再否認' %>
+          <% if carfare.application_ok_1 == '承認' || carfare.application_ok_1 == '否認' || carfare.application_ok_1 == '再否認' %>
             <td><%= button_to '削除',admin_destroy_1_user_carfare_path(current_user, carfare), method: :delete, class: "btn btn-sm btn-danger" %></td>
           <% end %>
           <% end %>

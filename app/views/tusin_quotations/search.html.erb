@@ -26,9 +26,9 @@
         <td><%= tusin_quotation.store %></td>
         <td><%= tusin_quotation.worked_date %></td>
         <td><%= tusin_quotation.staff_name %></td>
-        <td><%= format_basic_info(tusin_quotation.work_start_time) %></td>
-        <td><%= format_basic_info(tusin_quotation.work_end_time) %></td>
-        <td><%= format_basic_info(tusin_quotation.break_time) %></td>
+        <td><%= format_basic_info(tusin_quotation.work_start_time) if tusin_quotation.work_start_time %></td>
+        <td><%= format_basic_info(tusin_quotation.work_end_time) if tusin_quotation.work_end_time %></td>
+        <td><%= format_basic_info(tusin_quotation.break_time) if tusin_quotation.break_time %></td>
         <td><%= tusin_quotation.division %></td>
         <td><%= tusin_quotation.unit_price %></td>
         <td><%= tusin_quotation.commuting_allowance %></td>

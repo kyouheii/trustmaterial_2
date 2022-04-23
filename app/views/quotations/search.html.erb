@@ -29,9 +29,9 @@
         <td><%= quotation.store %></td>
         <td><%= quotation.worked_date %></td>
         <td><%= quotation.staff_name %></td>
-        <td><%= format_basic_info(quotation.work_start_time) %></td>
-        <td><%= format_basic_info(quotation.work_end_time) %></td>
-        <td><%= format_basic_info(quotation.break_time) %></td>
+        <td><%= format_basic_info(quotation.work_start_time) if quotation.work_start_time %></td>
+        <td><%= format_basic_info(quotation.work_end_time) if quotation.work_end_time %></td>
+        <td><%= format_basic_info(quotation.break_time) if quotation.break_time %></td>
         <td><%= quotation.division %></td>
         <td><%= quotation.unit_price %></td>
         <td><%= quotation.gain_cards %></td>
