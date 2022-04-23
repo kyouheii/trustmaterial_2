@@ -1,6 +1,6 @@
 <%= render 'layouts/flash_messages' %>
 <h1>毎日の報告</h1>
-<%= form_with(model: @user, url: update_one_month_user_schedules_path(@user), local: true) do |f| %>
+<%= form_with(model: @user, url: update_one_month_user_schedules_path(current_user), local: true) do |f| %>
   <div>
     <table class="table table-bordered table-condensed table-schedules">
       <tr>

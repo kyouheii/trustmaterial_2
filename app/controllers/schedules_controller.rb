@@ -106,9 +106,9 @@ class SchedulesController < ApplicationController
   def update 
     @user = User.find(params[:user_id])
     @schedule = Schedule.find(params[:id])
-    if @schedule.site_name.nil?
+    if @schedule.site_name.nil? 
       flash[:danger] = "勤務地が入ってないため出勤報告ができません。"
-    elsif @schedule.started_at.nil?
+    elsif @schedule.started_at.nil? 
       if @schedule.update_attributes!(started_at: Time.current.change(sec: 0))
         flash[:info] = "おはようございます！"
         text = @user.name + " " + @schedule.site_name + " " + "出発しました。"
@@ -168,9 +168,8 @@ class SchedulesController < ApplicationController
 
   private
 
-
   def client #lineのクライアントはlineから呼び出される
-    @client = Line::Bot::Client.new { |config|
+      @client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
       config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
