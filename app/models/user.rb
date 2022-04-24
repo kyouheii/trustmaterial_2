@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :carfares, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, presence: true, uniqueness: true
   #validates :password, presence: true, length:{minimum: 8}
   # 交通費=carfare
