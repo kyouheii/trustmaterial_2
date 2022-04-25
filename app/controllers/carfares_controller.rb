@@ -205,6 +205,7 @@ class CarfaresController < ApplicationController
     end
   end
 
+  # 4/26 訂正 flashmessage
   # 交通費新規登録ページ（公共機関）
   def destroy
     @user = User.find(params[:user_id])

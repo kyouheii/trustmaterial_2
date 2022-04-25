@@ -46,7 +46,7 @@ Client.create!(client_number: 2,
 puts "clients created"
 
 Invoice.create!(invoice_date: "",
-  invoice_number: "",
+  invoice_number: "1",
   sales_staff: "営業担当者1",
   item: "品名1",
   pay_terms: "支払条件1",
@@ -63,7 +63,7 @@ Invoice.create!(invoice_date: "",
   total_fee: "すべての項目合計1")
 
 Invoice.create!(invoice_date: "",
-  invoice_number: "",
+  invoice_number: "2",
   sales_staff: "営業担当者2",
   item: "品名2",
   pay_terms: "支払条件2",
