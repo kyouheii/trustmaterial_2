@@ -177,11 +177,14 @@ class CarfaresController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.new(carfare_params)
-    if @carfare.save!
-      flash[:info] = '経費登録完了しました。'
+    # if @carfare.save! # 4/25訂正
+    if @carfare.save # 4/25訂正
+      # flash[:info] = '経費登録完了しました。' # 4/25訂正
+      flash[:info] = '交通費登録(公共機関)登録しました' # 4/25訂正
       # redirect_toでcarfareの一覧ページに飛ばす
       redirect_to user_carfares_path(@user)
     else
+      flash[:danger] = '交通費登録(公共機関)登録出来ませんでした。'  # 4/25訂正
       render :new
     end
   end
@@ -191,11 +194,14 @@ class CarfaresController < ApplicationController
     @user = User.find(params[:user_id])
     @carfare = @user.carfares.new(carfare_private_car_params)
     if @carfare.save
-      flash[:info] = "経費登録が完了しました。"
+      # flash[:info] = "経費登録が完了しました。"  # 4/25訂正
+      flash[:info] = '交通費登録(自家用車)登録しました' # 4/25訂正
       # redirect_toでcarfareの一覧ページに飛ばす
       redirect_to index_1_user_carfares_path(@user)
     else
-      render :new
+      # render :new # 4/25訂正
+      flash[:danger] = '交通費登録(自家用車)登録出来ませんでした。'  # 4/25訂正
+      render :new_1 # 4/25訂正
     end
   end
 

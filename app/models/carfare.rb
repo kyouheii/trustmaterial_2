@@ -4,5 +4,5 @@ class Carfare < ApplicationRecord
   mount_uploader :image, ImageUploader
   mount_uploader :image_private_car, ImageUploader
   accepts_nested_attributes_for :user, allow_destroy: true
-  validates :user, presence:true
+  # validates :user, presence:true 4/25訂正
 end
