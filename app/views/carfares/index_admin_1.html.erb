@@ -115,10 +115,13 @@
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to carfare.image_private_car.url, "data-lightbox" => carfare.image_private_car.url do %>
-                    <%= image_tag carfare.image_private_car.url, size: "300x250", :style=>"400x300" unless carfare.image_private_car.blank? %>
-                    <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if carfare.image_private_car.blank? %>
-                  <% end %>
+                  <% if @carfare.image_private_car.blank? %>
+                    <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" %>
+                  <% else %>
+                    <%= link_to carfare.image_private_car.url, "data-lightbox" => @carfare.image_private_car.url do %>
+                      <%= image_tag carfare.image_private_car.url, size: "300x250", :style=>"400x300" %>
+                    <% end %>
+                  <% end %> 
                 </td>
                 <td>
                     <% if carfare.application_1.present? && carfare.application_ok_1.blank? %>

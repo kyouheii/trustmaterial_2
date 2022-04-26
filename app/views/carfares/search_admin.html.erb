@@ -127,9 +127,12 @@
                   <%= result.highway_rate %></td>
                 <% end %>
               <td>
-                <%= link_to result.image.url, "data-lightbox" => result.image.url do %>
-                  <%= image_tag result.image.url, size: "300x250", :style=>"400x300" unless result.image.blank? %>
-                  <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if result.image.blank? %>
+                <% if result.image.blank? %>
+                  <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" %>
+                <% else %>
+                  <%= link_to result.image.url, "data-lightbox" => result.image.url do %>
+                    <%= image_tag result.image.url, size: "300x250", :style=>"400x300" %>
+                  <% end %>
                 <% end %>
               </td>
               <td>

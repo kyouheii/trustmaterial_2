@@ -129,9 +129,12 @@
               <% end %>
             </td>
             <td>
-              <%= link_to result.image_private_car.url, "data-lightbox" => result.image_private_car.url do %>
-                <%= image_tag result.image_private_car.url, size: "300x250", :style=>"400x300" unless result.image_private_car.blank? %>
-                <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" if result.image_private_car.blank? %>
+              <% if result.image_private_car.blank? %>
+                <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" %>
+              <% else %>
+                <%= link_to result.image_private_car.url, "data-lightbox" => result.image_private_car.url do %>
+                  <%= image_tag result.image_private_car.url, size: "300x250", :style=>"400x300" %>
+                <% end %>
               <% end %>
             </td>
             <td>
