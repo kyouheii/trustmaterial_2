@@ -115,10 +115,10 @@
                   <% end %>
                 </td>
                 <td>
-                  <% if @carfare.image_private_car.blank? %>
+                  <% if carfare.image_private_car.blank? %>
                     <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" %>
                   <% else %>
-                    <%= link_to carfare.image_private_car.url, "data-lightbox" => @carfare.image_private_car.url do %>
+                    <%= link_to carfare.image_private_car.url, "data-lightbox" => carfare.image_private_car.url do %>
                       <%= image_tag carfare.image_private_car.url, size: "300x250", :style=>"400x300" %>
                     <% end %>
                   <% end %> 

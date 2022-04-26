@@ -114,10 +114,10 @@
               <%= carfare.highway_rate %></td>
             <% end %>
           <td>
-            <% if @carfare.image.blank? %>
+            <% if carfare.image.blank? %>
               <%= image_tag src='20200502_noimage.jpg', size: "300x200", class: "user-icon", alt: "ユーザーアイコン" %>
             <% else %>
-              <%= link_to carfare.image.url, "data-lightbox" => @carfare.image.url do %>
+              <%= link_to carfare.image.url, "data-lightbox" => carfare.image.url do %>
                 <%= image_tag carfare.image.url, size: "300x250", :style=>"400x300" %>
               <% end %>
            <% end %> 
