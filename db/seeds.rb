@@ -29,7 +29,6 @@ User.create!(name: "オダギリジョー",
 puts "users created"
 
 Client.create!(client_number: 1,
-  email: "sample-18@email.com",
   client_name: "柴田竜拓",
   postal_code: "700-0000",
   address: "岡山県岡山市",
@@ -38,7 +37,6 @@ Client.create!(client_number: 1,
   )
 
 Client.create!(client_number: 2,
-  email: "sample-19@email.com",
   client_name: "佐野恵太",
   postal_code: "700-1111",
   address: "岡山県倉敷市",
@@ -48,7 +46,6 @@ Client.create!(client_number: 2,
 puts "clients created"
 
 Invoice.create!(invoice_date: "",
-  email: "sample-11@email.com",
   invoice_number: "1",
   sales_staff: "営業担当者1",
   item: "品名1",
